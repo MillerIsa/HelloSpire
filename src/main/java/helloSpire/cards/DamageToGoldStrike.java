@@ -14,25 +14,25 @@ import helloSpire.actions.FlatGoldAction;
 import helloSpire.characters.TheDefault;
 
 import static helloSpire.DefaultMod.makeCardPath;
-
-public class DamageToGoldStrike extends AbstractDynamicCard {
+public class DamageToGoldStrike extends AbstractCard {
     public static final String ID = DefaultMod.makeID(DamageToGoldStrike.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = makeCardPath("Thief.png");
 
-    // STAT DECLARATION
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    // STAT DECLARATION (These values are used to initialize the fields in the parent class AbstractCard)
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int UPGRADE_PLUS_DMG = 5;
 
     public DamageToGoldStrike() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, cardStrings.NAME, "red/attack/pummel", COST, cardStrings.DESCRIPTION, TYPE, COLOR, RARITY, TARGET); //TODO: Change image URL, make default values constructor level
         this.baseDamage = DAMAGE;
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
