@@ -90,20 +90,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
 
     private boolean canEscape() {
         if (!usedThisCombat && AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() && !AbstractDungeon.actionManager.turnHasEnded && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-
-            AbstractMonster m;
-            do {
-                if (!var1.hasNext()) {
-                    return true;
-                }
-
-                m = (AbstractMonster) var1.next();
-                if (m.hasPower("BackAttack")) {
-                    return false;
-                }
-            } while (m.type != AbstractMonster.EnemyType.BOSS);
-
+            return combatHasNoBossesAndBackAttack();
         }
         return false;
     }
@@ -136,7 +123,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
         }
     }
 
-    private boolean canEscapeAtCombatStart() {
+    private boolean combatHasNoBossesAndBackAttack() {
 
         Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
@@ -161,7 +148,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     public void atBattleStart() {
 
         usedThisCombat = false; // Make sure usedThisCombat is set to false at the start of each combat.
-        if (canEscapeAtCombatStart()) {
+        if (combatHasNoBossesAndBackAttack()) {
             beginLongPulse();     // Pulse while the player can click on it.
             System.out.println("Start relic pulse @atPreBattle()");
         }
