@@ -52,6 +52,6 @@
   },
   "helloSpire:DamageToGoldStrike": {
     "NAME": "Damage To Gold",
-    "DESCRIPTION": "Deal !D! damage. Gain gold equal to unblocked damage. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. Gain [#FFF77A]gold[] equal to unblocked damage. NL Exhaust."
   }
 }
