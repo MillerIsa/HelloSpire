@@ -34,9 +34,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
 
     private boolean usedThisCombat = false; // Check out Hubris for more examples, including other StSlib things.
 
-    static {
-        System.out.println("Smoke Bomb Relic ID is: " + ID);
-    }
 
     public SmokeBombRelic() {
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK);
@@ -56,21 +53,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
             stopPulse(); // And stop the pulsing animation (which is started in atPreBattle() below)
 
             escape();
-
         }
-        // See that talk action? It has DESCRIPTIONS[1] instead of just hard-coding "You are mine" inside.
-        // DO NOT HARDCODE YOUR STRINGS ANYWHERE, it's really bad practice to have "Strings" in your code:
-
-        /*
-         * 1. It's bad for if somebody likes your mod enough (or if you decide) to translate it.
-         * Having only the JSON files for translation rather than 15 different instances of "Dexterity" in some random cards is A LOT easier.
-         *
-         * 2. You don't have a centralised file for all strings for easy proof-reading. If you ever want to change a string
-         * you don't have to go through all your files individually/pray that a mass-replace doesn't screw something up.
-         *
-         * 3. Without hardcoded strings, editing a string doesn't require a compile, saving you time (unless you clean+package).
-         *
-         */
     }
 
     private void escape() {
@@ -87,7 +70,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
 
     }
 
-
     private boolean canEscape() {
         if (!usedThisCombat && AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() && !AbstractDungeon.actionManager.turnHasEnded && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             return combatHasNoBossesAndBackAttack();
@@ -95,33 +77,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
         return false;
     }
 
-    /*
-    private boolean aMonsterHasBackAttack(){
-        AbstractMonster m;
-        while (var1.hasNext()){
-            m = (AbstractMonster) var1.next();
-            if (m.hasPower("BackAttack")) {
-                return true;
-            }
-        }
-        return false;
-    }
-    */
-
-    private boolean isSurrounded() {
-        return (AbstractDungeon.player.hasPower("Surrounded"));
-    }
-
-    @Override
-    public void onMonsterDeath(AbstractMonster m) {
-        if (isSurrounded()) {
-            System.out.println("Starting pulse because a monster was killed and the charter was surrounded.");
-        }
-        if (canEscape() || isSurrounded()) {
-            beginLongPulse();
-            System.out.println("Start relic pulse @onMonsterDeath()");
-        }
-    }
 
     private boolean combatHasNoBossesAndBackAttack() {
 
@@ -130,27 +85,34 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
         AbstractMonster m;
         do {
             if (!var1.hasNext()) {
-                System.out.println("Can escape at combat start.");
                 return true;
             }
 
             m = (AbstractMonster) var1.next();
             if (m.hasPower("BackAttack")) {
-                System.out.println("Cannot escape at combat start because of back attack.");
                 return false;
             }
         } while (m.type != AbstractMonster.EnemyType.BOSS);
-        System.out.println("Cannot escape at combat start.");
         return false;
     }
 
+    private boolean isSurrounded() {
+        return (AbstractDungeon.player.hasPower("Surrounded"));
+    }
+
+    @Override
+    public void onMonsterDeath(AbstractMonster m) {
+        if (canEscape() || isSurrounded()) {
+            beginLongPulse();
+        }
+    }
+
+
     @Override
     public void atBattleStart() {
-
         usedThisCombat = false; // Make sure usedThisCombat is set to false at the start of each combat.
         if (combatHasNoBossesAndBackAttack()) {
             beginLongPulse();     // Pulse while the player can click on it.
-            System.out.println("Start relic pulse @atPreBattle()");
         }
     }
 
