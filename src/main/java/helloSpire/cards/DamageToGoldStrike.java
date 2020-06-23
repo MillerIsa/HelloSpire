@@ -14,7 +14,7 @@ import helloSpire.actions.FlatGoldAction;
 import helloSpire.characters.TheDefault;
 
 import static helloSpire.DefaultMod.makeCardPath;
-public class DamageToGoldStrike extends AbstractCard {
+public class DamageToGoldStrike extends AbstractDefaultCard {
     public static final String ID = DefaultMod.makeID(DamageToGoldStrike.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = makeCardPath("Thief.png");
@@ -30,7 +30,7 @@ public class DamageToGoldStrike extends AbstractCard {
     private static final int UPGRADE_PLUS_DMG = 5;
 
     public DamageToGoldStrike() {
-        super(ID, cardStrings.NAME, "red/attack/pummel", COST, cardStrings.DESCRIPTION, TYPE, COLOR, RARITY, TARGET); //TODO: Change image URL, make default values constructor level
+        super(ID, cardStrings.NAME, IMG, COST, cardStrings.DESCRIPTION, TYPE, COLOR, RARITY, TARGET); //TODO: Change image URL, make default values constructor level
         this.baseDamage = DAMAGE;
         this.exhaust = true;
     }
