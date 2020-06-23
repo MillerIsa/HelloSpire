@@ -7,10 +7,12 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import helloSpire.DefaultMod;
 import helloSpire.util.TextureLoader;
 
@@ -22,7 +24,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
      * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
      * StSLib for Clickable Relics
      *
-     * At the start of each combat, gain 1 strenght (i.e. Varja)
+     * At the start of each combat, gain 1 strength (i.e. Varja)
      */
 
     // ID, images, text.
@@ -55,6 +57,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
             flash(); // Flash
             stopPulse(); // And stop the pulsing animation (which is started in atPreBattle() below)
 
+            escape();
 
         }
         // See that talk action? It has DESCRIPTIONS[1] instead of just hard-coding "You are mine" inside.
@@ -70,6 +73,20 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
          * 3. Without hardcoded strings, editing a string doesn't require a compile, saving you time (unless you clean+package).
          *
          */
+    }
+
+    private void escape() {
+        AbstractCreature target = AbstractDungeon.player;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            AbstractDungeon.getCurrRoom().smoked = true;
+            this.addToBot(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
+            AbstractDungeon.player.hideHealthBar();
+            AbstractDungeon.player.isEscaping = true;
+            AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+            AbstractDungeon.overlayMenu.endTurnButton.disable();
+            AbstractDungeon.player.escapeTimer = 2.5F;
+        }
+
     }
 
 
