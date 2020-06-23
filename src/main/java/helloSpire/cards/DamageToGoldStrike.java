@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import helloSpire.DefaultMod;
 import helloSpire.actions.DamageToGoldAction;
-import helloSpire.actions.FlatGoldAction;
 import helloSpire.characters.TheDefault;
 
 import static helloSpire.DefaultMod.makeCardPath;
@@ -30,7 +29,7 @@ public class DamageToGoldStrike extends AbstractDefaultCard {
     private static final int UPGRADE_PLUS_DMG = 5;
 
     public DamageToGoldStrike() {
-        super(ID, cardStrings.NAME, IMG, COST, cardStrings.DESCRIPTION, TYPE, COLOR, RARITY, TARGET); //TODO: Change image URL, make default values constructor level
+        super(ID, cardStrings.NAME, IMG, COST, cardStrings.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.exhaust = true;
     }
