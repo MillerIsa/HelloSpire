@@ -73,6 +73,7 @@ public class DefaultClickableRelic extends CustomRelic implements ClickableRelic
          */
     }
 
+    @Override
     public void atTurnStart() {
         usedThisTurn = false;  // Resets the used this turn. You can remove this whole method to use a relic only once per combat rather than per turn.
         beginLongPulse(); // Pulse while the player can click on it.

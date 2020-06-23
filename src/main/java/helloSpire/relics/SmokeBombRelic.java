@@ -3,18 +3,17 @@ package helloSpire.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import helloSpire.DefaultMod;
 import helloSpire.util.TextureLoader;
+
+import java.util.Iterator;
 
 import static helloSpire.DefaultMod.makeRelicOutlinePath;
 import static helloSpire.DefaultMod.makeRelicPath;
@@ -41,7 +40,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
 
     public SmokeBombRelic() {
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK);
-
         tips.clear();
         tips.add(new PowerTip(name, description));
     }
@@ -49,7 +47,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
 
     @Override
     public void onRightClick() {// On right click
-        if (!isObtained || usedThisCombat) {// If it has been used this combat, or the player doesn't actually have the relic (i.e. it's on display in the shop room)
+        if (!isObtained || !canEscape()) {// If it has been used this combat, or the player doesn't actually have the relic (i.e. it's on display in the shop room)
             return; // Don't do anything.
         }
         if (AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) { // Only if you're in combat
@@ -90,10 +88,83 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     }
 
 
+    private boolean canEscape() {
+        if (!usedThisCombat && AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() && !AbstractDungeon.actionManager.turnHasEnded && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+
+            AbstractMonster m;
+            do {
+                if (!var1.hasNext()) {
+                    return true;
+                }
+
+                m = (AbstractMonster) var1.next();
+                if (m.hasPower("BackAttack")) {
+                    return false;
+                }
+            } while (m.type != AbstractMonster.EnemyType.BOSS);
+
+        }
+        return false;
+    }
+
+    /*
+    private boolean aMonsterHasBackAttack(){
+        AbstractMonster m;
+        while (var1.hasNext()){
+            m = (AbstractMonster) var1.next();
+            if (m.hasPower("BackAttack")) {
+                return true;
+            }
+        }
+        return false;
+    }
+    */
+
+    private boolean isSurrounded() {
+        return (AbstractDungeon.player.hasPower("Surrounded"));
+    }
+
     @Override
-    public void atPreBattle() {
+    public void onMonsterDeath(AbstractMonster m) {
+        if (isSurrounded()) {
+            System.out.println("Starting pulse because a monster was killed and the charter was surrounded.");
+        }
+        if (canEscape() || isSurrounded()) {
+            beginLongPulse();
+            System.out.println("Start relic pulse @onMonsterDeath()");
+        }
+    }
+
+    private boolean canEscapeAtCombatStart() {
+
+        Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+
+        AbstractMonster m;
+        do {
+            if (!var1.hasNext()) {
+                System.out.println("Can escape at combat start.");
+                return true;
+            }
+
+            m = (AbstractMonster) var1.next();
+            if (m.hasPower("BackAttack")) {
+                System.out.println("Cannot escape at combat start because of back attack.");
+                return false;
+            }
+        } while (m.type != AbstractMonster.EnemyType.BOSS);
+        System.out.println("Cannot escape at combat start.");
+        return false;
+    }
+
+    @Override
+    public void atBattleStart() {
+
         usedThisCombat = false; // Make sure usedThisCombat is set to false at the start of each combat.
-        beginLongPulse();     // Pulse while the player can click on it.
+        if (canEscapeAtCombatStart()) {
+            beginLongPulse();     // Pulse while the player can click on it.
+            System.out.println("Start relic pulse @atPreBattle()");
+        }
     }
 
     @Override
