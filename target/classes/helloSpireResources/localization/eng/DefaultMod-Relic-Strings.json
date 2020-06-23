@@ -30,5 +30,12 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+  "helloSpire:SmokeBombRelic": {
+    "NAME" : "Smoke Bomb Factory",
+    "FLAVOR": "Escaping is the key to victory.",
+    "DESCRIPTIONS":[
+      "Usable once per combat. NL Escape from combat in 2 turns."
+    ]
   }
 }

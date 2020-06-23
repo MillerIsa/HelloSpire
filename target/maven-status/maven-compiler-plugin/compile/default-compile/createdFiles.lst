@@ -16,6 +16,7 @@ helloSpire\patches\relics\BottledPlaceholderField$MakeStatEquivalentCopy.class
 helloSpire\actions\FlatGoldAction.class
 helloSpire\relics\DefaultClickableRelic.class
 helloSpire\cards\DefaultCommonPower.class
+helloSpire\relics\SmokeBombRelic.class
 helloSpire\cards\DefaultSecondMagicNumberSkill.class
 helloSpire\variables\DefaultSecondMagicNumber.class
 helloSpire\events\IdentityCrisisEvent.class

@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import helloSpire.relics.SmokeBombRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import helloSpire.DefaultMod;
@@ -183,6 +184,7 @@ public class TheDefault extends CustomPlayer {
         retVal.add(PlaceholderRelic.ID);
         retVal.add(PlaceholderRelic2.ID);
         retVal.add(DefaultClickableRelic.ID);
+        retVal.add(SmokeBombRelic.ID);
 
         UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
         UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);

@@ -19,16 +19,13 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import helloSpire.relics.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import helloSpire.cards.*;
 import helloSpire.characters.TheDefault;
 import helloSpire.events.IdentityCrisisEvent;
 import helloSpire.potions.PlaceholderPotion;
-import helloSpire.relics.BottledPlaceholderRelic;
-import helloSpire.relics.DefaultClickableRelic;
-import helloSpire.relics.PlaceholderRelic;
-import helloSpire.relics.PlaceholderRelic2;
 import helloSpire.util.IDCheckDontTouchPls;
 import helloSpire.util.TextureLoader;
 import helloSpire.variables.DefaultCustomVariable;
@@ -368,6 +365,7 @@ public class DefaultMod implements
         BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheDefault.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheDefault.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new SmokeBombRelic(), TheDefault.Enums.COLOR_GRAY);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
         BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
