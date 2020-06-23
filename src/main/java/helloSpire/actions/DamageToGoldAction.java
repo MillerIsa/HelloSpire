@@ -29,15 +29,18 @@ public class DamageToGoldAction extends AbstractGameAction {
         this.tickDuration();
         if (this.isDone) {
             this.target.damage(this.info);
+            //this.addToTop(new HealAction(this.source, this.source, this.target.lastDamageTaken));
+            //FlatGoldAction(AbstractCreature target, DamageInfo info, int goldAmount)
             if (this.target.lastDamageTaken > 0) {
-                this.addToTop(new HealAction(this.source, this.source, this.target.lastDamageTaken));
+                this.addToTop(new FlatGoldAction(this.target, this.info, this.target.lastDamageTaken));
                 this.addToTop(new WaitAction(0.1F));
-            }
-
-            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                AbstractDungeon.actionManager.clearPostCombatActions();
             }
         }
 
+        if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+            AbstractDungeon.actionManager.clearPostCombatActions();
+        }
     }
+
 }
+

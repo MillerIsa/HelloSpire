@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 public class FlatGoldAction extends AbstractGameAction {
-    private int increaseGold;
-    private DamageInfo info;
+    private final int increaseGold;
+    private final DamageInfo info;
     private static final float DURATION = 0.1F;
 
     public FlatGoldAction(AbstractCreature target, DamageInfo info, int goldAmount) {
@@ -27,7 +27,6 @@ public class FlatGoldAction extends AbstractGameAction {
     public void update() {
         if (this.duration == 0.1F && this.target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY));
-            this.target.damage(this.info);
 
             // gain gold --------------------------------------------------
             AbstractDungeon.player.gainGold(this.increaseGold);
