@@ -14,6 +14,7 @@ helloSpire\relics\PlaceholderRelic.class
 helloSpire\cards\DefaultRareSkill.class
 helloSpire\cards\DefaultUncommonSkill.class
 helloSpire\patches\relics\BottledPlaceholderField$MakeStatEquivalentCopy.class
+helloSpire\actions\FlatGoldAction.class
 helloSpire\relics\DefaultClickableRelic.class
 helloSpire\cards\DefaultCommonPower.class
 helloSpire\cards\DefaultSecondMagicNumberSkill.class
