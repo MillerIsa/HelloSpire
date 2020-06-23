@@ -49,5 +49,9 @@
   "helloSpire:OrbSkill": {
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
+  },
+  "helloSpire:DamageToGoldStrike": {
+    "NAME": "Damage To Gold",
+    "DESCRIPTION": "Gives you a set amount of gold."
   }
 }

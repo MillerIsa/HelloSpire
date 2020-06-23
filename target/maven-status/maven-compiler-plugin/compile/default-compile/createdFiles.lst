@@ -1,6 +1,8 @@
 helloSpire\patches\relics\BottledPlaceholderField.class
 helloSpire\cards\DefaultRarePower.class
 helloSpire\powers\CommonPower.class
+helloSpire\actions\DamageToGoldAction.class
+helloSpire\cards\DamageToGoldStrike.class
 helloSpire\cards\AbstractDefaultCard.class
 helloSpire\cards\DefaultRareAttack.class
 helloSpire\cards\DefaultUncommonPower.class

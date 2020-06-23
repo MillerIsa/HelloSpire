@@ -127,8 +127,8 @@ public class DefaultMod implements
     public static final String BADGE_IMAGE = "helloSpireResources/images/Badge.png";
     
     // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "helloSpireResources/images/char/defaultCharacter/skeleton.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "helloSpireResources/images/char/defaultCharacter/skeleton.json";
+    public static final String THE_DEFAULT_SKELETON_ATLAS = "helloSpireResources/images/char/defaultCharacter/skeleton.atlas"; //redirect to looter
+    public static final String THE_DEFAULT_SKELETON_JSON = "helloSpireResources/images/char/defaultCharacter/skeleton.json"; //redirect to looter
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -410,6 +410,7 @@ public class DefaultMod implements
         BaseMod.addCard(new DefaultRareAttack());
         BaseMod.addCard(new DefaultRareSkill());
         BaseMod.addCard(new DefaultRarePower());
+        BaseMod.addCard(new DamageToGoldStrike());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -427,6 +428,7 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(DefaultRareAttack.ID);
         UnlockTracker.unlockCard(DefaultRareSkill.ID);
         UnlockTracker.unlockCard(DefaultRarePower.ID);
+        UnlockTracker.unlockCard(DamageToGoldStrike.ID);
         
         logger.info("Done adding cards!");
     }
