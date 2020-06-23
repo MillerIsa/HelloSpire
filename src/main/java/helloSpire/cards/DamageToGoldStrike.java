@@ -15,9 +15,9 @@ import helloSpire.characters.TheDefault;
 import static helloSpire.DefaultMod.makeCardPath;
 
 public class DamageToGoldStrike extends AbstractDynamicCard {
-    public static final String ID = DefaultMod.makeID(AbstractDynamicCard.class.getSimpleName());
+    public static final String ID = DefaultMod.makeID(DamageToGoldStrike.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("Thief.png");
 
     // STAT DECLARATION
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -26,8 +26,8 @@ public class DamageToGoldStrike extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 70;
-    private static final int UPGRADE_PLUS_DMG = 20;
+    private static final int DAMAGE = 1;
+    private static final int UPGRADE_PLUS_DMG = 1;
 
     public DamageToGoldStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
