@@ -50,8 +50,8 @@
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
   },
-  "helloSpire:DamageToGoldStrike": {
-    "NAME": "Damage To Gold",
+  "helloSpire:StrikeGold": {
+    "NAME": "Strike Gold",
     "DESCRIPTION": "Deal !D! damage. Gain [#FFF77A]gold[] equal to unblocked damage. NL Exhaust."
   }
 }

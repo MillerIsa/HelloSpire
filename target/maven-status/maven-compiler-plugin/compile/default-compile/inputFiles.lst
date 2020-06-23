@@ -13,7 +13,6 @@ C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\relics\PlaceholderRelic2.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\DefaultMod.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\util\TextureLoader.java
-C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\cards\DamageToGoldStrike.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\cards\DefaultRareSkill.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\cards\OrbSkill.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\patches\relics\BottledPlaceholderField.java
@@ -25,6 +24,7 @@ C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\actions\DamageToGoldAction.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\cards\AbstractDynamicCard.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\patches\DefaultInsertPatch.java
+C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\cards\StrikeGold.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\characters\TheDefault.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\cards\DefaultUncommonAttack.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\helloSpire\powers\RarePower.java

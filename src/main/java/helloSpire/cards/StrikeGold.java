@@ -13,8 +13,8 @@ import helloSpire.actions.DamageToGoldAction;
 import helloSpire.characters.TheDefault;
 
 import static helloSpire.DefaultMod.makeCardPath;
-public class DamageToGoldStrike extends AbstractDefaultCard {
-    public static final String ID = DefaultMod.makeID(DamageToGoldStrike.class.getSimpleName());
+public class StrikeGold extends AbstractDefaultCard {
+    public static final String ID = DefaultMod.makeID(StrikeGold.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String IMG = makeCardPath("Thief.png");
 
@@ -28,10 +28,11 @@ public class DamageToGoldStrike extends AbstractDefaultCard {
     private static final int DAMAGE = 10;
     private static final int UPGRADE_PLUS_DMG = 5;
 
-    public DamageToGoldStrike() {
+    public StrikeGold() {
         super(ID, cardStrings.NAME, IMG, COST, cardStrings.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.exhaust = true;
+        this.tags.add(CardTags.STRIKE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -48,7 +49,7 @@ public class DamageToGoldStrike extends AbstractDefaultCard {
     }
 
     public AbstractCard makeCopy() {
-        return new helloSpire.cards.DamageToGoldStrike();
+        return new StrikeGold();
     }
 
 }

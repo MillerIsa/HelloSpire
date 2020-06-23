@@ -410,7 +410,7 @@ public class DefaultMod implements
         BaseMod.addCard(new DefaultRareAttack());
         BaseMod.addCard(new DefaultRareSkill());
         BaseMod.addCard(new DefaultRarePower());
-        BaseMod.addCard(new DamageToGoldStrike());
+        BaseMod.addCard(new StrikeGold());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -428,7 +428,7 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(DefaultRareAttack.ID);
         UnlockTracker.unlockCard(DefaultRareSkill.ID);
         UnlockTracker.unlockCard(DefaultRarePower.ID);
-        UnlockTracker.unlockCard(DamageToGoldStrike.ID);
+        UnlockTracker.unlockCard(StrikeGold.ID);
         
         logger.info("Done adding cards!");
     }
