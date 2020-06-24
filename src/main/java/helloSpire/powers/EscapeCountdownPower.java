@@ -2,16 +2,14 @@ package helloSpire.powers;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.combat.ExplosionSmallEffect;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import helloSpire.DefaultMod;
-
-import java.util.Arrays;
 
 public class EscapeCountdownPower extends AbstractPower {
     public static final String POWER_ID = DefaultMod.makeID("EscapeCountdownPower");
@@ -39,15 +37,30 @@ public class EscapeCountdownPower extends AbstractPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        System.out.println("End of Turn method called.");
         if (this.amount == 1 && !this.owner.isDying) {
-            //this.addToBot(new VFXAction(new ExplosionSmallEffect(this.owner.hb.cX, this.owner.hb.cY), 0.1F));
-            //this.addToBot(new SuicideAction((AbstractMonster)this.owner));
-            System.out.println("Time to escape!");
+            if(isPlayer){
+                escape();
+            } else{
+                throw new IllegalArgumentException("Escape Countdown buff can only be applied to a player.");
+            }
         } else {
             this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
             this.updateDescription();
             System.out.println("Reducing Escaping Countdown by 1.");
+        }
+
+    }
+
+    private void escape() {
+        AbstractCreature target = AbstractDungeon.player;
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            AbstractDungeon.getCurrRoom().smoked = true;
+            this.addToBot(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
+            AbstractDungeon.player.hideHealthBar();
+            AbstractDungeon.player.isEscaping = true;
+            AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+            AbstractDungeon.overlayMenu.endTurnButton.disable();
+            AbstractDungeon.player.escapeTimer = 2.5F;
         }
 
     }
