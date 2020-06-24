@@ -32,10 +32,11 @@
     ]
   },
   "helloSpire:SmokeBombRelic": {
-    "NAME" : "Smoke Bomb Factory",
+    "NAME" : "Smoke Bomb Pouch",
     "FLAVOR": "Escaping is the key to victory.",
     "DESCRIPTIONS":[
-      "Usable once per combat. NL Escape from combat in 2 turns."
+      "Usable once per combat. NL Escape from combat in #b",
+      " turns. NL Not usable when facing bosses or when surrounded."
     ]
   }
 }

@@ -54,7 +54,7 @@ public class EscapeCountdownPower extends AbstractPower {
     private void escape() {
         AbstractCreature target = AbstractDungeon.player;
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.addToBot(new SkipEnemiesTurnAction());//Skip enemies turn, otherwise enemies can attack while you are escaping
+            this.addToBot(new SkipEnemiesTurnAction());//Skips enemy's turn, otherwise enemies can attack while you are escaping
             AbstractDungeon.getCurrRoom().smoked = true;
             this.addToBot(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
             AbstractDungeon.player.hideHealthBar();

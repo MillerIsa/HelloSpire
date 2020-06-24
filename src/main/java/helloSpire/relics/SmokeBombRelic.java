@@ -3,17 +3,12 @@ package helloSpire.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.FireBreathingPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import helloSpire.DefaultMod;
 import helloSpire.powers.EscapeCountdownPower;
 import helloSpire.util.TextureLoader;
@@ -37,7 +32,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
 
-    private static final int TURNS_TO_ESCAPE = 2;
+    public static final int TURNS_TO_ESCAPE = 2;
 
     private boolean usedThisCombat = false; // Check out Hubris for more examples, including other StSlib things.
 
@@ -78,8 +73,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
 
 
     private boolean combatHasNoBossesAndBackAttack() {
-
-        Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        Iterator<AbstractMonster> var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
         AbstractMonster m;
         do {
@@ -87,7 +81,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
                 return true;
             }
 
-            m = (AbstractMonster) var1.next();
+            m = var1.next();
             if (m.hasPower("BackAttack")) {
                 return false;
             }
@@ -123,7 +117,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     // Description
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[0] + TURNS_TO_ESCAPE + DESCRIPTIONS[1];
     }
 
 }
