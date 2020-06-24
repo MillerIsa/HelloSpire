@@ -1,10 +1,25 @@
 {
-"helloSpire:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"helloSpire:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-}
+  "helloSpire:CommonPower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "You applied #b",
+      " keyword.",
+      " keywords."
+    ]
+  },
+  "helloSpire:RarePower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "At the start of your turn, TOUCH #b",
+      " enemy.",
+      " enemies."
+    ]
+  },
+  "helloSpire:EscapeCountdownPower": {
+    "NAME" : "Escape Countdown",
+    "DESCRIPTIONS" : [
+      "You will escape in #b",
+      "Escape at the end of your turn"
+    ]
+  }
 }

@@ -4,13 +4,17 @@ import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.FireBreathingPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import helloSpire.DefaultMod;
+import helloSpire.powers.EscapeCountdownPower;
 import helloSpire.util.TextureLoader;
 
 import java.util.Iterator;
@@ -32,6 +36,8 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
 
+    private static final int TURNS_TO_ESCAPE = 2;
+
     private boolean usedThisCombat = false; // Check out Hubris for more examples, including other StSlib things.
 
 
@@ -52,8 +58,14 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
             flash(); // Flash
             stopPulse(); // And stop the pulsing animation (which is started in atPreBattle() below)
 
-            escape();
+            prepareEscape();
+            //escape();
         }
+    }
+
+    private void prepareEscape(){
+        final AbstractPlayer p = AbstractDungeon.player;
+        this.addToBot(new ApplyPowerAction(p, p, new EscapeCountdownPower(p, TURNS_TO_ESCAPE), 1));
     }
 
     private void escape() {
