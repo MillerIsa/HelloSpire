@@ -28,9 +28,9 @@ public class EscapeCountdownPower extends AbstractPower {
 
     public void updateDescription() {
         if (this.amount == 1) {
-            this.description = DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[2];
         } else {
-            this.description = DESCRIPTIONS[0] + this.amount;
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }
 
     }
@@ -46,7 +46,6 @@ public class EscapeCountdownPower extends AbstractPower {
         } else {
             this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
             this.updateDescription();
-            System.out.println("Reducing Escaping Countdown by 1.");
         }
 
     }

@@ -19,7 +19,8 @@
     "NAME" : "Escape Countdown",
     "DESCRIPTIONS" : [
       "You will escape in #b",
-      "Escape at the end of your turn"
+      " turns.",
+      "Escape at the end of your turn."
     ]
   }
 }

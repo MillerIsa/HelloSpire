@@ -59,7 +59,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
             stopPulse(); // And stop the pulsing animation (which is started in atPreBattle() below)
 
             prepareEscape();
-            //escape();
         }
     }
 

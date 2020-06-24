@@ -18,7 +18,6 @@ helloSpire\relics\DefaultClickableRelic.class
 helloSpire\cards\DefaultCommonPower.class
 helloSpire\relics\SmokeBombRelic.class
 helloSpire\cards\DefaultSecondMagicNumberSkill.class
-helloSpire\actions\EscapeAction.class
 helloSpire\variables\DefaultSecondMagicNumber.class
 helloSpire\events\IdentityCrisisEvent.class
 helloSpire\cards\CardTemplate.class
