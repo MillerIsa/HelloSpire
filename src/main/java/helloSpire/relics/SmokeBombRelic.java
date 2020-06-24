@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -67,19 +68,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
         this.addToBot(new ApplyPowerAction(p, p, new EscapeCountdownPower(p, TURNS_TO_ESCAPE), 1));
     }
 
-    private void escape() {
-        AbstractCreature target = AbstractDungeon.player;
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractDungeon.getCurrRoom().smoked = true;
-            this.addToBot(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
-            AbstractDungeon.player.hideHealthBar();
-            AbstractDungeon.player.isEscaping = true;
-            AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
-            AbstractDungeon.overlayMenu.endTurnButton.disable();
-            AbstractDungeon.player.escapeTimer = 2.5F;
-        }
-
-    }
 
     private boolean canEscape() {
         if (!usedThisCombat && AbstractDungeon.getCurrRoom().monsters != null && !AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead() && !AbstractDungeon.actionManager.turnHasEnded && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
