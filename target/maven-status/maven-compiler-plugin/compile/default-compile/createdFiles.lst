@@ -22,6 +22,7 @@ helloSpire\cards\DefaultSecondMagicNumberSkill.class
 helloSpire\variables\DefaultSecondMagicNumber.class
 helloSpire\events\IdentityCrisisEvent.class
 helloSpire\cards\CardTemplate.class
+helloSpire\CardNoSeen.class
 helloSpire\cards\DefaultCommonAttack.class
 helloSpire\potions\PlaceholderPotion.class
 helloSpire\cards\StrikeGold.class
@@ -30,11 +31,13 @@ helloSpire\cards\DefaultCommonSkill.class
 helloSpire\relics\BottledPlaceholderRelic.class
 helloSpire\actions\StealCardAction.class
 helloSpire\actions\UncommonPowerAction.class
+helloSpire\CardIgnore.class
 helloSpire\cards\AbstractDynamicCard.class
 helloSpire\orbs\DefaultOrb.class
 helloSpire\powers\EscapeCountdownPower.class
 helloSpire\DefaultMod.class
 helloSpire\relics\PlaceholderRelic2.class
+helloSpire\CardFilter.class
 helloSpire\cards\OrbSkill.class
 helloSpire\patches\DefaultInsertPatch.class
 helloSpire\powers\RarePower.class

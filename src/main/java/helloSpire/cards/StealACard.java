@@ -29,7 +29,7 @@ public class StealACard extends AbstractDefaultCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.exhaust = false;
+            this.exhaust = false; //TODO: Make the card upgrade to 'exhaustive 2' and 'innate'
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

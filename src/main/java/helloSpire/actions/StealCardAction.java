@@ -35,9 +35,8 @@ public class StealCardAction extends AbstractGameAction {
 
                     disCard.current_x = -1000.0F * Settings.scale;
                     if (this.amount == 1) {
-                            //AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
-                            //AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(disCard, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
-                        AbstractDungeon.player.masterDeck.addToTop(disCard); //TODO: Change to addToTop(disCard). Eliminate 0 cost
+
+                        AbstractDungeon.player.masterDeck.addToTop(disCard);
                     } else{
                         throw new IllegalStateException("Tried to steal more than one card. This is invalid because it is only possible to steal one card.");
                     }
@@ -59,7 +58,7 @@ public class StealCardAction extends AbstractGameAction {
             boolean dupe = false;
             AbstractCard tmp;
             if (type == null) {
-                tmp = AbstractDungeon.returnTrulyRandomCardInCombat();
+                tmp = AbstractDungeon.returnTrulyRandomCardInCombat(); //TODO: Change to returning a random card with the same rarity that normal card rewards use.
             } else {
                 tmp = AbstractDungeon.returnTrulyRandomCardInCombat(type);
             }
