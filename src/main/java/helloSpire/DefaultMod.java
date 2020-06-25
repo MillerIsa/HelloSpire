@@ -474,6 +474,7 @@ public class DefaultMod implements
             }
             boolean isCard = false;
             CtClass superCls = cls;
+            //noinspection ConstantConditions
             while (superCls != null) {
                 superCls = superCls.getSuperclass();
                 if (superCls == null) {

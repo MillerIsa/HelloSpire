@@ -56,6 +56,7 @@
   },
   "helloSpire:StealACard": {
     "NAME": "Steal Card",
-    "DESCRIPTION": "Choose 1 of 3 random cards to add to your deck."
+    "DESCRIPTION": "Choose 1 of 3 random cards to add to your deck. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add to your deck.  NL Exhaustive !stslib:ex!."
   }
 }

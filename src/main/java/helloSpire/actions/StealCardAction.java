@@ -51,16 +51,16 @@ public class StealCardAction extends AbstractGameAction {
         this.tickDuration();
     }
 
-    private ArrayList<AbstractCard> generateCardChoices(CardType type) {
+    private ArrayList<AbstractCard> generateCardChoices(@SuppressWarnings("SameParameterValue") CardType type) {
         ArrayList<AbstractCard> derp = new ArrayList<>();
 
         while(derp.size() != 3) {
             boolean dupe = false;
             AbstractCard tmp;
             if (type == null) {
-                tmp = AbstractDungeon.returnTrulyRandomCardInCombat(); //TODO: Change to returning a random card with the same rarity that normal card rewards use.
+                tmp = AbstractDungeon.returnRandomCard();
             } else {
-                tmp = AbstractDungeon.returnTrulyRandomCardInCombat(type);
+                throw new IllegalArgumentException("Card type must be null. Currently there is no implementation for generating cards of random types.");
             }
 
             for (AbstractCard c : derp) {
