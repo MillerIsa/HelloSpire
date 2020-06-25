@@ -28,6 +28,7 @@ helloSpire\cards\StrikeGold.class
 helloSpire\util\IDCheckDontTouchPls.class
 helloSpire\cards\DefaultCommonSkill.class
 helloSpire\relics\BottledPlaceholderRelic.class
+helloSpire\actions\StealCardAction.class
 helloSpire\actions\UncommonPowerAction.class
 helloSpire\cards\AbstractDynamicCard.class
 helloSpire\orbs\DefaultOrb.class

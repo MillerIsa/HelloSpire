@@ -53,5 +53,9 @@
   "helloSpire:StrikeGold": {
     "NAME": "Strike Gold",
     "DESCRIPTION": "Deal !D! damage. Gain [#FFF77A]gold[] equal to unblocked damage. NL Exhaust."
+  },
+  "helloSpire:StealACard": {
+    "NAME": "Steal Card",
+    "DESCRIPTION": "Choose 1 of 3 random cards to add to your deck."
   }
 }

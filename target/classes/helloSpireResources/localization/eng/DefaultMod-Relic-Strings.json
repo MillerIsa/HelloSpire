@@ -36,7 +36,7 @@
     "FLAVOR": "Escaping is the key to victory.",
     "DESCRIPTIONS":[
       "Usable once per combat. NL Escape from combat in #b",
-      " turns. NL Not usable when facing bosses or when surrounded."
+      " turns. NL Not usable when surrounded or facing bosses."
     ]
   }
 }

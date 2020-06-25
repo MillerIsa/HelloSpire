@@ -409,6 +409,7 @@ public class DefaultMod implements
         BaseMod.addCard(new DefaultRareSkill());
         BaseMod.addCard(new DefaultRarePower());
         BaseMod.addCard(new StrikeGold());
+        BaseMod.addCard(new StealACard());
         
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
@@ -427,13 +428,14 @@ public class DefaultMod implements
         UnlockTracker.unlockCard(DefaultRareSkill.ID);
         UnlockTracker.unlockCard(DefaultRarePower.ID);
         UnlockTracker.unlockCard(StrikeGold.ID);
+        UnlockTracker.unlockCard(StealACard.ID);
         
         logger.info("Done adding cards!");
     }
     
     // There are better ways to do this than listing every single individual card, but I do not want to complicate things
     // in a "tutorial" mod. This will do and it's completely ok to use. If you ever want to clean up and
-    // shorten all the imports, go look take a look at other mods, such as Hubris.
+    // shorten all the imports, go look take a look at other mods, such as Hubris. TODO: Implement Hubris like card management.
     
     // ================ /ADD CARDS/ ===================
     

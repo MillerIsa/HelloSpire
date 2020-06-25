@@ -24,6 +24,7 @@ public class FlatGoldAction extends AbstractGameAction {
         this.duration = 0.1F;
     }
 
+    @Override
     public void update() {
         if (this.duration == 0.1F && this.target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY));
