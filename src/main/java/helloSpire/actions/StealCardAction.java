@@ -1,21 +1,17 @@
 package helloSpire.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class StealCardAction extends AbstractGameAction {
     private boolean retrieveCard = false;
-    private boolean returnColorless = false;
-    private CardType cardType = null;
+    private static final CardType CARD_TYPE = null;
 
     public StealCardAction() {
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -23,29 +19,12 @@ public class StealCardAction extends AbstractGameAction {
         this.amount = 1;
     }
 
-    public StealCardAction(CardType type, int amount) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.amount = amount;
-        this.cardType = type;
-    }
-
-    public StealCardAction(boolean colorless, int amount) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.amount = amount;
-        this.returnColorless = colorless;
-    }
 
     public void update() {
-        ArrayList generatedCards;
-
-        generatedCards = this.generateCardChoices(this.cardType);
-
+        ArrayList<AbstractCard> generatedCards = this.generateCardChoices(CARD_TYPE);
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1], this.cardType != null);
-            this.tickDuration();
+            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1],false);
         } else {
             if (!this.retrieveCard) {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
@@ -69,50 +48,23 @@ public class StealCardAction extends AbstractGameAction {
                 this.retrieveCard = true;
             }
 
-            this.tickDuration();
         }
-    }
-
-    private ArrayList<AbstractCard> generateColorlessCardChoices() {
-        ArrayList derp = new ArrayList();
-
-        while(derp.size() != 3) {
-            boolean dupe = false;
-            AbstractCard tmp = AbstractDungeon.returnTrulyRandomColorlessCardInCombat();
-            Iterator var4 = derp.iterator();
-
-            while(var4.hasNext()) {
-                AbstractCard c = (AbstractCard)var4.next();
-                if (c.cardID.equals(tmp.cardID)) {
-                    dupe = true;
-                    break;
-                }
-            }
-
-            if (!dupe) {
-                derp.add(tmp.makeCopy());
-            }
-        }
-
-        return derp;
+        this.tickDuration();
     }
 
     private ArrayList<AbstractCard> generateCardChoices(CardType type) {
-        ArrayList derp = new ArrayList();
+        ArrayList<AbstractCard> derp = new ArrayList<>();
 
         while(derp.size() != 3) {
             boolean dupe = false;
-            AbstractCard tmp = null;
+            AbstractCard tmp;
             if (type == null) {
                 tmp = AbstractDungeon.returnTrulyRandomCardInCombat();
             } else {
                 tmp = AbstractDungeon.returnTrulyRandomCardInCombat(type);
             }
 
-            Iterator var5 = derp.iterator();
-
-            while(var5.hasNext()) {
-                AbstractCard c = (AbstractCard)var5.next();
+            for (AbstractCard c : derp) {
                 if (c.cardID.equals(tmp.cardID)) {
                     dupe = true;
                     break;
