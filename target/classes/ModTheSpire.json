@@ -1,7 +1,7 @@
 {
-  "modid": "HelloSpire",
-  "name": "Hello Spire",
-  "author_list": ["Gremious"],
+  "modid": "RobTheSpire",
+  "name": "Rob The Spire",
+  "author_list": ["Isaiah Miller"],
   "description": "A default base to start your own mod from.",
   "version": "0.0.1",
   "sts_version": "01-23-2019",

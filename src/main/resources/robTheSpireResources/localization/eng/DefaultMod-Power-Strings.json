@@ -1,0 +1,26 @@
+{
+  "robTheSpire:CommonPower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "You applied #b",
+      " keyword.",
+      " keywords."
+    ]
+  },
+  "robTheSpire:RarePower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "At the start of your turn, TOUCH #b",
+      " enemy.",
+      " enemies."
+    ]
+  },
+  "robTheSpire:EscapeCountdownPower": {
+    "NAME" : "Escape Countdown",
+    "DESCRIPTIONS" : [
+      "You will escape in #b",
+      " turns.",
+      "Escape at the end of your turn."
+    ]
+  }
+}

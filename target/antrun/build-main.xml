@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="maven-antrun-" default="main"  >
 <target name="main">
-  <copy file="target/HelloSpire.jar" tofile="C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/HelloSpire.jar"/>
+  <copy file="target/RobTheSpire.jar" tofile="C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods/RobTheSpire.jar"/>
 </target>
 </project>
