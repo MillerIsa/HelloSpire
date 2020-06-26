@@ -22,5 +22,14 @@
       " turns.",
       "Escape at the end of your turn."
     ]
+  },
+  "helloSpire:CappedGoldStealPower": {
+    "NAME" : "Gold Stolen",
+    "DESCRIPTIONS" : [
+      "You have stolen #y",
+      " gold.",
+      "You can steal #y",
+      "more gold"
+    ]
   }
 }
