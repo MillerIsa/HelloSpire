@@ -24,7 +24,7 @@ public class StealCardAction extends AbstractGameAction {
         ArrayList<AbstractCard> generatedCards = this.generateCardChoices(CARD_TYPE);
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1],false);
+            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1],true);
         } else {
             if (!this.retrieveCard) {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
