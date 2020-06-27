@@ -1,6 +1,9 @@
 package robTheSpire.cards;
 
 import basemod.abstracts.CustomCard;
+import robTheSpire.DefaultMod;
+
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractDefaultCard extends CustomCard {
 
@@ -17,8 +20,8 @@ public abstract class AbstractDefaultCard extends CustomCard {
     public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
     public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
 
-    public AbstractDefaultCard(final String id,
-                               final String name,
+/*
+    public AbstractDefaultCard(final String name,
                                final String img,
                                final int cost,
                                final String rawDescription,
@@ -26,8 +29,27 @@ public abstract class AbstractDefaultCard extends CustomCard {
                                final CardColor color,
                                final CardRarity rarity,
                                final CardTarget target) {
+       this(DefaultMod.makeID(this.getClass().getSimpleName()), name, img, cost, rawDescription, type, color, rarity,target);
+    }
+ */
 
-        super(id, name, img, cost, rawDescription, type, color, rarity, target);
+    public AbstractDefaultCard( final Class c,
+                                final String img,
+                               final int cost,
+                               final CardType type,
+                               final CardColor color,
+                               final CardRarity rarity,
+                               final CardTarget target) {
+
+        super(DefaultMod.makeID(c.getSimpleName()), languagePack.getCardStrings(DefaultMod.makeID(c.getSimpleName())).NAME, img, cost,languagePack.getCardStrings(DefaultMod.makeID(c.getSimpleName())).DESCRIPTION, type, color, rarity, target);
+        this.cardID = DefaultMod.makeID(c.getSimpleName());
+        System.out.println("ID created: " + DefaultMod.makeID(c.getSimpleName()));
+        System.out.println("Name is " + this.name);
+        System.out.println("Original Name is " + this.originalName);
+        System.out.println("rawDescription is: " + this.rawDescription);
+        this.originalName = languagePack.getCardStrings(this.cardID).NAME;
+        this.name = languagePack.getCardStrings(this.cardID).NAME;
+        this.rawDescription = languagePack.getCardStrings(this.cardID).DESCRIPTION;
 
         // Set all the things to their default values.
         isCostModified = false;

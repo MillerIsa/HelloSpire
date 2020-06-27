@@ -52,7 +52,7 @@ public class DefaultCommonPower extends AbstractDynamicCard {
 
 
     public DefaultCommonPower() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultCommonPower.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
     }
 

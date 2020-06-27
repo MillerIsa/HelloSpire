@@ -173,8 +173,8 @@ public class TheDefault extends CustomPlayer {
         retVal.add(DefaultSecondMagicNumberSkill.ID);
         retVal.add(OrbSkill.ID);
 
-        retVal.add(StrikeGold.ID);
-        retVal.add(StealACard.ID);
+        //retVal.add(StrikeGold.ID);
+       // retVal.add(StealACard.ID);
         return retVal;
     }
 

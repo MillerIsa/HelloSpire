@@ -46,7 +46,7 @@ public class DefaultRareAttack extends AbstractDynamicCard {
 
 
     public DefaultRareAttack() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultRareAttack.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
 

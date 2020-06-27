@@ -7,10 +7,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
 
 import static robTheSpire.DefaultMod.makeCardPath;
+
 
 public class DefaultAttackWithVariable extends AbstractDynamicCard {
 
@@ -44,7 +46,7 @@ public class DefaultAttackWithVariable extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
     public DefaultAttackWithVariable() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultAttackWithVariable.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
         isMultiDamage = true;

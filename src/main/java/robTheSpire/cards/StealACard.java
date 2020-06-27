@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
 import robTheSpire.actions.StealCardAction;
 
@@ -15,12 +16,13 @@ import robTheSpire.characters.TheDefault;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
+@CardIgnore
 public class StealACard extends AbstractDefaultCard { //TODO: Allow players to skip card selection
     public static final String ID = DefaultMod.makeID(StealACard.class.getSimpleName());
     private static final CardStrings cardStrings;
 
     public StealACard() {
-        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
+        super(StealACard.class, makeCardPath("StealACard.png"), 1, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
         //ExhaustiveVariable.setBaseValue(this,2);
         //this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;

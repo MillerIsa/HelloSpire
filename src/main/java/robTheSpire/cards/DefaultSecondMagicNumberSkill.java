@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
+import robTheSpire.variables.DefaultSecondMagicNumber;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
@@ -53,7 +54,7 @@ public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
     public DefaultSecondMagicNumberSkill() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultSecondMagicNumber.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
         magicNumber = baseMagicNumber = VULNERABLE;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = POISON;

@@ -13,7 +13,8 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     // the NAME and the DESCRIPTION into your card - it'll get it automatically. Of course, this functionality could have easily
     // Been added to the default card rather than creating a new Dynamic one, but was done so to deliberately.
 
-    public AbstractDynamicCard(final String id,
+    //Class c is should be equivalent to this.getClass()
+    public AbstractDynamicCard(final Class c,
                                final String img,
                                final int cost,
                                final CardType type,
@@ -21,7 +22,8 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
                                final CardRarity rarity,
                                final CardTarget target) {
 
-        super(id, languagePack.getCardStrings(id).NAME, img, cost, languagePack.getCardStrings(id).DESCRIPTION, type, color, rarity, target);
+        super( c, img, cost, type, color, rarity, target);
 
     }
+
 }

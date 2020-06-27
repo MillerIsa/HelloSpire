@@ -45,7 +45,7 @@ public class OrbSkill extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
     public OrbSkill() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(OrbSkill.class,IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
     }
 

@@ -42,7 +42,7 @@ public class DefaultUncommonSkill extends AbstractDynamicCard {
 
 
     public DefaultUncommonSkill() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultUncommonSkill.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
     }
 
