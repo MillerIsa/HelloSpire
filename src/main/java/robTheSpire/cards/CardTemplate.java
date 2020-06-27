@@ -9,9 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
 
-import static robTheSpire.DefaultMod.makeCardPath;
-
 // public class ${NAME} extends AbstractDynamicCard
+@SuppressWarnings("unused")
 public class CardTemplate extends AbstractDynamicCard {
 
     /*
@@ -36,7 +35,7 @@ public class CardTemplate extends AbstractDynamicCard {
 
     // public static final String ID = DefaultMod.makeID(${NAME}.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     public static final String ID = DefaultMod.makeID("DefaultCommonAttack"); // DELETE THIS ONE.
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
+    public static final String IMG = DefaultMod.makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("${NAME}.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -60,7 +59,7 @@ public class CardTemplate extends AbstractDynamicCard {
 
 
     public CardTemplate() { // public ${NAME}() - This one and the one right under the imports are the most important ones, don't forget them
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(CardTemplate.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
 

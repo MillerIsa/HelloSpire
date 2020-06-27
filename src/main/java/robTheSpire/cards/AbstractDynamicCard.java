@@ -1,5 +1,8 @@
 package robTheSpire.cards;
 
+import robTheSpire.DefaultMod;
+
+
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractDynamicCard extends AbstractDefaultCard {
@@ -13,7 +16,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     // the NAME and the DESCRIPTION into your card - it'll get it automatically. Of course, this functionality could have easily
     // Been added to the default card rather than creating a new Dynamic one, but was done so to deliberately.
 
-    public AbstractDynamicCard(final String id,
+    public AbstractDynamicCard( final Class c,
                                final String img,
                                final int cost,
                                final CardType type,
@@ -21,7 +24,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
                                final CardRarity rarity,
                                final CardTarget target) {
 
-        super(id, languagePack.getCardStrings(id).NAME, img, cost, languagePack.getCardStrings(id).DESCRIPTION, type, color, rarity, target);
+        super(DefaultMod.makeID(c.getSimpleName()), languagePack.getCardStrings(DefaultMod.makeID(c.getSimpleName())).NAME, img, cost, languagePack.getCardStrings(DefaultMod.makeID(c.getSimpleName())).DESCRIPTION, type, color, rarity, target);
 
     }
 }

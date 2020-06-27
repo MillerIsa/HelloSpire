@@ -39,12 +39,10 @@ public class DefaultAttackWithVariable extends AbstractDynamicCard {
     private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 1;
 
-    public int specialDamage;
-
     // /STAT DECLARATION/
 
     public DefaultAttackWithVariable() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultAttackWithVariable.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
         isMultiDamage = true;

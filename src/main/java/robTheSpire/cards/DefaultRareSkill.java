@@ -41,15 +41,13 @@ public class DefaultRareSkill extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private int TIMES = 2;
-    private final int UPGRADE_TIMES = 3;
-
-    private int AMOUNT = 1;
 
     // /STAT DECLARATION/
 
     
     public DefaultRareSkill() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultRareSkill.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        int AMOUNT = 1;
         baseMagicNumber = magicNumber = AMOUNT;
     }
 
@@ -71,7 +69,7 @@ public class DefaultRareSkill extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             rawDescription = UPGRADE_DESCRIPTION;
-            TIMES = UPGRADE_TIMES;
+            TIMES = 3;
             initializeDescription();
         }
     }

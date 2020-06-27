@@ -42,7 +42,7 @@ public class DefaultUncommonAttack extends AbstractDynamicCard {
 
 
     public DefaultUncommonAttack() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(DefaultUncommonAttack.class, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
 
