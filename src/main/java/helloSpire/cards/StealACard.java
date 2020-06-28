@@ -42,8 +42,9 @@ public class StealACard extends AbstractDefaultCard { //TODO: Allow players to s
         }
     }
 
+    @Override
     public AbstractCard makeCopy() {
-        return new helloSpire.cards.StealACard();
+        return new helloSpire.cards.StealACard();//TODO instead use inbuild Instance() method
     }
 
     static {
