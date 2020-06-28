@@ -15,7 +15,7 @@ import robTheSpire.characters.TheDefault;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
-public class StealACard extends AbstractDefaultCard { //TODO: Allow players to skip card selection
+public class StealACard extends AbstractDefaultCard {
     public static final String ID = DefaultMod.makeID(StealACard.class.getSimpleName());
     private static final CardStrings cardStrings;
 
@@ -36,7 +36,7 @@ public class StealACard extends AbstractDefaultCard { //TODO: Allow players to s
             this.exhaust = false;
             ExhaustiveVariable.setBaseValue(this, 2);
             ExhaustiveField.ExhaustiveFields.isExhaustiveUpgraded.set(this, true);
-            this.upgradeName(); //TODO: Make the card upgrade to  'innate'
+            this.upgradeName();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
