@@ -75,6 +75,7 @@ public class CappedGoldStealPower extends AbstractPower {
         for (int i = 0; i < goldGain; ++i) {
             AbstractDungeon.effectList.add(new GainPennyEffect(target, source.hb.cX, source.hb.cY, target.hb.cX, target.hb.cY, true));
         }//TODO: refactor this gold gain to a method in a utility class, also refactor to generalize source and target
+        //TODO: When No gold is stolen display that no gold is stolen instead of 'x' gold is stolen
     }
 
     @Override
@@ -104,3 +105,20 @@ public class CappedGoldStealPower extends AbstractPower {
     }
 
 }
+/*
+
+                Copyright 2019 EatYourBeatS
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+     This class is MODIFIED from a file in the repository at: https://github.com/EatYourBeetS/STS-AnimatorMod/blob/master/EatYourBeetSVG/
+ */
