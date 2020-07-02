@@ -35,7 +35,6 @@ robTheSpire\relics\SmokeBombRelic.class
 robTheSpire\cards\DefaultCommonPower.class
 robTheSpire\events\IdentityCrisisEvent.class
 robTheSpire\patches\relics\BottledPlaceholderField.class
-helloSpire\actions\GameActions.class
 robTheSpire\characters\TheDefault.class
 robTheSpire\cards\DefaultRarePower.class
 robTheSpire\cards\DefaultSecondMagicNumberSkill.class

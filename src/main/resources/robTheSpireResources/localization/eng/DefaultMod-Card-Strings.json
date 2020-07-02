@@ -59,7 +59,7 @@
     "DESCRIPTION": "Choose 1 of 3 random cards to add to your deck. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 random cards to add to your deck.  NL Exhaustive !stslib:ex!."
   },
-  "helloSpire:Chris": {
+  "robTheSpire:Chris": {
     "NAME" : "Chris",
     "DESCRIPTION" : "Steal 4 gold.",
     "UPGRADE_DESCRIPTION": "What does this do when it is upgraded?"
