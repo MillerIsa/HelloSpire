@@ -3,27 +3,30 @@ package robTheSpire.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class StealCardOfTypeAction extends AbstractGameAction {
     private boolean retrieveCard = false;
-    private final CardType cardType;
+    final CardGroup anyCard;
 
     public StealCardOfTypeAction(CardType type) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
         this.amount = 1;
-        this.cardType = type;
+        this.anyCard = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        initCardGroup(type);
     }
 
 
     public void update() {
-        ArrayList<AbstractCard> generatedCards = this.generateCardChoices(cardType);
+        ArrayList<AbstractCard> generatedCards = this.generateCardChoices();
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
             AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1],true);
@@ -55,14 +58,14 @@ public class StealCardOfTypeAction extends AbstractGameAction {
 
 
 
-    private ArrayList<AbstractCard> generateCardChoices(CardType type) {
+    private ArrayList<AbstractCard> generateCardChoices() {
         ArrayList<AbstractCard> skillChoices = new ArrayList<>();
 
         while(skillChoices.size() != 3) {
             boolean dupe = false;
             AbstractCard tmp;
             System.out.println("About to get A Card");
-            tmp = CardLibrary.getAnyColorCard(type, AbstractDungeon.rollRarity());
+            tmp = this.getAnyColorCard(AbstractDungeon.rollRarity());//TODO prevent stealing colorless cards.
             System.out.println("Got card " + tmp.cardID);
 
             for (AbstractCard c : skillChoices) {
@@ -83,17 +86,19 @@ public class StealCardOfTypeAction extends AbstractGameAction {
         return skillChoices;
     }
 
-/*
-    public static AbstractCard getAnyColorCard(final AbstractCard.CardType type, final AbstractCard.CardRarity rarity) {
-        final CardGroup anyCard = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (final Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
-            if (c.getValue().rarity == rarity && c.getValue().type != AbstractCard.CardType.CURSE && c.getValue().type != AbstractCard.CardType.STATUS && c.getValue().type == type && (!UnlockTracker.isCardLocked(c.getKey()) || Settings.treatEverythingAsUnlocked())) {
-                anyCard.addToBottom(c.getValue());
-            }
-        }
+
+    private AbstractCard getAnyColorCard(final AbstractCard.CardRarity rarity) {
         anyCard.shuffle(AbstractDungeon.cardRng);
         return anyCard.getRandomCard(true, rarity);
     }
 
- */
+    private void initCardGroup (CardType type){
+        for (final Map.Entry<String, AbstractCard> c : CardLibrary.cards.entrySet()) {
+            if (c.getValue().color != AbstractCard.CardColor.COLORLESS && c.getValue().type != AbstractCard.CardType.CURSE && c.getValue().type != AbstractCard.CardType.STATUS && c.getValue().type == type/* && (!UnlockTracker.isCardLocked(c.getKey()) || Settings.treatEverythingAsUnlocked()) // This means everything is unlocked*/) {
+                anyCard.addToBottom(c.getValue());
+            }
+        }
+    }
+
+
 }
