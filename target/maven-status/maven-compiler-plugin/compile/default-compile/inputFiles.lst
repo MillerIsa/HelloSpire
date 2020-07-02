@@ -9,6 +9,7 @@ C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultRareAttack.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\AbstractDynamicCard.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\actions\FlatGoldAction.java
+C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\powers\CappedGoldStealPower.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultUncommonSkill.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\powers\CommonPower.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\powers\EscapeCountdownPower.java
@@ -16,6 +17,7 @@ C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultCommonPower.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\patches\relics\BottledPlaceholderField.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\variables\DefaultSecondMagicNumber.java
+C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\Chris.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\StrikeGold.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\orbs\DefaultOrb.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultAttackWithVariable.java
@@ -26,8 +28,10 @@ C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultCommonSkill.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultUncommonAttack.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\OrbSkill.java
+C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\actions\DealDamage.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\CardNoSeen.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\powers\RarePower.java
+C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\actions\GameActions.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\CardFilter.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultRarePower.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\variables\DefaultCustomVariable.java
