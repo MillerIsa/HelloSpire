@@ -442,8 +442,6 @@ public class DefaultMod implements
         
         logger.info("Done adding cards!");
          */
-        BaseMod.addCard(new Chris());
-        UnlockTracker.addCard(Chris.ID);//TODO Remove these two lines and fix the auto-add function
         try {
             autoAddCards();
         } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {
