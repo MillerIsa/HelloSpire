@@ -22,8 +22,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     /*
      * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
      * StSLib for Clickable Relics
-     *
-     * At the start of each combat, gain 1 strength (i.e. Varja)
      */
 
     // ID, images, text.
@@ -32,7 +30,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
 
-    public static final int TURNS_TO_ESCAPE = 2;
+    public static final int TURNS_TO_ESCAPE = 3;
 
     private boolean usedThisCombat = false; // Check out Hubris for more examples, including other StSlib things.
 
@@ -53,7 +51,6 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
             usedThisCombat = true; // Set relic as "Used this turn"
             flash(); // Flash
             stopPulse(); // And stop the pulsing animation (which is started in atPreBattle() below)
-
             prepareEscape();
         }
     }
