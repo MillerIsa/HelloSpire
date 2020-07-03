@@ -29,8 +29,6 @@ public class StealACard extends AbstractDefaultCard {
 
     public StealACard() {
         super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
-        //ExhaustiveVariable.setBaseValue(this,2);
-        //this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
 
     }
@@ -41,7 +39,6 @@ public class StealACard extends AbstractDefaultCard {
 
     public void upgrade() {
         if (!this.upgraded) {
-            //this.magicNumber = this.baseMagicNumber = 2;
             this.exhaust = false;
             ExhaustiveVariable.setBaseValue(this, 2);
             ExhaustiveField.ExhaustiveFields.isExhaustiveUpgraded.set(this, true);
