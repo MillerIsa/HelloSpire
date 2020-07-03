@@ -1,6 +1,7 @@
 robTheSpire\CardFilter.class
 robTheSpire\cards\DefaultRareAttack.class
 robTheSpire\cards\CardTemplate.class
+robTheSpire\actions\AbstractCardStealingAction$CardFilter.class
 robTheSpire\patches\DefaultInsertPatch.class
 robTheSpire\cards\DefaultCommonSkill.class
 robTheSpire\relics\PlaceholderRelic.class
@@ -26,6 +27,7 @@ robTheSpire\powers\EscapeCountdownPower.class
 robTheSpire\util\TextureLoader.class
 robTheSpire\actions\StealCardAction.class
 robTheSpire\powers\CappedGoldStealPower.class
+robTheSpire\actions\AbstractCardStealingAction.class
 robTheSpire\CardIgnore.class
 robTheSpire\cards\Chris.class
 robTheSpire\cards\DefaultUncommonSkill.class
