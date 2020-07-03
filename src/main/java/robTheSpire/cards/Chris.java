@@ -23,7 +23,7 @@ public class Chris extends AbstractDefaultCard {
     }
 
     public Chris() {
-        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.ENEMY);
+        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.COMMONg, CardTarget.ENEMY);
         this.magicNumber = 4;
         System.out.println("Chris card initialized!");
     }
