@@ -571,3 +571,7 @@ public class DefaultMod implements
         return getModID() + ":" + idText;
     }
 }
+
+//TODO: reduce number of cards drawn
+//TODO: reduce energy to 3
+//TODO: reduce card rewards vs. bossess

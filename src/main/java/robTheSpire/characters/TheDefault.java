@@ -65,7 +65,7 @@ public class TheDefault extends CustomPlayer {
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 9;
+    public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 3;
 
     // =============== /BASE STATS/ =================
@@ -156,26 +156,26 @@ public class TheDefault extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
 
         logger.info("Begin loading starter Deck Strings");
-
-        retVal.add(DefaultCommonAttack.ID);
-        retVal.add(DefaultUncommonAttack.ID);
-        retVal.add(DefaultRareAttack.ID);
-
-        retVal.add(DefaultCommonSkill.ID);
-        retVal.add(DefaultUncommonSkill.ID);
-        retVal.add(DefaultRareSkill.ID);
-
-        retVal.add(DefaultCommonPower.ID);
-        retVal.add(DefaultUncommonPower.ID);
-        retVal.add(DefaultRarePower.ID);
-
-        retVal.add(DefaultAttackWithVariable.ID);
-        retVal.add(DefaultSecondMagicNumberSkill.ID);
-        retVal.add(OrbSkill.ID);
+//
+//        retVal.add(DefaultCommonAttack.ID);
+//        retVal.add(DefaultUncommonAttack.ID);
+//        retVal.add(DefaultRareAttack.ID);
+//
+//        retVal.add(DefaultCommonSkill.ID);
+//        retVal.add(DefaultUncommonSkill.ID);
+//        retVal.add(DefaultRareSkill.ID);
+//
+//        retVal.add(DefaultCommonPower.ID);
+//        retVal.add(DefaultUncommonPower.ID);
+//        retVal.add(DefaultRarePower.ID);
+//
+//        retVal.add(DefaultAttackWithVariable.ID);
+//        retVal.add(DefaultSecondMagicNumberSkill.ID);
+//        retVal.add(OrbSkill.ID);
 
         retVal.add(StrikeGold.ID);
         retVal.add(StealACard.ID);
-        retVal.add(Chris.ID);
+//        retVal.add(Chris.ID);
         retVal.add(StealASkill.ID);
         retVal.add(StealAnAttack.ID);
         retVal.add(StealAPower.ID);
@@ -186,14 +186,15 @@ public class TheDefault extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(PlaceholderRelic.ID);
-        retVal.add(PlaceholderRelic2.ID);
-        retVal.add(DefaultClickableRelic.ID);
+//        retVal.add(PlaceholderRelic.ID);
+//        retVal.add(PlaceholderRelic2.ID);
+//        retVal.add(DefaultClickableRelic.ID);
         retVal.add(SmokeBombRelic.ID);
 
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
-        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+//        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
+//        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
+//        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+        UnlockTracker.markRelicAsSeen(SmokeBombRelic.ID);
 
         return retVal;
     }
