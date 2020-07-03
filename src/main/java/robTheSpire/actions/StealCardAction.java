@@ -42,7 +42,7 @@ public class StealCardAction extends AbstractGameAction {
 
                     disCard.current_x = -1000.0F * Settings.scale;
                     if (this.amount == 1) {
-                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(disCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
+                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(disCard, Settings.WIDTH * 3.0f / 4.0f, Settings.HEIGHT / 2.0f));
                         //AbstractDungeon.player.masterDeck.addToTop(disCard);
                     } else {
                         throw new IllegalStateException("Tried to steal more than one card. This is invalid because it is only possible to steal one card.");
