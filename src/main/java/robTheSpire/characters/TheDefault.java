@@ -177,6 +177,8 @@ public class TheDefault extends CustomPlayer {
         retVal.add(StealACard.ID);
         retVal.add(Chris.ID);
         retVal.add(StealASkill.ID);
+        retVal.add(StealAnAttack.ID);
+        retVal.add(StealAPower.ID);
         return retVal;
     }
 

@@ -42,9 +42,5 @@ public abstract class AbstractStealACardByType extends AbstractDefaultCard {
         }
     }
 
-    @Override
-    public AbstractCard makeCopy() {
-        return new StealASkill();
-    }
 
 }

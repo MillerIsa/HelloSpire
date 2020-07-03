@@ -64,23 +64,17 @@ public class StealCardOfTypeAction extends AbstractGameAction {
         while(skillChoices.size() != 3) {
             boolean dupe = false;
             AbstractCard tmp;
-            System.out.println("About to get A Card");
-            tmp = this.getAnyColorCard(AbstractDungeon.rollRarity());//TODO prevent stealing colorless cards.
-            System.out.println("Got card " + tmp.cardID);
+            tmp = this.getAnyColorCard(AbstractDungeon.rollRarity());
 
             for (AbstractCard c : skillChoices) {
-                System.out.println("c's cardID is " + c.cardID);
-                System.out.println("tmp's cardID is " + tmp.cardID);
                 if (c.cardID.equals(tmp.cardID)) {
                     dupe = true;
                     break;
                 }
             }
-            System.out.println("Dupe is: " + dupe);
             if (!dupe) {
                 skillChoices.add(tmp.makeCopy());
             }
-            System.out.println("Number of skill choices is" + skillChoices.size());
         }
 
         return skillChoices;

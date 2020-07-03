@@ -13,6 +13,7 @@ robTheSpire\cards\DefaultUncommonPower.class
 robTheSpire\variables\DefaultCustomVariable.class
 robTheSpire\actions\DamageToGoldAction.class
 robTheSpire\cards\AbstractDynamicCard.class
+robTheSpire\variables\CardTypeVariable.class
 robTheSpire\cards\DefaultAttackWithVariable.class
 robTheSpire\cards\StrikeGold.class
 robTheSpire\powers\RarePower.class
@@ -33,6 +34,7 @@ robTheSpire\patches\relics\BottledPlaceholderField$MakeStatEquivalentCopy.class
 robTheSpire\powers\CommonPower.class
 robTheSpire\relics\SmokeBombRelic.class
 robTheSpire\cards\DefaultCommonPower.class
+robTheSpire\cards\StealAnAttack.class
 robTheSpire\events\IdentityCrisisEvent.class
 robTheSpire\patches\relics\BottledPlaceholderField.class
 robTheSpire\characters\TheDefault.class
@@ -43,7 +45,9 @@ robTheSpire\cards\StealACard.class
 robTheSpire\variables\DefaultSecondMagicNumber.class
 robTheSpire\characters\TheDefault$Enums.class
 robTheSpire\relics\PlaceholderRelic2.class
+robTheSpire\cards\StealAPower.class
 robTheSpire\actions\StealCardOfTypeAction.class
+robTheSpire\cards\AbstractStealACardByType.class
 robTheSpire\util\IDCheckDontTouchPls.class
 robTheSpire\orbs\DefaultOrb.class
 robTheSpire\cards\DefaultCommonAttack.class

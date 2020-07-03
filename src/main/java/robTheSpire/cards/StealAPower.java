@@ -6,12 +6,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import robTheSpire.DefaultMod;
 
-public class StealASkill extends AbstractStealACardByType {
-    public static final String ID = DefaultMod.makeID(StealASkill.class.getSimpleName());
+public class StealAPower extends AbstractStealACardByType {
+    public static final String ID = DefaultMod.makeID(StealAPower.class.getSimpleName());
     private static final CardStrings cardStrings;
 
-    public StealASkill() {
-        super(CardType.SKILL, ID, cardStrings);
+    public StealAPower() {
+        super(CardType.POWER, ID, cardStrings);
     }
 
     static {
@@ -20,7 +20,7 @@ public class StealASkill extends AbstractStealACardByType {
 
     @Override
     public AbstractCard makeCopy(){
-        return new StealASkill();
+        return new StealAPower();
     }
 
 }

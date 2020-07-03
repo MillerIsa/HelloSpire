@@ -68,5 +68,15 @@
     "NAME": "Steal Skill",
     "DESCRIPTION": "Choose 1 of 3 random skills to add to your deck. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 random skills to add to your deck.  NL Exhaustive !stslib:ex!."
+  },
+  "robTheSpire:StealAnAttack": {
+    "NAME": "Steal Attack",
+    "DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck.  NL Exhaustive !stslib:ex!."
+  },
+  "robTheSpire:StealAPower": {
+    "NAME": "Steal Power",
+    "DESCRIPTION": "Choose 1 of 3 random powers to add to your deck. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck.  NL Exhaustive !stslib:ex!."
   }
 }
