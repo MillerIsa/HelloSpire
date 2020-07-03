@@ -1,118 +1,132 @@
 
 skeleton.png
-size: 512,256
+size: 512,128
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 images/armleft
   rotate: false
-  xy: 113, 3
-  size: 67, 64
-  orig: 67, 64
+  xy: 130, 69
+  size: 71, 57
+  orig: 71, 57
   offset: 0, 0
   index: -1
 images/armright
-  rotate: false
-  xy: 292, 91
-  size: 70, 36
-  orig: 70, 36
+  rotate: true
+  xy: 119, 2
+  size: 65, 68
+  orig: 65, 68
   offset: 0, 0
   index: -1
-images/bandage
+images/daggerleft
   rotate: false
-  xy: 472, 165
-  size: 16, 17
-  orig: 16, 17
+  xy: 261, 77
+  size: 72, 14
+  orig: 72, 14
   offset: 0, 0
   index: -1
-images/bandageflap
-  rotate: false
-  xy: 378, 138
-  size: 32, 12
-  orig: 32, 12
+images/daggerright
+  rotate: true
+  xy: 325, 93
+  size: 33, 54
+  orig: 33, 54
   offset: 0, 0
   index: -1
-images/body
+images/eyelid
   rotate: false
-  xy: 2, 69
-  size: 172, 185
-  orig: 172, 185
+  xy: 119, 93
+  size: 9, 6
+  orig: 9, 6
   offset: 0, 0
   index: -1
-images/fingersleft
+images/fingesleft
   rotate: false
-  xy: 230, 57
-  size: 18, 24
-  orig: 18, 24
+  xy: 2, 2
+  size: 26, 11
+  orig: 26, 11
   offset: 0, 0
   index: -1
-images/fingersright
+images/goggles
+  rotate: true
+  xy: 229, 34
+  size: 35, 20
+  orig: 35, 20
+  offset: 0, 0
+  index: -1
+images/hair
   rotate: false
-  xy: 204, 33
-  size: 24, 22
-  orig: 24, 22
+  xy: 203, 71
+  size: 56, 55
+  orig: 56, 55
   offset: 0, 0
   index: -1
 images/head
   rotate: false
-  xy: 420, 184
-  size: 75, 70
-  orig: 75, 70
-  offset: 0, 0
-  index: -1
-images/leftwing
-  rotate: false
-  xy: 326, 152
-  size: 92, 102
-  orig: 92, 102
+  xy: 189, 29
+  size: 38, 38
+  orig: 38, 38
   offset: 0, 0
   index: -1
 images/legleft
-  rotate: false
-  xy: 182, 2
-  size: 20, 79
-  orig: 20, 79
+  rotate: true
+  xy: 261, 93
+  size: 33, 62
+  orig: 33, 62
   offset: 0, 0
   index: -1
 images/legright
   rotate: true
-  xy: 420, 163
-  size: 19, 50
-  orig: 19, 50
+  xy: 437, 97
+  size: 29, 49
+  orig: 29, 49
   offset: 0, 0
   index: -1
-images/rightwing
+images/mouth
   rotate: false
-  xy: 176, 152
-  size: 148, 102
-  orig: 148, 102
+  xy: 30, 2
+  size: 12, 11
+  orig: 12, 11
+  offset: 0, 0
+  index: -1
+images/neck
+  rotate: false
+  xy: 189, 2
+  size: 21, 25
+  orig: 21, 25
+  offset: 0, 0
+  index: -1
+images/pants
+  rotate: true
+  xy: 59, 19
+  size: 80, 58
+  orig: 80, 58
+  offset: 0, 0
+  index: -1
+images/pouch
+  rotate: true
+  xy: 335, 72
+  size: 19, 40
+  orig: 19, 40
   offset: 0, 0
   index: -1
 images/shadow
   rotate: false
-  xy: 176, 129
-  size: 200, 21
-  orig: 200, 21
+  xy: 2, 101
+  size: 126, 25
+  orig: 126, 25
   offset: 0, 0
   index: -1
-images/shoulderright
+images/shoulder
+  rotate: true
+  xy: 381, 94
+  size: 32, 54
+  orig: 32, 54
+  offset: 0, 0
+  index: -1
+images/torso
   rotate: false
-  xy: 204, 57
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-images/weaponleft
-  rotate: true
-  xy: 176, 83
-  size: 44, 114
-  orig: 44, 114
-  offset: 0, 0
-  index: -1
-images/weaponright
-  rotate: true
-  xy: 2, 10
-  size: 57, 109
-  orig: 57, 109
+  xy: 2, 15
+  size: 55, 84
+  orig: 55, 84
   offset: 0, 0
   index: -1

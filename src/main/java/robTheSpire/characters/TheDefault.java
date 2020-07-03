@@ -101,10 +101,12 @@ public class TheDefault extends CustomPlayer {
     // =============== CHARACTER CLASS START =================
 
     public TheDefault(String name, PlayerClass setClass) {
-        super(name, setClass, orbTextures,
+        /*super(name, setClass, orbTextures,
                 "robTheSpireResources/images/char/defaultCharacter/orb/vfx.png", null,
                 new SpriterAnimation(
                         "robTheSpireResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+         */
+        super(name, setClass, orbTextures, "robTheSpireResources/images/char/defaultCharacter/orb/vfx.png", (String)null, null);
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
@@ -125,7 +127,7 @@ public class TheDefault extends CustomPlayer {
                 THE_DEFAULT_SKELETON_ATLAS,
                 THE_DEFAULT_SKELETON_JSON,
                 1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
+        AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
 
         // =============== /ANIMATIONS/ =================
