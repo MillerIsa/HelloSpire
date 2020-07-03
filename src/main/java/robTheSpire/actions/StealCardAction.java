@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import robTheSpire.cards.*;
 import robTheSpire.characters.TheDefault;
 
@@ -41,8 +42,8 @@ public class StealCardAction extends AbstractGameAction {
 
                     disCard.current_x = -1000.0F * Settings.scale;
                     if (this.amount == 1) {
-
-                        AbstractDungeon.player.masterDeck.addToTop(disCard);
+                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(disCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f));
+                        //AbstractDungeon.player.masterDeck.addToTop(disCard);
                     } else {
                         throw new IllegalStateException("Tried to steal more than one card. This is invalid because it is only possible to steal one card.");
                     }
@@ -79,6 +80,19 @@ public class StealCardAction extends AbstractGameAction {
 
         return derp;
     }
+/*
+    private void obtainCard(AbstractCard c){
+        AbstractDungeon AddCardToDeckAction
+    }
+    */
+/*
+    public void moveToDiscardPile(final AbstractCard c) {
+        this.resetCardBeforeMoving(c);
+        c.shrink();
+        c.darken(false);
+        AbstractDungeon.getCurrRoom().souls.discard(c);
+        AbstractDungeon.player.onCardDrawOrDiscard();
+    }*/
 
     private static CardGroup getCardGroup(Set<String> prohibited) {
         CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);

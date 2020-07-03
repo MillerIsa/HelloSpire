@@ -30,7 +30,7 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
 
-    public static final int TURNS_TO_ESCAPE = 3;
+    public static final int TURNS_TO_ESCAPE = 2;
 
     private boolean usedThisCombat = false; // Check out Hubris for more examples, including other StSlib things.
 

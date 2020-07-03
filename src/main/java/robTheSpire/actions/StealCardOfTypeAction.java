@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 
 import java.util.ArrayList;
@@ -82,8 +83,8 @@ public class StealCardOfTypeAction extends AbstractGameAction {
 
 
     private AbstractCard getAnyColorCard(final AbstractCard.CardRarity rarity) {
-        anyCard.shuffle(AbstractDungeon.cardRng);
-        return anyCard.getRandomCard(true, rarity);
+        anyCard.shuffle(new Random()/*AbstractDungeon.cardRng*/);
+        return anyCard.getRandomCard(false, rarity);
     }
 
     private void initCardGroup (CardType type){
