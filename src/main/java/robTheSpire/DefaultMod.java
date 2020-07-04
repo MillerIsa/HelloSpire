@@ -133,8 +133,8 @@ public class DefaultMod implements
     public static final String BADGE_IMAGE = "robTheSpireResources/images/Badge.png";
     
     // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "robTheSpireResources/images/char/defaultCharacter/skeleton.atlas"; //redirect to looter
-    public static final String THE_DEFAULT_SKELETON_JSON = "robTheSpireResources/images/char/defaultCharacter/skeleton.json"; //redirect to looter
+    public static final String THE_DEFAULT_SKELETON_ATLAS = "robTheSpireResources/images/char/looter/skeleton.atlas";
+    public static final String THE_DEFAULT_SKELETON_JSON = "robTheSpireResources/images/char/looter/skeleton.json";
     
     // =============== MAKE IMAGE PATHS =================
     
