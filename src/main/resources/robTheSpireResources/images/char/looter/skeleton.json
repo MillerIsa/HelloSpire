@@ -1,7 +1,7 @@
 {
 "skeleton": { "hash": "pBKzc6cXeMbJkMhDbbZlVMPevpQ", "spine": "3.4.02", "width": 173.57, "height": 186.85, "images": "" },
 "bones": [
-	{ "name": "root", "scaleX": -1 },
+	{ "name": "root", "scaleX": -1.2, "scaleY": 1.2 },
 	{ "name": "pants", "parent": "root", "x": 6.1, "y": 70 },
 	{ "name": "torso", "parent": "pants", "x": 13.8, "y": 52.5 },
 	{ "name": "armleft", "parent": "torso", "x": -13.34, "y": 11 },
