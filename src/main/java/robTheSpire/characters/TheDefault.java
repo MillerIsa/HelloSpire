@@ -139,7 +139,6 @@ public class TheDefault extends CustomPlayer {
         dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
 
         // =============== /TEXT BUBBLE LOCATION/ =================
-
     }
 
     // =============== /CHARACTER CLASS END/ =================
