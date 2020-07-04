@@ -124,7 +124,7 @@ public class DefaultMod implements
     
     // Character assets
     private static final String THE_DEFAULT_BUTTON = "robTheSpireResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_DEFAULT_PORTRAIT = "robTheSpireResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    private static final String THE_DEFAULT_PORTRAIT = "robTheSpireResources/images/charSelect/Thief_Portrait.png";
     public static final String THE_DEFAULT_SHOULDER_1 = "robTheSpireResources/images/char/defaultCharacter/shoulder.png";
     public static final String THE_DEFAULT_SHOULDER_2 = "robTheSpireResources/images/char/defaultCharacter/shoulder2.png";
     public static final String THE_DEFAULT_CORPSE = "robTheSpireResources/images/char/defaultCharacter/corpse.png";
