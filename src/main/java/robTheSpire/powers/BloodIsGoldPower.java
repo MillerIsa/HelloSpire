@@ -40,14 +40,14 @@ public class BloodIsGoldPower extends AbstractPower {
     }
 
 
-    private void loseGold(int goldGain){
-        loseGold( AbstractDungeon.player,this.owner, goldGain);
+    private void loseGold(int goldLoss){
+        loseGold( AbstractDungeon.player,this.owner, goldLoss);
     }
 
     private void loseGold(AbstractCreature goldStealer, AbstractCreature victim, int goldLoss){
         AbstractDungeon.player.loseGold(goldLoss);
         for (int i = 0; i < goldLoss; ++i) {
-            AbstractDungeon.effectList.add(new GainPennyEffect(goldStealer, victim.hb.cX, victim.hb.cY, goldStealer.hb.cX, goldStealer.hb.cY, true));
+            AbstractDungeon.effectList.add(new GainPennyEffect(goldStealer, victim.hb.cX, victim.hb.cY, goldStealer.hb.cX, goldStealer.hb.cY - 600, true));
         }
     }
 
