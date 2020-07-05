@@ -1,5 +1,6 @@
 package robTheSpire.cards;
 
+
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -8,22 +9,16 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
+import robTheSpire.powers.BloodIsGoldPower;
 import robTheSpire.powers.CommonPower;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
-public class DefaultCommonPower extends AbstractDynamicCard {
+public class BloodIsGoldPowerCard extends AbstractDynamicCard {
 
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Hold Place Gain 1(2) Keywords(s).
-     */
+    // TEXT DECLARATION
 
-
-    // TEXT DECLARATION 
-
-    public static final String ID = DefaultMod.makeID(DefaultCommonPower.class.getSimpleName());
+    public static final String ID = DefaultMod.makeID(BloodIsGoldPowerCard.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -32,7 +27,7 @@ public class DefaultCommonPower extends AbstractDynamicCard {
     // /TEXT DECLARATION/
 
 
-    // STAT DECLARATION 	
+    // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -40,8 +35,8 @@ public class DefaultCommonPower extends AbstractDynamicCard {
     public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_MAGIC = 0;
 
     // Hey want a second magic/damage/block/unique number??? Great!
     // Go check out DefaultAttackWithVariable and theDefault.variable.DefaultCustomVariable
@@ -51,7 +46,7 @@ public class DefaultCommonPower extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public DefaultCommonPower() {
+    public BloodIsGoldPowerCard() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = MAGIC;
     }
@@ -61,7 +56,7 @@ public class DefaultCommonPower extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new CommonPower(p, p, magicNumber), magicNumber));
+                new BloodIsGoldPower(AbstractDungeon.player, magicNumber), magicNumber));
         /*
         Hey do you see this "amount" and "stackAmount" up here^ (press ctrl+p inside the parentheses to see parameters)
         THIS DOES NOT MEAN APPLY 1 POWER 1 TIMES. If you put 2 in both numbers it would apply 2. NOT "2 STACKS, 2 TIMES".

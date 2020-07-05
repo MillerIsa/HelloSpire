@@ -8,6 +8,7 @@ C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\powers\CappedGoldStealPower.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\util\IDCheckDontTouchPls.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\patches\relics\BottledPlaceholderField.java
+C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\BloodIsGoldPowerCard.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\characters\TheDefault.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultCommonSkill.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\DefaultUncommonAttack.java
@@ -21,6 +22,7 @@ C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\actions\UncommonPowerAction.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\cards\StealAnAttack.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\variables\CardTypeVariable.java
+C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\powers\BloodIsGoldPower.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\patches\DefaultInsertPatch.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\CardIgnore.java
 C:\Users\mille\IdeaProjects\StS-DefaultModBase-develop\theDefault\src\main\java\robTheSpire\relics\DefaultClickableRelic.java

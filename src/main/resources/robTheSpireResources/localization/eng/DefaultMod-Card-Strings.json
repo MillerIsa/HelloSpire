@@ -78,5 +78,10 @@
     "NAME": "Steal Power",
     "DESCRIPTION": "Choose 1 of 3 random powers to add to your deck. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck.  NL Exhaustive !stslib:ex!."
+  },
+  "robTheSpire:BloodIsGoldPowerCard": {
+    "NAME" : "Blood is Gold",
+    "DESCRIPTION" : "Whenever you would lose #rX HP, instead lose #y!M! #yX gold.",
+    "UPGRADE_DESCRIPTION" : "Whenever you would lose #rX HP, instead lose #y!M! #yX gold."
   }
 }

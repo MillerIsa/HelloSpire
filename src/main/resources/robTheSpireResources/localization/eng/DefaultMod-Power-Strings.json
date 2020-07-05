@@ -31,5 +31,12 @@
       "You can steal #y",
       "more gold"
     ]
+  },
+  "robTheSpire:BloodIsGoldPower": {
+    "NAME" : "Blood is Gold",
+    "DESCRIPTIONS" : [
+      "Whenever you would lose #rX HP, instead lose #y",
+      " #yX gold."
+    ]
   }
 }

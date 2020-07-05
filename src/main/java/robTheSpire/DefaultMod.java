@@ -571,4 +571,4 @@ public class DefaultMod implements
     }
 }
 
-//TODO: reduce card rewards vs. bossess
+//TODO: reduce card rewards vs. bosses

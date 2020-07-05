@@ -31,10 +31,12 @@ robTheSpire\actions\AbstractCardStealingAction.class
 robTheSpire\CardIgnore.class
 robTheSpire\cards\Chris.class
 robTheSpire\cards\DefaultUncommonSkill.class
+robTheSpire\powers\BloodIsGoldPower.class
 robTheSpire\cards\DefaultRareSkill.class
 robTheSpire\patches\relics\BottledPlaceholderField$MakeStatEquivalentCopy.class
 robTheSpire\powers\CommonPower.class
 robTheSpire\relics\SmokeBombRelic.class
+robTheSpire\cards\BloodIsGoldPowerCard.class
 robTheSpire\cards\DefaultCommonPower.class
 robTheSpire\cards\StealAnAttack.class
 robTheSpire\events\IdentityCrisisEvent.class
