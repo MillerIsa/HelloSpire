@@ -8,8 +8,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.powers.RegrowPower;
+import com.megacrit.cardcrawl.vfx.GainGoldTextEffect;
 import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import robTheSpire.DefaultMod;
+import robTheSpire.vfx.LoseGoldTextEffect;
+import robTheSpire.vfx.LosePennyEffect;
 
 import static com.megacrit.cardcrawl.powers.AbstractPower.PowerType.BUFF;
 
@@ -47,7 +50,8 @@ public class BloodIsGoldPower extends AbstractPower {
     private void loseGold(AbstractCreature goldStealer, AbstractCreature victim, int goldLoss){
         AbstractDungeon.player.loseGold(goldLoss);
         for (int i = 0; i < goldLoss; ++i) {
-            AbstractDungeon.effectList.add(new GainPennyEffect(goldStealer, victim.hb.cX, victim.hb.cY, goldStealer.hb.cX, goldStealer.hb.cY - 600, true));
+            AbstractDungeon.effectList.add(new LosePennyEffect(goldStealer, victim.hb.cX, victim.hb.cY, goldStealer.hb.cX, goldStealer.hb.cY - 600, true));
+            //AbstractDungeon.effectsQueue.add(new GainGoldTextEffect(1));
         }
     }
 
