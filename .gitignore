@@ -16,7 +16,7 @@ out/
 .settings/
 
 # maven build target
-target/
+target/*
 
 
 # Package Files #
@@ -68,3 +68,6 @@ $RECYCLE.BIN/
 
 # Spriter files
 *.autosave.scml
+
+#building with gradle
+.gradle/*
