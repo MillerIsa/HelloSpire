@@ -46,12 +46,14 @@ robTheSpire\cards\DefaultRarePower.class
 robTheSpire\cards\DefaultSecondMagicNumberSkill.class
 robTheSpire\cards\StealASkill.class
 robTheSpire\cards\StealACard.class
+robTheSpire\vfx\LoseGoldTextEffect.class
 robTheSpire\variables\DefaultSecondMagicNumber.class
 robTheSpire\characters\TheDefault$Enums.class
 robTheSpire\relics\PlaceholderRelic2.class
 robTheSpire\cards\StealAPower.class
 robTheSpire\actions\StealCardOfTypeAction.class
 robTheSpire\cards\AbstractStealACardByType.class
+robTheSpire\vfx\LosePennyEffect.class
 robTheSpire\util\IDCheckDontTouchPls.class
 robTheSpire\orbs\DefaultOrb.class
 robTheSpire\cards\DefaultCommonAttack.class

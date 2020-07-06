@@ -80,8 +80,8 @@
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck.  NL Exhaustive !stslib:ex!."
   },
   "robTheSpire:BloodIsGoldPowerCard": {
-    "NAME" : "Blood is Gold",
-    "DESCRIPTION" : "Whenever you would lose #rX HP, instead lose #y!M! #yX gold.",
-    "UPGRADE_DESCRIPTION" : "Whenever you would lose #rX HP, instead lose #y!M! #yX gold."
+    "NAME" : "[#FF0000]Blood[] is [#FFF77A]Gold[]",
+    "DESCRIPTION" : "Whenever you would lose [#FF4545]x[] [#FF4545]HP[], instead lose !M![#FFF77A]x[] [#FFF77A]gold[].",
+    "UPGRADE_DESCRIPTION" : "Whenever you would lose [#FF4545]x[] [#FF4545]HP[], instead lose !M![#FFF77A]x[] [#FFF77A]gold[]."
   }
 }
