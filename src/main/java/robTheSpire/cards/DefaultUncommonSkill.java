@@ -5,11 +5,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
+@CardIgnore
 public class DefaultUncommonSkill extends AbstractDynamicCard {
 
     /*
