@@ -18,7 +18,11 @@ public abstract class AbstractStealACardByType extends AbstractDefaultCard {
 
     //Extending class MUST call this constructor
     public AbstractStealACardByType(CardType type, String ID, CardStrings cardStrings) {
-        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
+        this(type,ID,cardStrings,CardRarity.COMMON);
+    }
+
+    public AbstractStealACardByType(CardType type, String ID, CardStrings cardStrings, CardRarity rarity) {
+        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, rarity, CardTarget.SELF);
         //ExhaustiveVariable.setBaseValue(this,2);
         //this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;

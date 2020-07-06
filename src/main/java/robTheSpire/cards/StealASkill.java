@@ -11,7 +11,7 @@ public class StealASkill extends AbstractStealACardByType {
     private static final CardStrings cardStrings;
 
     public StealASkill() {
-        super(CardType.SKILL, ID, cardStrings);
+        super(CardType.SKILL, ID, cardStrings,CardRarity.UNCOMMON);
     }
 
     static {

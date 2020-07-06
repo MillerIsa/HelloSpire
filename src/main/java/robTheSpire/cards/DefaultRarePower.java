@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
 import robTheSpire.powers.RarePower;

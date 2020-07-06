@@ -11,7 +11,7 @@ public class StealAPower extends AbstractStealACardByType {
     private static final CardStrings cardStrings;
 
     public StealAPower() {
-        super(CardType.POWER, ID, cardStrings);
+        super(CardType.POWER, ID, cardStrings, CardRarity.RARE);
     }
 
     static {

@@ -30,7 +30,6 @@ public class StealACard extends AbstractDefaultCard {
     public StealACard() {
         super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
         this.exhaust = true;
-
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
