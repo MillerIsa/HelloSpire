@@ -156,6 +156,7 @@
                 <version>3.1.1</version>
 
                 <configuration>
+                    <outputDirectory>${Steam.path}common/SlayTheSpire/mods</outputDirectory>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
