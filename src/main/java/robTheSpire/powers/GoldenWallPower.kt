@@ -3,9 +3,11 @@ package robTheSpire.powers
 import com.megacrit.cardcrawl.actions.common.GainBlockAction
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.powers.AbstractPower
 import robTheSpire.DefaultMod
+import robTheSpire.vfx.LosePennyEffect
 
 
 class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractPower() {
@@ -18,9 +20,35 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractPower
     }
 
     override fun atEndOfTurnPreEndTurnCards(isPlayer: Boolean) {
+
         flash()
-        addToBot(GainBlockAction(owner, owner, amount))
+        val blockToGain: Int = convertGoldToBlock(amount)
+        println("Should gain $blockToGain block.")
+        addToBot(GainBlockAction(owner, owner, blockToGain))
     }
+
+    private fun loseGold(goldLoss: Int) {
+        loseGold(AbstractDungeon.player, owner, goldLoss)
+    }
+
+    private fun loseGold(goldStealer: AbstractCreature, victim: AbstractCreature, goldLoss: Int) {
+        AbstractDungeon.player.loseGold(goldLoss)
+        for (i in 0 until goldLoss) {
+            AbstractDungeon.effectList.add(LosePennyEffect(goldStealer, victim.hb.cX, victim.hb.cY, goldStealer.hb.cX, goldStealer.hb.cY - 600, true))
+        }
+    }
+
+
+    //returns how many resource units the gold converts into
+     private fun convertGoldToBlock(damageAmount: Int): Int {
+        val rawGoldToLose = CONVERSION_RATE * damageAmount
+        var goldToLose = rawGoldToLose.coerceAtMost(AbstractDungeon.player.gold)
+        val remainder = goldToLose % CONVERSION_RATE
+        goldToLose -= remainder
+        loseGold(goldToLose)
+        return goldToLose / CONVERSION_RATE
+    }
+
 
     companion object {
         const val CONVERSION_RATE = 2
@@ -39,4 +67,3 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractPower
         loadRegion("armor")
     }
 }
-//TODO: Update Maven to copy the FAT jar instead of the normal jar.

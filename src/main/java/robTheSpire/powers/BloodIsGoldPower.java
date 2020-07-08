@@ -51,7 +51,6 @@ public class BloodIsGoldPower extends AbstractPower {
         AbstractDungeon.player.loseGold(goldLoss);
         for (int i = 0; i < goldLoss; ++i) {
             AbstractDungeon.effectList.add(new LosePennyEffect(goldStealer, victim.hb.cX, victim.hb.cY, goldStealer.hb.cX, goldStealer.hb.cY - 600, true));
-            //AbstractDungeon.effectsQueue.add(new GainGoldTextEffect(1));
         }
     }
 

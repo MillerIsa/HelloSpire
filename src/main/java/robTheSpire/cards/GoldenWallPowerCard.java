@@ -41,9 +41,6 @@ public class GoldenWallPowerCard extends AbstractDynamicCard{
         @Override
         public void use(AbstractPlayer p, AbstractMonster m) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GoldenWallPower(p, ARMOR), ARMOR));
-            //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-              //      new BloodIsGoldPower(AbstractDungeon.player, magicNumber), magicNumber));
-            System.out.println("Applying power using GoldenWallPowerCard!");
         }
 
 
