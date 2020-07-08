@@ -17,8 +17,7 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldC
     }
 
     override fun atEndOfTurnPreEndTurnCards(isPlayer: Boolean) {
-
-        flash()
+        flash() //TODO: Only flash when you would gain at least one block
         val blockToGain: Int = convertGoldToResource(amount)
         println("Should gain $blockToGain block.")
         addToBot(GainBlockAction(owner, owner, blockToGain))
@@ -36,8 +35,7 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldC
     init {
         name = NAME
         ID = POWER_ID
-        this.owner = theOwner
+        type = PowerType.BUFF
         amount = armorAmt
-        updateDescription()
     }
 }

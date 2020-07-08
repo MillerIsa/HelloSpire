@@ -1,17 +1,14 @@
 package robTheSpire.powers
 
 import com.megacrit.cardcrawl.core.AbstractCreature
-import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
-import com.megacrit.cardcrawl.localization.PowerStrings
 import com.megacrit.cardcrawl.powers.AbstractPower
-import robTheSpire.DefaultMod
 import robTheSpire.vfx.LosePennyEffect
 
 
-abstract class AbstractGoldConversionPower(theOwner: AbstractCreature, armorAmt: Int, protected val conversionRate: Int, protected val regionName: String) : AbstractPower() {
+abstract class AbstractGoldConversionPower(theOwner: AbstractCreature, stackAmount: Int, protected val conversionRate: Int, private val regionName: String) : AbstractPower() {
 
-    protected fun loseGold(goldLoss: Int) {
+    private fun loseGold(goldLoss: Int) {
         loseGold(AbstractDungeon.player, owner, goldLoss)
     }
 
@@ -34,18 +31,10 @@ abstract class AbstractGoldConversionPower(theOwner: AbstractCreature, armorAmt:
     }
 
 
-    companion object {
-        val POWER_ID: String = DefaultMod.makeID(Companion::class.java.enclosingClass.simpleName)
-        private var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
-        var NAME: String = powerStrings.NAME
-        val DESCRIPTIONS: Array<String> = powerStrings.DESCRIPTIONS
-    }
-
     init {
-        name = NAME
-        ID = POWER_ID
+        type = PowerType.BUFF
         this.owner = theOwner
-        amount = armorAmt
+        amount = stackAmount
         updateDescription()
         loadRegion(regionName)
     }
