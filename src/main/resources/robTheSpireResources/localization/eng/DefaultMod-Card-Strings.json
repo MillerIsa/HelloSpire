@@ -85,7 +85,7 @@
     "UPGRADE_DESCRIPTION" : "Whenever you would lose [#FF4545]x[] [#FF4545]HP[], instead lose !M![#FFF77A]x[] [#FFF77A]gold[]."
   },
   "robTheSpire:GoldenWallPowerCard": {
-    "NAME" : "[#FFF77A]Golden[] [#FFF77A]Wall[]",
+    "NAME" : "[#FFF77A]Goldicize[]",
     "DESCRIPTION" : "At the end of your turn pay [#FFF77A]5[] [#FFF77A]gold[] to gain two times the block.",
     "UPGRADE_DESCRIPTION" : "At the end of your turn pay [#FFF77A]5[] [#FFF77A]gold[] to gain two times the block."
   }
