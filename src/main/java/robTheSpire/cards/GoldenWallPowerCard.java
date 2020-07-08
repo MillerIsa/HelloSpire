@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
+import robTheSpire.powers.BloodIsGoldPower;
 import robTheSpire.powers.GoldenWallPower;
 
 import static robTheSpire.DefaultMod.makeCardPath;
@@ -39,8 +40,10 @@ public class GoldenWallPowerCard extends AbstractDynamicCard{
         // Actions the card should do.
         @Override
         public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(m, m, new GoldenWallPower(p, ARMOR), ARMOR));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GoldenWallPower(p, ARMOR), ARMOR));
+            //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
+              //      new BloodIsGoldPower(AbstractDungeon.player, magicNumber), magicNumber));
+            System.out.println("Applying power using GoldenWallPowerCard!");
         }
 
 

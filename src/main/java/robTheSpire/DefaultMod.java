@@ -446,6 +446,7 @@ public class DefaultMod implements
         } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        System.out.println("Successfully updated jar!");
     }
 
 

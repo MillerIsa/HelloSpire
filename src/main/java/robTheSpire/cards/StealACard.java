@@ -34,6 +34,7 @@ public class StealACard extends AbstractDefaultCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new StealCardAction());
+        System.out.println("Using StealACard!");
     }
 
     public void upgrade() {

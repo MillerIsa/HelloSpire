@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower
 import robTheSpire.DefaultMod
 
 
-class GoldenWallPower(owner: AbstractCreature, armorAmt: Int) : AbstractPower() {
+class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractPower() {
     override fun playApplyPowerSfx() {
         CardCrawlGame.sound.play("POWER_METALLICIZE", 0.05f)
     }
@@ -23,7 +23,7 @@ class GoldenWallPower(owner: AbstractCreature, armorAmt: Int) : AbstractPower() 
     }
 
     companion object {
-        const val CONVERSION_RATE = 2;
+        const val CONVERSION_RATE = 2
         val POWER_ID: String = DefaultMod.makeID(Companion::class.java.enclosingClass.simpleName)
         private var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String = powerStrings.NAME
@@ -33,6 +33,7 @@ class GoldenWallPower(owner: AbstractCreature, armorAmt: Int) : AbstractPower() 
     init {
         name = NAME
         ID = POWER_ID
+        this.owner = theOwner
         amount = armorAmt
         updateDescription()
         loadRegion("armor")
