@@ -38,5 +38,13 @@
       "Whenever you would lose #rX HP, instead lose #y",
       " #yX gold."
     ]
+  },
+  "robTheSpire:GoldenWallPower": {
+    "NAME" : "Golden Wall",
+    "DESCRIPTIONS" : [
+      "At the end of your turn pay #y",
+      " #y gold and gain ",
+      " times the block"
+    ]
   }
 }
