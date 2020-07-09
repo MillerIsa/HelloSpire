@@ -18,11 +18,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import robTheSpire.cards.MultiStealAttack;
+import javassist.CtClass;
+import javassist.NotFoundException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.clapper.util.classutil.*;
 import robTheSpire.characters.TheDefault;
 import robTheSpire.events.IdentityCrisisEvent;
 import robTheSpire.potions.PlaceholderPotion;
@@ -31,13 +34,7 @@ import robTheSpire.util.IDCheckDontTouchPls;
 import robTheSpire.util.TextureLoader;
 import robTheSpire.variables.DefaultCustomVariable;
 import robTheSpire.variables.DefaultSecondMagicNumber;
-import javassist.CtClass;
-import javassist.NotFoundException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.clapper.util.classutil.*;
 
-import javax.smartcardio.Card;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -447,13 +444,6 @@ public class DefaultMod implements
         logger.info("Done adding cards!");
          */
 
-        BaseMod.addCard(new MultiStealAttack());
-
-        UnlockTracker.unlockCard(MultiStealAttack.ID);
-
-        MultiStealAttack temp = new MultiStealAttack();
-        CardLibrary.cards.put(temp.cardID, temp);
-        ++CardLibrary.totalCardCount;
         try {
             autoAddCards();
         } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {

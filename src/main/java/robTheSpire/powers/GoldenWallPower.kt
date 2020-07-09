@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.PowerStrings
 import robTheSpire.DefaultMod
-import robTheSpire.cards.MultiStealAttack
 
 
 class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldConversionPower(theOwner, armorAmt,2, "armor") {
@@ -27,7 +26,7 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldC
 
 
     companion object {
-        val POWER_ID: String = DefaultMod.makeID(Companion::class.java.enclosingClass.simpleName)
+        private val POWER_ID: String = DefaultMod.makeID(Companion::class.java.enclosingClass.simpleName)
         private var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String = powerStrings.NAME
         val DESCRIPTIONS: Array<String> = powerStrings.DESCRIPTIONS
@@ -35,7 +34,7 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldC
 
     init {
         name = NAME
-        ID = MultiStealAttack.ID//POWER_ID
+        ID = POWER_ID
         type = PowerType.BUFF
         amount = armorAmt
     }

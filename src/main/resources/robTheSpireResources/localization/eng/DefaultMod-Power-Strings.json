@@ -46,5 +46,11 @@
       " #y gold and gain ",
       " times the block"
     ]
+  },
+  "robTheSpire:LuckPower": {
+    "NAME" : "Luck",
+    "DESCRIPTIONS" : [
+      "Steal one extra gold for each stack of luck."
+    ]
   }
 }
