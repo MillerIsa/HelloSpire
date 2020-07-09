@@ -17,11 +17,13 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldC
     }
 
     override fun atEndOfTurnPreEndTurnCards(isPlayer: Boolean) {
-        val blockToGain: Int = convertGoldToResource(amount)
-        if(blockToGain > 0) {
-            flash()
-            println("Should gain $blockToGain block.")
-            addToBot(GainBlockAction(owner, owner, blockToGain))
+        if(!EscapeCountdownPower.isEscapingThisTurn()) {
+            val blockToGain: Int = convertGoldToResource(amount)
+            if (blockToGain > 0) {
+                flash()
+                println("Should gain $blockToGain block.")
+                addToBot(GainBlockAction(owner, owner, blockToGain))
+            }
         }
     }
 

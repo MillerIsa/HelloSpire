@@ -66,6 +66,12 @@ public class EscapeCountdownPower extends AbstractPower {
 
     }
 
+    public static boolean isEscapingThisTurn(){
+        return AbstractDungeon.player.hasPower(POWER_ID) && AbstractDungeon.player.getPower(POWER_ID).amount == 1;
+    }
+
+
+
     static {
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         NAME = powerStrings.NAME;
