@@ -18,9 +18,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import robTheSpire.cards.MultiStealAttack;
 import robTheSpire.characters.TheDefault;
 import robTheSpire.events.IdentityCrisisEvent;
 import robTheSpire.potions.PlaceholderPotion;
@@ -35,6 +37,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.*;
 
+import javax.smartcardio.Card;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -419,7 +422,9 @@ public class DefaultMod implements
         BaseMod.addCard(new DefaultRarePower());
         BaseMod.addCard(new StrikeGold());
         BaseMod.addCard(new StealACard());
-        
+
+
+
         logger.info("Making sure the cards are unlocked.");
         // Unlock the cards
         // This is so that they are all "seen" in the library, for people who like to look at the card list
@@ -441,12 +446,19 @@ public class DefaultMod implements
         
         logger.info("Done adding cards!");
          */
+
+        BaseMod.addCard(new MultiStealAttack());
+
+        UnlockTracker.unlockCard(MultiStealAttack.ID);
+
+        MultiStealAttack temp = new MultiStealAttack();
+        CardLibrary.cards.put(temp.cardID, temp);
+        ++CardLibrary.totalCardCount;
         try {
             autoAddCards();
         } catch (URISyntaxException | IllegalAccessException | InstantiationException | NotFoundException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println("Successfully updated jar!");
     }
 
 

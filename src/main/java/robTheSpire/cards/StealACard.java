@@ -56,5 +56,6 @@ public class StealACard extends AbstractDefaultCard {
 
     static {
         cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+        System.out.println("ID for StealACard is: " + ID);
     }
 }

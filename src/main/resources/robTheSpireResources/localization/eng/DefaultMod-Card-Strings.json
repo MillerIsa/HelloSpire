@@ -88,5 +88,10 @@
     "NAME" : "[#FFF77A]Goldicize[]",
     "DESCRIPTION" : "At the end of your turn pay [#FFF77A]5[] [#FFF77A]gold[] to gain two times the block.",
     "UPGRADE_DESCRIPTION" : "At the end of your turn pay [#FFF77A]5[] [#FFF77A]gold[] to gain two times the block."
+  },
+  "robTheSpire:MultiStealAttack": {
+    "NAME" : "Multi-Steal-Attack",
+    "DESCRIPTION" : "Attack and steal 4 times.",
+    "UPGRADE_DESCRIPTION" : "Attack and steal 4 times."
   }
 }
