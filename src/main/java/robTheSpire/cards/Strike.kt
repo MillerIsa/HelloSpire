@@ -16,6 +16,8 @@ class Strike : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
         this.exhaust = true
         this.baseMagicNumber = BASE_MAGIC_NUMBER
         this.magicNumber = this.baseMagicNumber
+        this.tags.add(CardTags.STRIKE)
+        this.tags.add(CardTags.STARTER_STRIKE)
     }
 
     companion object {
