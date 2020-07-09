@@ -32,7 +32,7 @@ class MultiStealAttack : AbstractCard(ID, cardStrings.NAME, "red/attack/pummel",
     }
 
     companion object {
-        val ID: String = DefaultMod.makeID(MultiStealAttack::class.java.simpleName)// "robTheSpire:MultiStealAttack"
+        val ID: String = DefaultMod.makeID(MultiStealAttack::class.java.simpleName)
         private val cardStrings: CardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
     }
 
