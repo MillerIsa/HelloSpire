@@ -23,4 +23,5 @@ public class StealAPower extends AbstractStealACardByType {
         return new StealAPower();
     }
 
+
 }

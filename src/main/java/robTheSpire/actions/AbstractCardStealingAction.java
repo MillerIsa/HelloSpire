@@ -21,6 +21,7 @@ import java.util.Set;
 public abstract class AbstractCardStealingAction extends AbstractGameAction {
     private boolean retrieveCard = false;
     private final CardGroup anyCard;
+    private final AbstractCard.CardType type;
 
 
     protected interface CardFilter {
@@ -30,9 +31,10 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
     /**
      * @param  filter This filter should specify which types of cards can be stolen.
      */
-    public AbstractCardStealingAction(CardFilter filter) {
+    public AbstractCardStealingAction(AbstractCard.CardType type, CardFilter filter) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.type = type;
         this.amount = 1;
         anyCard = getCardGroup(getProhibitedCardIDs(), filter);
     }
@@ -91,11 +93,11 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
         return derp;
     }
 
-    private static CardGroup getCardGroup(Set<String> prohibited, CardFilter filter) {
+    private CardGroup getCardGroup(Set<String> prohibited, CardFilter filter) {
         CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (final Map.Entry<String, AbstractCard> cardEntry : CardLibrary.cards.entrySet()) {
             AbstractCard c = cardEntry.getValue();
-            if (filter.cardIsAllowed(c, prohibited)) {
+            if (filter.cardIsAllowed(c, prohibited) && (this.type == null || c.type == this.type)) {
                 temp.addToBottom(c);
             }
         }
@@ -104,11 +106,13 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
     }
 
 
-
     //Returns a card based on the rarity roll passed to this method
-    private AbstractCard getAnyColorCard(final AbstractCard.CardRarity rarity) {
+    protected AbstractCard getAnyColorCard(AbstractCard.CardRarity rarity) {
         anyCard.shuffle(AbstractDungeon.cardRng);
-        return anyCard.getRandomCard(true/*, rarity*/);//TODO: re-implement Rarity behavior
+        if(this.type == AbstractCard.CardType.POWER && rarity == AbstractCard.CardRarity.COMMON){
+            rarity = AbstractCard.CardRarity.UNCOMMON;
+        }
+        return anyCard.getRandomCard(true, rarity);
     }
 
     //TODO: add prohibited cards
