@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import robTheSpire.cards.defaultExampleCards.*;
@@ -76,7 +77,10 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
         while (derp.size() != 3) {
             boolean dupe = false;
             AbstractCard tmp;
-            tmp = this.getAnyColorCard(AbstractDungeon.rollRarity());
+            AbstractCard.CardRarity rarity = rollRarity();
+            tmp = this.getAnyColorCard(rarity);
+            System.out.println("Picked Rarity: " + rarity);
+            System.out.println("Temp card picked " + tmp);
 
             for (AbstractCard c : derp) {
                 if (c.cardID.equals(tmp.cardID)) {
@@ -89,8 +93,31 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
                 derp.add(tmp.makeCopy());
             }
         }
-
+        for (AbstractCard c : derp) {
+            System.out.println(c.cardID);
+        }
         return derp;
+    }
+
+    protected AbstractCard.CardRarity rollRarity() {
+        return rollRarity(AbstractDungeon.cardRng);
+    }
+
+
+    protected AbstractCard.CardRarity rollRarity(Random rng) {
+        int roll = AbstractDungeon.cardRng.random(99);
+        roll += AbstractDungeon.cardBlizzRandomizer;
+        return AbstractDungeon.currMapNode == null ? getCardRarityFallback(roll) : AbstractDungeon.getCurrRoom().getCardRarity(roll);
+    }
+
+    protected AbstractCard.CardRarity getCardRarityFallback(int roll) {
+        System.out.println("WARNING: Current map node was NULL while rolling rarities. Using fallback card rarity method.");
+        int rareRate = 3;
+        if (roll < rareRate) {
+            return AbstractCard.CardRarity.RARE;
+        } else {
+            return roll < 40 ? AbstractCard.CardRarity.UNCOMMON : AbstractCard.CardRarity.COMMON;
+        }
     }
 
     private CardGroup getCardGroup(Set<String> prohibited, CardFilter filter) {
