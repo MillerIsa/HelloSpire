@@ -25,5 +25,8 @@ class LuckPower(theOwner: AbstractCreature, theAmount: Int) : AbstractPower() {
         ID = POWER_ID
         type = PowerType.BUFF
         amount = theAmount
+        owner = theOwner
+        updateDescription()
+        loadRegion("armor")//TODO: change to clover graphic
     }
 }
