@@ -98,5 +98,10 @@
     "NAME" : "[#FFF77A]Lucky[] Charm",
     "DESCRIPTION" : "Gain 1 [#FFF77A]luck[].",
     "UPGRADE_DESCRIPTION" : "Gain 1 [#FFF77A]luck[]."
+  },
+  "robTheSpire:FlatSteal": {
+    "NAME" : "Normal Steal",
+    "DESCRIPTION" : "Steal !M! [#FFF77A]gold[].",
+    "UPGRADE_DESCRIPTION" : "Steal !M! [#FFF77A]gold[]."
   }
 }

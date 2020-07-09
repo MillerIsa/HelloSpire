@@ -11,20 +11,31 @@ import robTheSpire.powers.LuckPower;
 
 public class FlatGoldAction extends AbstractGameAction {
     private final int increaseGold;
-    private final DamageInfo info;
+    private DamageInfo info;
     private static final float DURATION = 0.1F;
 
     public FlatGoldAction(AbstractCreature target, DamageInfo info, int goldAmount) {
-        int increaseGold1;
+        int increaseGold1 = goldAmount;
         this.info = info;
         this.setValues(target, info);
-        increaseGold1 = goldAmount;
         if(AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
             increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount;
         }
         this.increaseGold = increaseGold1;
         this.actionType = ActionType.DAMAGE;
         this.duration = 0.1F;
+    }
+
+    public  FlatGoldAction(AbstractCreature target,int goldAmount){
+        int increaseGold1 = goldAmount;
+        if(AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
+            increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount;
+        }
+        this.increaseGold = increaseGold1;
+        this.actionType = ActionType.DAMAGE;
+        this.duration = 0.1F;
+        this.target = target;
+        this.source = AbstractDungeon.player;
     }
 
     @Override
