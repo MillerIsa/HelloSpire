@@ -1,4 +1,4 @@
-package robTheSpire.cards;
+package robTheSpire.cards.defaultExampleCards;
 
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
+import robTheSpire.cards.AbstractDynamicCard;
 import robTheSpire.characters.TheDefault;
 
 import static robTheSpire.DefaultMod.makeCardPath;

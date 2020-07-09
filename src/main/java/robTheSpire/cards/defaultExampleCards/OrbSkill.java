@@ -1,4 +1,4 @@
-package robTheSpire.cards;
+package robTheSpire.cards.defaultExampleCards;
 
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
+import robTheSpire.cards.AbstractDynamicCard;
 import robTheSpire.characters.TheDefault;
 import robTheSpire.orbs.DefaultOrb;
 

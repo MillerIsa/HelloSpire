@@ -1,4 +1,4 @@
-package robTheSpire.cards;
+package robTheSpire.cards.defaultExampleCards;
 
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;

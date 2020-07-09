@@ -20,7 +20,7 @@ class LuckPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TA
         private val cardStrings: CardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
         const val LUCK_AMOUNT = 1
         val IMG = DefaultMod.makeCardPath("Power.png")
-        private val RARITY = CardRarity.COMMON
+        private val RARITY = CardRarity.UNCOMMON
         private val TARGET = CardTarget.SELF
         private val TYPE = CardType.POWER
         val COLOR = TheDefault.Enums.COLOR_GRAY

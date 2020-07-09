@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import robTheSpire.cards.*;
+import robTheSpire.cards.defaultExampleCards.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;

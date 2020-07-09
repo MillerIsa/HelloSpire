@@ -1,7 +1,6 @@
 package robTheSpire.characters;
 
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -19,14 +18,12 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import robTheSpire.cards.defaultExampleCards.DefaultCommonAttack;
 import robTheSpire.relics.SmokeBombRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import robTheSpire.DefaultMod;
 import robTheSpire.cards.*;
-import robTheSpire.relics.DefaultClickableRelic;
-import robTheSpire.relics.PlaceholderRelic;
-import robTheSpire.relics.PlaceholderRelic2;
 
 import java.util.ArrayList;
 
