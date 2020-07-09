@@ -103,5 +103,10 @@
     "NAME" : "Normal Steal",
     "DESCRIPTION" : "Steal !M! [#FFF77A]gold[].",
     "UPGRADE_DESCRIPTION" : "Steal !M! [#FFF77A]gold[]."
+  },
+  "robTheSpire:Strike": {
+    "NAME" : "Strike",
+    "DESCRIPTION" : "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust",
+    "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust"
   }
 }

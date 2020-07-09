@@ -7,13 +7,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
 import robTheSpire.powers.CappedGoldStealPower;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
-
+@CardIgnore
 public class Chris extends AbstractDefaultCard {
     public static final String ID = DefaultMod.makeID(Chris.class.getSimpleName());
     private static final CardStrings cardStrings;

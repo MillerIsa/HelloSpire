@@ -1,4 +1,4 @@
-package robTheSpire.cards;
+package robTheSpire.cards.defaultExampleCards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -6,12 +6,15 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import robTheSpire.CardIgnore;
 import robTheSpire.DefaultMod;
+import robTheSpire.cards.AbstractDynamicCard;
 import robTheSpire.characters.TheDefault;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
 // public class ${NAME} extends AbstractDynamicCard
+@CardIgnore
 public class CardTemplate extends AbstractDynamicCard {
 
     /*
