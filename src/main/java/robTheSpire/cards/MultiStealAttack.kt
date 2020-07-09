@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import robTheSpire.DefaultMod
 import robTheSpire.actions.MultiStealAction
 import robTheSpire.characters.TheDefault
 
@@ -31,7 +32,7 @@ class MultiStealAttack : AbstractCard(ID, cardStrings.NAME, "red/attack/pummel",
     }
 
     companion object {
-        @JvmField val ID: String = "robTheSpire:MultiStealAttack"
+        val ID: String = DefaultMod.makeID(MultiStealAttack::class.java.simpleName)// "robTheSpire:MultiStealAttack"
         private val cardStrings: CardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
     }
 
