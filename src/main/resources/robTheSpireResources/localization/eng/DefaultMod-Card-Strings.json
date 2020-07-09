@@ -57,7 +57,7 @@
   "robTheSpire:StealACard": {
     "NAME": "Steal Card",
     "DESCRIPTION": "Choose 1 of 3 random Thief cards to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Thief cards to add to your deck.  NL Exhaustive !stslib:ex!."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Thief cards to add to your deck."
   },
   "robTheSpire:Chris": {
     "NAME" : "Chris",
@@ -67,17 +67,17 @@
   "robTheSpire:StealASkill": {
     "NAME": "Steal Skill",
     "DESCRIPTION": "Choose 1 of 3 random skills to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random skills to add to your deck.  NL Exhaustive !stslib:ex!."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random skills to add to your deck."
   },
   "robTheSpire:StealAnAttack": {
     "NAME": "Steal Attack",
     "DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck.  NL Exhaustive !stslib:ex!."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck."
   },
   "robTheSpire:StealAPower": {
     "NAME": "Steal Power",
     "DESCRIPTION": "Choose 1 of 3 random powers to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck.  NL Exhaustive !stslib:ex!."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck."
   },
   "robTheSpire:BloodIsGoldPowerCard": {
     "NAME" : "[#FF0000]Blood[] is [#FFF77A]Gold[]",
@@ -91,13 +91,13 @@
   },
   "robTheSpire:MultiStealAttack": {
     "NAME" : "Multi-Steal-Attack",
-    "DESCRIPTION" : "Attack and steal 4 times.",
-    "UPGRADE_DESCRIPTION" : "Attack and steal 4 times."
+    "DESCRIPTION" : "Attack and steal !M! times.",
+    "UPGRADE_DESCRIPTION" : "Attack and steal !M! times."
   },
   "robTheSpire:LuckPowerCard": {
     "NAME" : "[#FFF77A]Lucky[] Charm",
-    "DESCRIPTION" : "Gain 1 [#FFF77A]luck[].",
-    "UPGRADE_DESCRIPTION" : "Gain 1 [#FFF77A]luck[]."
+    "DESCRIPTION" : "Gain !M! [#FFF77A]luck[].",
+    "UPGRADE_DESCRIPTION" : "Gain !M! [#FFF77A]luck[]."
   },
   "robTheSpire:FlatSteal": {
     "NAME" : "Normal Steal",

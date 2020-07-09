@@ -43,7 +43,6 @@ public class StrikeGold extends AbstractDefaultCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(UPGRADE_PLUS_DMG);
-            this.upgradeMagicNumber(5);
         }
 
     }

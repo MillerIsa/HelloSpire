@@ -37,6 +37,7 @@ public class BloodIsGoldPowerCard extends AbstractDynamicCard {
     private static final int COST = 1;
     private static final int MAGIC = 2;
     private static final int UPGRADE_MAGIC = 0;
+    private static final int UPGRADED_COST = 0;
 
     // Hey want a second magic/damage/block/unique number??? Great!
     // Go check out DefaultAttackWithVariable and theDefault.variable.DefaultCustomVariable
@@ -75,7 +76,8 @@ public class BloodIsGoldPowerCard extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
+            //upgradeMagicNumber(UPGRADE_MAGIC);
+            upgradeBaseCost(UPGRADED_COST);
             rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

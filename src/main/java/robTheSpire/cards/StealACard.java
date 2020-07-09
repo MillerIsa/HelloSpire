@@ -28,7 +28,7 @@ public class StealACard extends AbstractDefaultCard {
     private static final CardStrings cardStrings;
 
     public StealACard() {
-        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 1, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
+        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 2, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
         this.exhaust = true;
     }
 
@@ -39,9 +39,10 @@ public class StealACard extends AbstractDefaultCard {
 
     public void upgrade() {
         if (!this.upgraded) {
-            this.exhaust = false;
-            ExhaustiveVariable.setBaseValue(this, 2);
-            ExhaustiveField.ExhaustiveFields.isExhaustiveUpgraded.set(this, true);
+//            this.exhaust = false;
+//            ExhaustiveVariable.setBaseValue(this, 2);
+//            ExhaustiveField.ExhaustiveFields.isExhaustiveUpgraded.set(this, true);
+            this.upgradeBaseCost(1);
             this.upgradeName();
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();

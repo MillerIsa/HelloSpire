@@ -22,7 +22,7 @@ public class GoldenWallPowerCard extends AbstractDynamicCard{
         public static final CardColor COLOR = TheDefault.Enums.COLOR_GRAY;
 
         private static final int COST = 1;
-        private static final int UPGRADED_COST = 1;
+        private static final int UPGRADED_COST = 0;
 
         private static final int DAMAGE = 0;
         private static final int UPGRADE_PLUS_DMG = 0;
@@ -48,7 +48,6 @@ public class GoldenWallPowerCard extends AbstractDynamicCard{
         public void upgrade() {
             if (!upgraded) {
                 upgradeName();
-                upgradeDamage(UPGRADE_PLUS_DMG);
                 upgradeBaseCost(UPGRADED_COST);
                 initializeDescription();
             }
