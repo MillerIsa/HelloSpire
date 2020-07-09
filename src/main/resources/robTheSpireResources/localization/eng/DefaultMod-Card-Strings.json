@@ -95,8 +95,8 @@
     "UPGRADE_DESCRIPTION" : "Attack and steal 4 times."
   },
   "robTheSpire:LuckPowerCard": {
-    "NAME" : "Luck Amplifier",
-    "DESCRIPTION" : "Gain 1 luck.",
-    "UPGRADE_DESCRIPTION" : "Gain 1 luck."
+    "NAME" : "[#FFF77A]Lucky[] Charm",
+    "DESCRIPTION" : "Gain 1 [#FFF77A]luck[].",
+    "UPGRADE_DESCRIPTION" : "Gain 1 [#FFF77A]luck[]."
   }
 }

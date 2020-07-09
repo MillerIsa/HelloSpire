@@ -11,7 +11,7 @@ import robTheSpire.actions.MultiStealAction
 import robTheSpire.characters.TheDefault
 
 
-class MultiStealAttack : AbstractCard(ID, cardStrings.NAME, "red/attack/pummel", 1, cardStrings.DESCRIPTION, CardType.ATTACK, TheDefault.Enums.COLOR_GRAY, CardRarity.UNCOMMON, CardTarget.ENEMY) {
+class MultiStealAttack : AbstractCard(ID, cardStrings.NAME, "red/attack/pummel", 1, cardStrings.DESCRIPTION, CardType.ATTACK, TheDefault.Enums.COLOR_GRAY, CardRarity.RARE, CardTarget.ENEMY) {
     override fun use(p: AbstractPlayer, m: AbstractMonster) {
         for (i in 0 until magicNumber) {
             addToBot(MultiStealAction(m, DamageInfo(p, damage, damageTypeForTurn)))
