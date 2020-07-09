@@ -21,11 +21,18 @@ class MultiStealAction(target: AbstractCreature?, private val info: DamageInfo) 
         }
         tickDuration()
         if (isDone && target != null && target.currentHealth > 0) {
+            println("Attacking target for $info")
             target.damage(info)
+            //this.addToTop(new HealAction(this.source, this.source, this.target.lastDamageTaken));
+            //FlatGoldAction(AbstractCreature target, DamageInfo info, int goldAmount)
+            println("Target took ${target.lastDamageTaken} damage")
+            if (target.lastDamageTaken > 0) {
+                addToTop(FlatGoldAction(target, info, target.lastDamageTaken))
+            }
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                 AbstractDungeon.actionManager.clearPostCombatActions()
             }
-            addToTop(WaitAction(0.1f))
+            addToTop(WaitAction(0.01f))
         }
         if (target == null) {
             isDone = true
