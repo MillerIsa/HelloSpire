@@ -1,0 +1,19 @@
+Test_Atlas.png
+size: 157, 109
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+48/Goldicize
+  rotate: false
+  xy: 0, 0
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+128/Goldicize
+  rotate: false
+  xy: 48, 0
+  size: 109, 109
+  orig: 109, 109
+  offset: 0, 0
+  index: -1

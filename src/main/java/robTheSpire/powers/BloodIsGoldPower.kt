@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.PowerStrings
 import robTheSpire.DefaultMod
 
-class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(owner!!, 1, 2, "fading") {
+class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(owner!!, 1, 2, "Goldicize") {
     override fun updateDescription() {
         val desc = powerStrings.DESCRIPTIONS
         description = "TODO"

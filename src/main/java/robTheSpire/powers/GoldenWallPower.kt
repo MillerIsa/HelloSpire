@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 import robTheSpire.DefaultMod
 
 
-class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldConversionPower(theOwner, armorAmt,2, "armor") {
+class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldConversionPower(theOwner, armorAmt,2, "Goldicize") {
     override fun playApplyPowerSfx() {
         CardCrawlGame.sound.play("POWER_METALLICIZE", 0.05f)
     }

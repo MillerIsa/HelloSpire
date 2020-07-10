@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import robTheSpire.DefaultMod;
 
-public class EscapeCountdownPower extends AbstractPower {
+public class EscapeCountdownPower extends AbstractPower {//TODO: FIX BUG where game crashes in ditto match where the opposing thief escapes on the turn when we should escape
     public static final String POWER_ID = DefaultMod.makeID("EscapeCountdownPower");
     private static final PowerStrings powerStrings;
     public static final String NAME;

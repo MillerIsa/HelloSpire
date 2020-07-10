@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower
 import robTheSpire.vfx.LosePennyEffect
 
 
-abstract class AbstractGoldConversionPower(theOwner: AbstractCreature, stackAmount: Int, protected val conversionRate: Int, private val regionName: String) : AbstractPower() {
+abstract class AbstractGoldConversionPower(theOwner: AbstractCreature, stackAmount: Int, protected val conversionRate: Int, private val regionName: String) : AbstractCustomPower(theOwner) {
 
     private fun loseGold(goldLoss: Int) {
         loseGold(AbstractDungeon.player, owner, goldLoss)
@@ -33,7 +33,6 @@ abstract class AbstractGoldConversionPower(theOwner: AbstractCreature, stackAmou
 
     init {
         type = PowerType.BUFF
-        this.owner = theOwner
         amount = stackAmount
         updateDescription()
         loadRegion(regionName)
