@@ -16,7 +16,7 @@ import static robTheSpire.DefaultMod.makeCardPath;
 public class StrikeGold extends AbstractDefaultCard {
     public static final String ID = DefaultMod.makeID(StrikeGold.class.getSimpleName());
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String IMG = makeCardPath("Thief.png");
+    public static final String IMG = makeCardPath("StrikeGold.png");
 
     // STAT DECLARATION (These values are used to initialize the fields in the parent class AbstractCard)
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
