@@ -10,7 +10,7 @@ import robTheSpire.actions.FlatGoldAction
 import robTheSpire.characters.TheDefault
 
 
-class FlatSteal : AbstractCard(ID, cardStrings.NAME, "red/attack/pummel", 1, cardStrings.DESCRIPTION, CardType.ATTACK, TheDefault.Enums.COLOR_GRAY, CardRarity.COMMON, CardTarget.ENEMY) {
+class FlatSteal : AbstractDynamicCard(ID,DefaultMod.makeCardPath("Pummel.png"), 1, CardType.ATTACK, TheDefault.Enums.COLOR_GRAY, CardRarity.COMMON, CardTarget.ENEMY) {
     override fun use(p: AbstractPlayer, m: AbstractMonster) {
        addToBot(FlatGoldAction(m, magicNumber))
     }
