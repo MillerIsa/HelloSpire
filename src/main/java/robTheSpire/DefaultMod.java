@@ -111,9 +111,9 @@ public class DefaultMod implements
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
 
     // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_attack_default_gray.png";
+    private static final String ATTACK_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_dark_attack_gold.png";
     private static final String SKILL_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_power_default_gray.png";
+    private static final String POWER_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_power_gold_light.png";
     
     private static final String ENERGY_ORB_DEFAULT_GRAY = "robTheSpireResources/images/512/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "robTheSpireResources/images/512/card_small_orb.png";
