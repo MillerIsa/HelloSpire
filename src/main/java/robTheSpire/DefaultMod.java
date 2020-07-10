@@ -43,6 +43,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Properties;
 
@@ -559,7 +560,8 @@ public class DefaultMod implements
         
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword(/*getModID().toLowerCase()*/"", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                System.out.println("Keywords are" + Arrays.toString(keyword.NAMES));
                 //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
             }
         }

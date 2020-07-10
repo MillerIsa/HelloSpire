@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import robTheSpire.cards.defaultExampleCards.DefaultUncommonPower;
 import robTheSpire.cards.defaultExampleCards.*;
 
 import java.util.ArrayList;

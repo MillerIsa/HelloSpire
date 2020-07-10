@@ -96,8 +96,8 @@
   },
   "robTheSpire:LuckPowerCard": {
     "NAME" : "[#FFF77A]Lucky[] Charm",
-    "DESCRIPTION" : "Gain !M! [#FFF77A]luck[].",
-    "UPGRADE_DESCRIPTION" : "Gain !M! [#FFF77A]luck[]."
+    "DESCRIPTION" : "Gain !M! Luck.",
+    "UPGRADE_DESCRIPTION" : "Gain !M! Luck."
   },
   "robTheSpire:FlatSteal": {
     "NAME" : "Normal Steal",
