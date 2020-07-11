@@ -35,8 +35,8 @@ class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(o
         var NAME: String = powerStrings.NAME
         val DESCRIPTIONS: Array<String> = powerStrings.DESCRIPTIONS
 
-        private val tex128 = TextureLoader.getTexture(DefaultMod.makePowerPath("Glowing_Goldicize_128.png"))
-        private val tex48 = TextureLoader.getTexture(DefaultMod.makePowerPath("Glowing_Goldicize_48.png"))
+        private val tex128 = TextureLoader.getTexture(DefaultMod.makePowerPath("Gold_Heart_128.png"))
+        private val tex48 = TextureLoader.getTexture(DefaultMod.makePowerPath("Gold_Heart_48.png"))
     }
 
 
