@@ -12,7 +12,6 @@ import robTheSpire.DefaultMod
 import robTheSpire.DefaultMod.logger
 import robTheSpire.powers.EscapeCountdownPower
 import robTheSpire.util.TextureLoader
-import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.math.pow
 
