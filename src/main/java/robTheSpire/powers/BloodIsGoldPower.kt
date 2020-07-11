@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings
 import robTheSpire.DefaultMod
 import robTheSpire.util.TextureLoader
 
-class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(owner!!, 1, 2, "Goldicize") {
+class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(owner!!, 1, CONVERSION_RATE, "Goldicize") {
 
     init {
         name = NAME
@@ -21,7 +21,7 @@ class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(o
 
     override fun updateDescription() {
         val desc = powerStrings.DESCRIPTIONS
-        description = "TODO"
+        description = desc[0] + CONVERSION_RATE + desc[1]
     }
 
     //Lose gold instead of HP according to conversion rate.
@@ -34,6 +34,7 @@ class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(o
         private var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String = powerStrings.NAME
         val DESCRIPTIONS: Array<String> = powerStrings.DESCRIPTIONS
+        private const val CONVERSION_RATE = 2;
 
         private val tex128 = TextureLoader.getTexture(DefaultMod.makePowerPath("Gold_Heart_128.png"))
         private val tex48 = TextureLoader.getTexture(DefaultMod.makePowerPath("Gold_Heart_48.png"))

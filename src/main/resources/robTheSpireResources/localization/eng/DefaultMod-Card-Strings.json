@@ -57,7 +57,7 @@
   "robTheSpire:StealACard": {
     "NAME": "Steal Card",
     "DESCRIPTION": "Choose 1 of 3 random Thief cards to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Thief cards to add to your deck."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random Thief cards to add to your deck. NL Exhaust."
   },
   "robTheSpire:Chris": {
     "NAME" : "Chris",
@@ -67,17 +67,17 @@
   "robTheSpire:StealASkill": {
     "NAME": "Steal Skill",
     "DESCRIPTION": "Choose 1 of 3 random skills to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random skills to add to your deck."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random skills to add to your deck. NL Exhaust."
   },
   "robTheSpire:StealAnAttack": {
     "NAME": "Steal Attack",
     "DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random attacks to add to your deck. NL Exhaust."
   },
   "robTheSpire:StealAPower": {
     "NAME": "Steal Power",
     "DESCRIPTION": "Choose 1 of 3 random powers to add to your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck."
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck. NL Exhaust."
   },
   "robTheSpire:BloodIsGoldPowerCard": {
     "NAME" : "[#FF0000]Blood[] is [#FFF77A]Gold[]",
