@@ -27,8 +27,8 @@ public class SmokeBombRelic extends CustomRelic implements ClickableRelic { // Y
     // ID, images, text.
     public static final String ID = DefaultMod.makeID(SmokeBombRelic.class.getSimpleName());
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("Smoke_Bomb_Relic.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("Smoke_Bomb_Relic.png"));
 
     public static final int TURNS_TO_ESCAPE = 2;
 
