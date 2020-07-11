@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.rooms.AbstractRoom
 import robTheSpire.DefaultMod
-import robTheSpire.DefaultMod.logger
+import robTheSpire.DefaultMod.Companion.logger
 import robTheSpire.powers.EscapeCountdownPower
 import robTheSpire.util.TextureLoader
 import kotlin.math.floor
