@@ -35,8 +35,12 @@
     "NAME" : "Smoke Bomb Pouch",
     "FLAVOR": "Escaping is the key to victory.",
     "DESCRIPTIONS":[
-      "Usable once per combat. NL Escape from combat in #b",
-      " turns. NL Not usable when surrounded or facing bosses."
+      "Escape from combat in #b",
+      " turns.",
+      " NL You have escaped #b",
+      " times.",
+      " NL The time it takes to escape increases wih use.",
+      " NL Not usable when surrounded or facing bosses."
     ]
   }
 }

@@ -3,6 +3,7 @@ package robTheSpire.relics
 import basemod.abstracts.CustomRelic
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
+import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.helpers.PowerTip
 import com.megacrit.cardcrawl.monsters.AbstractMonster
@@ -10,9 +11,13 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom
 import robTheSpire.DefaultMod
 import robTheSpire.powers.EscapeCountdownPower
 import robTheSpire.util.TextureLoader
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.pow
 
 class SmokeBombRelic: CustomRelic(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK), ClickableRelic {
-    private var usedThisCombat = false // Check out Hubris for more examples, including other StSlib things.
+    private var usedThisCombat: Boolean = false // Check out Hubris for more examples, including other StSlib things.
+    private var numTimesUsed: Int = 0
     override fun onRightClick() { // On right click
         if (!isObtained || !canEscape()) { // If it has been used this combat, or the player doesn't actually have the relic (i.e. it's on display in the shop room)
             return  // Don't do anything.
@@ -27,7 +32,13 @@ class SmokeBombRelic: CustomRelic(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSou
 
     private fun prepareEscape() {
         val p = AbstractDungeon.player
-        addToBot(ApplyPowerAction(p, p, EscapeCountdownPower(p, TURNS_TO_ESCAPE), 1))
+        addToBot(ApplyPowerAction(p, p, EscapeCountdownPower(p, turnsToEscape()), 1))
+        numTimesUsed++
+        updateDescription(p.chosenClass)
+    }
+
+    private fun turnsToEscape(): Int{
+        return floor(BASE_TURNS_TO_ESCAPE * 1.11.pow(numTimesUsed.toDouble())).toInt()
     }
 
     private fun canEscape(): Boolean {
@@ -73,7 +84,14 @@ class SmokeBombRelic: CustomRelic(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSou
 
     // Description
     override fun getUpdatedDescription(): String {
-        return DESCRIPTIONS[0] + TURNS_TO_ESCAPE + DESCRIPTIONS[1]
+        return DESCRIPTIONS[0] + turnsToEscape() + DESCRIPTIONS[1] + DESCRIPTIONS[2] + numTimesUsed  + DESCRIPTIONS[3] + DESCRIPTIONS[4] + DESCRIPTIONS[5]
+    }
+
+    override fun updateDescription(c: AbstractPlayer.PlayerClass) {
+        description = this.updatedDescription
+        tips.clear()
+        tips.add(PowerTip(name, description))
+        initializeTips()
     }
 
     companion object {
@@ -86,7 +104,7 @@ class SmokeBombRelic: CustomRelic(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSou
         @JvmField val ID: String = DefaultMod.makeID(SmokeBombRelic::class.java.simpleName)
         private val IMG = TextureLoader.getTexture(DefaultMod.makeRelicPath("Smoke_Bomb_Relic.png"))
         private val OUTLINE = TextureLoader.getTexture(DefaultMod.makeRelicOutlinePath("Smoke_Bomb_Relic.png"))
-        const val TURNS_TO_ESCAPE = 2
+        const val BASE_TURNS_TO_ESCAPE = 2
     }
 
     init {
