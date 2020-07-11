@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import robTheSpire.DefaultMod;
 import robTheSpire.characters.TheDefault;
 import robTheSpire.powers.BloodIsGoldPower;
-import robTheSpire.powers.CommonPower;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 

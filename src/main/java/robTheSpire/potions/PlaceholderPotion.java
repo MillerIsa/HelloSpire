@@ -10,11 +10,12 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import robTheSpire.DefaultMod;
 
 public class PlaceholderPotion extends AbstractPotion {
 
 
-    public static final String POTION_ID = robTheSpire.DefaultMod.makeID("PlaceholderPotion");
+    public static final String POTION_ID = DefaultMod.makeID("PlaceholderPotion");
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     
     public static final String NAME = potionStrings.NAME;

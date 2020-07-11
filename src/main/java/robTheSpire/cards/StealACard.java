@@ -1,26 +1,15 @@
 package robTheSpire.cards;
 
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.random.Random;
 import robTheSpire.DefaultMod;
 import robTheSpire.actions.StealCardAction;
 
 import robTheSpire.characters.TheDefault;
-import sun.security.jca.GetInstance;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import static robTheSpire.DefaultMod.makeCardPath;
 
