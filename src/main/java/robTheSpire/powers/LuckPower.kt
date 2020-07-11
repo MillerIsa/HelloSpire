@@ -24,7 +24,7 @@ class LuckPower(theOwner: AbstractCreature, theAmount: Int) : AbstractPower() {
 
 
     override fun updateDescription() {
-        description = "TODO" //TODO: update this description
+        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]
     }
 
     companion object {

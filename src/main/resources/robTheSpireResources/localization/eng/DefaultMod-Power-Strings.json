@@ -50,7 +50,8 @@
   "robTheSpire:LuckPower": {
     "NAME" : "Luck",
     "DESCRIPTIONS" : [
-      "Steal one extra gold for each stack of luck."
+      "Steal #y",
+      " extra gold each time you steal gold."
     ]
   }
 }
