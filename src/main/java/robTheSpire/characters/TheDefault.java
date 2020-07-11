@@ -19,11 +19,11 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import robTheSpire.cards.defaultExampleCards.DefaultCommonAttack;
-import robTheSpire.relics.SmokeBombRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import robTheSpire.DefaultMod;
 import robTheSpire.cards.*;
+import robTheSpire.relics.SmokeBombRelic;
 
 import java.util.ArrayList;
 

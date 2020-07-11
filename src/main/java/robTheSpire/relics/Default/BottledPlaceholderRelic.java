@@ -1,4 +1,4 @@
-package robTheSpire.relics;
+package robTheSpire.relics.Default;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomBottleRelic;

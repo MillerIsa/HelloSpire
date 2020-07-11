@@ -1,4 +1,4 @@
-package robTheSpire.relics;
+package robTheSpire.relics.Default;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
