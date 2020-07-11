@@ -26,7 +26,7 @@ class BloodIsGoldPower(owner: AbstractCreature?) : AbstractGoldConversionPower(o
 
     //Lose gold instead of HP according to conversion rate.
     override fun onLoseHp(damageAmount: Int): Int {
-        return convertGoldToResource(damageAmount)
+        return damageAmount - convertGoldToResource(damageAmount)
     }
 
     companion object {
