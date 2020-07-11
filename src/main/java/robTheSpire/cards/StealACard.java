@@ -18,7 +18,7 @@ public class StealACard extends AbstractDefaultCard {
     private static final CardStrings cardStrings;
 
     public StealACard() {
-        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 2, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF);
+        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 2, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.getCOLOR_GRAY(), CardRarity.BASIC, CardTarget.SELF);
         this.exhaust = true;
     }
 

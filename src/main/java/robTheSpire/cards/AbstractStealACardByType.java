@@ -19,7 +19,7 @@ public abstract class AbstractStealACardByType extends AbstractDefaultCard {
     }
 
     public AbstractStealACardByType(CardType type, String ID, CardStrings cardStrings, CardRarity rarity) {
-        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 2, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.COLOR_GRAY, rarity, CardTarget.SELF);
+        super(ID, cardStrings.NAME, makeCardPath("StealACard.png"), 2, cardStrings.DESCRIPTION, CardType.SKILL, TheDefault.Enums.getCOLOR_GRAY(), rarity, CardTarget.SELF);
         //ExhaustiveVariable.setBaseValue(this,2);
         //this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;

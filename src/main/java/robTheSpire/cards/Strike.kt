@@ -26,7 +26,7 @@ class Strike : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
         private val RARITY = CardRarity.BASIC
         private val TARGET = CardTarget.ENEMY
         private val TYPE = CardType.ATTACK
-        val COLOR: CardColor = TheDefault.Enums.COLOR_GRAY
+        val COLOR: CardColor? = TheDefault.Enums.COLOR_GRAY
         private const val COST = 1
         private const val UPGRADED_COST = COST
         private const val DAMAGE = 3
