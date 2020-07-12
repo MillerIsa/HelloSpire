@@ -146,7 +146,7 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
     //TODO: add prohibited cards
     private static Set<String> getProhibitedCardIDs() {
         Set<String> prohibitedIDs = new HashSet<>();
-        prohibitedIDs.add(DefaultAttackWithVariable.ID);
+        /*prohibitedIDs.add(DefaultAttackWithVariable.ID);
         prohibitedIDs.add(DefaultCommonAttack.ID);
         prohibitedIDs.add(DefaultCommonPower.ID);
         prohibitedIDs.add(DefaultCommonSkill.ID);
@@ -157,7 +157,7 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
         prohibitedIDs.add(DefaultUncommonAttack.ID);
         prohibitedIDs.add(DefaultUncommonPower.ID);
         prohibitedIDs.add(OrbSkill.ID);
-        prohibitedIDs.add(DefaultSecondMagicNumberSkill.ID);
+        prohibitedIDs.add(DefaultSecondMagicNumberSkill.ID); */
         System.out.println("Prohibited Cards " + prohibitedIDs.toString());
         return prohibitedIDs;
     }

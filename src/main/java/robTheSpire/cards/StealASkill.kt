@@ -1,26 +1,21 @@
-package robTheSpire.cards;
+package robTheSpire.cards
 
+import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.localization.CardStrings
+import robTheSpire.DefaultMod.Companion.makeID
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import robTheSpire.DefaultMod;
+class StealASkill : AbstractStealACardByType(CardType.SKILL, ID, cardStrings!!, CardRarity.UNCOMMON) {
+    companion object {
+        val ID = makeID(StealASkill::class.java.simpleName)
+        private var cardStrings: CardStrings? = null
 
-public class StealASkill extends AbstractStealACardByType {
-    public static final String ID = DefaultMod.makeID(StealASkill.class.getSimpleName());
-    private static final CardStrings cardStrings;
-
-    public StealASkill() {
-        super(CardType.SKILL, ID, cardStrings,CardRarity.UNCOMMON);
+        init {
+            cardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
+        }
     }
 
-    static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+    override fun makeCopy(): AbstractCard {
+        return StealASkill()
     }
-
-    @Override
-    public AbstractCard makeCopy(){
-        return new StealASkill();
-    }
-
 }

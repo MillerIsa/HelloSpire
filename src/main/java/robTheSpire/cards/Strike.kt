@@ -36,7 +36,7 @@ class Strike : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
     }
 
     // Actions the card should do.
-    override fun use(p: AbstractPlayer, m: AbstractMonster) {
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         AbstractDungeon.actionManager.addToBottom(
                 DamageAction(m, DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL))
         AbstractDungeon.actionManager.addToBottom(

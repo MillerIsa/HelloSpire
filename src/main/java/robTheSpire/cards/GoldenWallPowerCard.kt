@@ -1,55 +1,44 @@
-package robTheSpire.cards;
+package robTheSpire.cards
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import robTheSpire.DefaultMod;
-import robTheSpire.characters.TheDefault;
-import robTheSpire.powers.GoldenWallPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
+import com.megacrit.cardcrawl.characters.AbstractPlayer
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.monsters.AbstractMonster
+import robTheSpire.DefaultMod.Companion.makeCardPath
+import robTheSpire.DefaultMod.Companion.makeID
+import robTheSpire.characters.TheDefault.Enums.COLOR_GRAY
+import robTheSpire.powers.GoldenWallPower
 
-import static robTheSpire.DefaultMod.makeCardPath;
+class GoldenWallPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
+    // Actions the card should do.
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
+        AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(p, p, GoldenWallPower(p, ARMOR), ARMOR))
+    }
 
-public class GoldenWallPowerCard extends AbstractDynamicCard{
-
-        public static final String ID = DefaultMod.makeID(GoldenWallPowerCard.class.getSimpleName());
-        public static final String IMG = makeCardPath("Power.png");
-
-
-        private static final CardRarity RARITY = CardRarity.UNCOMMON;
-        private static final CardTarget TARGET = CardTarget.SELF;
-        private static final CardType TYPE = CardType.POWER;
-        public static final CardColor COLOR = TheDefault.Enums.getCOLOR_GRAY();
-
-        private static final int COST = 1;
-        private static final int UPGRADED_COST = 0;
-
-        private static final int DAMAGE = 0;
-        private static final int UPGRADE_PLUS_DMG = 0;
-
-        private static final int ARMOR = 5;
-
-
-        public GoldenWallPowerCard() {
-            super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-            baseDamage = DAMAGE;
+    // Upgraded stats.
+    override fun upgrade() {
+        if (!upgraded) {
+            upgradeName()
+            upgradeBaseCost(UPGRADED_COST)
+            initializeDescription()
         }
+    }
 
+    companion object {
+        val ID = makeID(GoldenWallPowerCard::class.java.simpleName)
+        val IMG = makeCardPath("Power.png")
+        private val RARITY = CardRarity.UNCOMMON
+        private val TARGET = CardTarget.SELF
+        private val TYPE = CardType.POWER
+        val COLOR = COLOR_GRAY
+        private const val COST = 1
+        private const val UPGRADED_COST = 0
+        private const val DAMAGE = 0
+        private const val UPGRADE_PLUS_DMG = 0
+        private const val ARMOR = 5
+    }
 
-        // Actions the card should do.
-        @Override
-        public void use(AbstractPlayer p, AbstractMonster m) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new GoldenWallPower(p, ARMOR), ARMOR));
-        }
-
-
-        // Upgraded stats.
-        @Override
-        public void upgrade() {
-            if (!upgraded) {
-                upgradeName();
-                upgradeBaseCost(UPGRADED_COST);
-                initializeDescription();
-            }
-        }
+    init {
+        baseDamage = DAMAGE
+    }
 }

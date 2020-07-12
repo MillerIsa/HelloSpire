@@ -80,7 +80,7 @@ class TheDefault(name: String?, setClass: PlayerClass?) : CustomPlayer(name, set
 
 //        retVal.add(StrikeGold.ID);
         retVal.add(StealACard.ID)
-        retVal.add(MultiStealAttack.ID)
+       // retVal.add(MultiStealAttack.ID)
         //        retVal.add(Chris.ID);
 //        retVal.add(StealASkill.ID);
 //        retVal.add(StealAnAttack.ID);

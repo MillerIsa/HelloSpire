@@ -1,70 +1,23 @@
-package robTheSpire.cards.defaultExampleCards;
+package robTheSpire.cards.defaultExampleCards
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import robTheSpire.CardIgnore;
-import robTheSpire.DefaultMod;
-import robTheSpire.cards.AbstractDynamicCard;
-import robTheSpire.characters.TheDefault;
-import robTheSpire.powers.CommonPower;
-
-import static robTheSpire.DefaultMod.makeCardPath;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
+import com.megacrit.cardcrawl.characters.AbstractPlayer
+import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.monsters.AbstractMonster
+import robTheSpire.CardIgnore
+import robTheSpire.DefaultMod.Companion.makeCardPath
+import robTheSpire.DefaultMod.Companion.makeID
+import robTheSpire.cards.AbstractDynamicCard
+import robTheSpire.characters.TheDefault.Enums.COLOR_GRAY
+import robTheSpire.powers.CommonPower
 
 @CardIgnore
-public class DefaultCommonPower extends AbstractDynamicCard {
-
-    /*
-     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
-     *
-     * Hold Place Gain 1(2) Keywords(s).
-     */
-
-
-    // TEXT DECLARATION 
-
-    public static final String ID = DefaultMod.makeID(DefaultCommonPower.class.getSimpleName());
-    public static final String IMG = makeCardPath("Power.png");
-
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-
-    // /TEXT DECLARATION/
-
-
-    // STAT DECLARATION 	
-
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = TheDefault.Enums.getCOLOR_GRAY();
-
-    private static final int COST = 1;
-    private static final int MAGIC = 1;
-    private static final int UPGRADE_MAGIC = 1;
-
-    // Hey want a second magic/damage/block/unique number??? Great!
-    // Go check out DefaultAttackWithVariable and theDefault.variable.DefaultCustomVariable
-    // that's how you get your own custom variable that you can use for anything you like.
-    // Feel free to explore other mods to see what variables they personally have and create your own ones.
-
-    // /STAT DECLARATION/
-
-
-    public DefaultCommonPower() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC;
-    }
-
-
+class DefaultCommonPower : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
     // Actions the card should do.
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,
-                new CommonPower(p, p, magicNumber), magicNumber));
+    override fun use(p: AbstractPlayer, m: AbstractMonster?) {
+        AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(p, p,
+                CommonPower(p, p, magicNumber), magicNumber))
         /*
         Hey do you see this "amount" and "stackAmount" up here^ (press ctrl+p inside the parentheses to see parameters)
         THIS DOES NOT MEAN APPLY 1 POWER 1 TIMES. If you put 2 in both numbers it would apply 2. NOT "2 STACKS, 2 TIMES".
@@ -79,13 +32,45 @@ public class DefaultCommonPower extends AbstractDynamicCard {
     }
 
     //Upgraded stats.
-    @Override
-    public void upgrade() {
+    override fun upgrade() {
         if (!upgraded) {
-            upgradeName();
-            upgradeMagicNumber(UPGRADE_MAGIC);
-            rawDescription = UPGRADE_DESCRIPTION;
-            initializeDescription();
+            upgradeName()
+            upgradeMagicNumber(UPGRADE_MAGIC)
+            rawDescription = UPGRADE_DESCRIPTION
+            initializeDescription()
         }
+    }
+
+    companion object {
+        /*
+     * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
+     *
+     * Hold Place Gain 1(2) Keywords(s).
+     */
+        // TEXT DECLARATION 
+        val ID = makeID(DefaultCommonPower::class.java.simpleName)
+        val IMG = makeCardPath("Power.png")
+        private val cardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
+        val UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION
+
+        // /TEXT DECLARATION/
+        // STAT DECLARATION 	
+        private val RARITY = CardRarity.COMMON
+        private val TARGET = CardTarget.SELF
+        private val TYPE = CardType.POWER
+        val COLOR = COLOR_GRAY
+        private const val COST = 1
+        private const val MAGIC = 1
+        private const val UPGRADE_MAGIC = 1
+    }
+
+    // Hey want a second magic/damage/block/unique number??? Great!
+    // Go check out DefaultAttackWithVariable and theDefault.variable.DefaultCustomVariable
+    // that's how you get your own custom variable that you can use for anything you like.
+    // Feel free to explore other mods to see what variables they personally have and create your own ones.
+    // /STAT DECLARATION/
+    init {
+        baseMagicNumber = MAGIC
+        magicNumber = baseMagicNumber
     }
 }
