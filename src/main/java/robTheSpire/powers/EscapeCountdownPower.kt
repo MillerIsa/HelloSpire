@@ -1,80 +1,74 @@
-package robTheSpire.powers;
+package robTheSpire.powers
 
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
-import robTheSpire.DefaultMod;
+import com.megacrit.cardcrawl.actions.animations.VFXAction
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction
+import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction
+import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.localization.PowerStrings
+import com.megacrit.cardcrawl.powers.AbstractPower
+import com.megacrit.cardcrawl.rooms.AbstractRoom
+import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect
+import robTheSpire.DefaultMod.Companion.makeID
 
-public class EscapeCountdownPower extends AbstractPower {//TODO: FIX BUG where game crashes in ditto match where the opposing thief escapes before our character
-    public static final String POWER_ID = DefaultMod.makeID("EscapeCountdownPower");
-    private static final PowerStrings powerStrings;
-    public static final String NAME;
-    public static final String[] DESCRIPTIONS;
-
-    public EscapeCountdownPower(AbstractCreature owner, int turns) {
-        this.name = NAME;
-        this.ID = POWER_ID;
-        this.owner = owner;
-        this.amount = turns;
-        this.updateDescription();
-        this.loadRegion("fading");
-    }
-
-    public void updateDescription() {
-        if (this.amount == 1) {
-            this.description = DESCRIPTIONS[2];
+class EscapeCountdownPower(owner: AbstractCreature?, turns: Int) : AbstractPower() {
+    override fun updateDescription() {
+        if (amount == 1) {
+            description = DESCRIPTIONS[2]
         } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1]
         }
-
     }
 
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (this.amount == 1 && !this.owner.isDying) {
-            if(isPlayer){
-                escape();
-            } else{
-                throw new IllegalArgumentException("Escape Countdown buff can only be applied to a player.");
+    override fun atEndOfTurn(isPlayer: Boolean) {
+        if (amount == 1 && !owner.isDying) {
+            if (isPlayer) {
+                escape()
+            } else {
+                throw IllegalArgumentException("Escape Countdown buff can only be applied to a player.")
             }
         } else {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, POWER_ID, 1));
-            this.updateDescription();
+            addToBot(ReducePowerAction(owner, owner, POWER_ID, 1))
+            updateDescription()
         }
-
     }
 
-    private void escape() {
-        AbstractCreature target = AbstractDungeon.player;
+    private fun escape() {
+        val target: AbstractCreature = AbstractDungeon.player
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.addToBot(new SkipEnemiesTurnAction());//Skips enemy's turn, otherwise enemies can attack while you are escaping
-            AbstractDungeon.getCurrRoom().smoked = true;
-            this.addToBot(new VFXAction(new SmokeBombEffect(target.hb.cX, target.hb.cY)));
-            AbstractDungeon.player.hideHealthBar();
-            AbstractDungeon.player.isEscaping = true;
-            AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
-            AbstractDungeon.overlayMenu.endTurnButton.disable();
-            AbstractDungeon.player.escapeTimer = 2.5F;
+            addToBot(SkipEnemiesTurnAction()) //Skips enemy's turn, otherwise enemies can attack while you are escaping
+            AbstractDungeon.getCurrRoom().smoked = true
+            addToBot(VFXAction(SmokeBombEffect(target.hb.cX, target.hb.cY)))
+            AbstractDungeon.player.hideHealthBar()
+            AbstractDungeon.player.isEscaping = true
+            AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal
+            AbstractDungeon.overlayMenu.endTurnButton.disable()
+            AbstractDungeon.player.escapeTimer = 2.5f
         }
-
     }
 
-    public static boolean isEscapingThisTurn(){
-        return AbstractDungeon.player.hasPower(POWER_ID) && AbstractDungeon.player.getPower(POWER_ID).amount == 1;
+    companion object {
+        //TODO: FIX BUG where game crashes in ditto match where the opposing thief escapes before our character
+        val POWER_ID = makeID("EscapeCountdownPower")
+        private var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
+        var NAME: String? = null
+        val DESCRIPTIONS: Array<String>
+        val isEscapingThisTurn: Boolean
+            get() = AbstractDungeon.player.hasPower(POWER_ID) && AbstractDungeon.player.getPower(POWER_ID).amount == 1
+
+        init {
+            NAME = powerStrings.NAME
+            DESCRIPTIONS = powerStrings.DESCRIPTIONS
+        }
     }
 
-
-
-    static {
-        powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-        NAME = powerStrings.NAME;
-        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    init {
+        name = NAME
+        ID = POWER_ID
+        this.owner = owner
+        amount = turns
+        updateDescription()
+        loadRegion("fading")
     }
 }

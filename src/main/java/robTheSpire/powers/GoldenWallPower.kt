@@ -30,7 +30,7 @@ class GoldenWallPower(theOwner: AbstractCreature, armorAmt: Int) : AbstractGoldC
     }
 
     override fun atEndOfTurnPreEndTurnCards(isPlayer: Boolean) {
-        if(!EscapeCountdownPower.isEscapingThisTurn()) {
+        if(!EscapeCountdownPower.isEscapingThisTurn) {
             val blockToGain: Int = convertGoldToResource(amount)
             if (blockToGain > 0) {
                 flash()
