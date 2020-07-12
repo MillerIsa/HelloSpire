@@ -1,11 +1,8 @@
-package robTheSpire;
+package robTheSpire
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.Retention
+import java.lang.annotation.RetentionPolicy
 
-@Target({ElementType.TYPE})
+@Target(AnnotationTarget.ANNOTATION_CLASS, AnnotationTarget.CLASS)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CardIgnore {
-}
+annotation class CardIgnore 
