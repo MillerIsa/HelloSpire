@@ -1,17 +1,6 @@
-package robTheSpire.actions;
+package robTheSpire.actions
 
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-
-
-import java.util.function.Consumer;
-
-public class DealDamage
-{/*
+class DealDamage { /*
     protected final DamageInfo info;
 
     protected Consumer<AbstractCreature> onDamageEffect;

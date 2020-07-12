@@ -1,151 +1,120 @@
-package robTheSpire.actions;
+package robTheSpire.actions
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType
+import com.megacrit.cardcrawl.cards.CardGroup
+import com.megacrit.cardcrawl.core.Settings
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.helpers.CardLibrary
+import com.megacrit.cardcrawl.random.Random
+import com.megacrit.cardcrawl.screens.CardRewardScreen
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect
+import java.util.*
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.screens.CardRewardScreen;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import robTheSpire.cards.defaultExampleCards.DefaultUncommonPower;
-import robTheSpire.cards.defaultExampleCards.*;
+abstract class AbstractCardStealingAction(type: CardType?, filter: (AbstractCard, Set<String?>?) -> Boolean) : AbstractGameAction() {
+    private var retrieveCard = false
+    private val anyCard: CardGroup
+    private val type: CardType?
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-
-
-public abstract class AbstractCardStealingAction extends AbstractGameAction {
-    private boolean retrieveCard = false;
-    private final CardGroup anyCard;
-    private final AbstractCard.CardType type;
-
-
-    protected interface CardFilter {
-        boolean cardIsAllowed(AbstractCard c, Set<String> prohibited);
+    public interface CardFilterInterface {
+        fun cardIsAllowed(c: AbstractCard, prohibited: Set<String?>?): Boolean
     }
 
-    /**
-     * @param  filter This filter should specify which types of cards can be stolen.
-     */
-    public AbstractCardStealingAction(AbstractCard.CardType type, CardFilter filter) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.type = type;
-        this.amount = 1;
-        anyCard = getCardGroup(getProhibitedCardIDs(), filter);
-    }
-
-
-    public void update() {
-        ArrayList<AbstractCard> generatedCards = this.generateCardChoices();
-        if (this.duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1], true);
+    override fun update() {
+        val generatedCards = generateCardChoices()
+        if (duration == Settings.ACTION_DUR_FAST) {
+            AbstractDungeon.cardRewardScreen.customCombatOpen(generatedCards, CardRewardScreen.TEXT[1], true)
         } else {
-            if (!this.retrieveCard) {
+            if (!retrieveCard) {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
-                    AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
+                    val disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy()
                     if (AbstractDungeon.player.hasPower("MasterRealityPower")) {
-                        disCard.upgrade();
+                        disCard.upgrade()
                     }
-
-                    disCard.current_x = -1000.0F * Settings.scale;
-                    if (this.amount == 1) {
-                        AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(disCard, Settings.WIDTH * 3.0f / 4.0f, Settings.HEIGHT / 2.0f));
-                        System.out.println("Added card " + disCard + " and displayed deck-add effect.");
+                    disCard.current_x = -1000.0f * Settings.scale
+                    if (amount == 1) {
+                        AbstractDungeon.effectList.add(ShowCardAndObtainEffect(disCard, Settings.WIDTH * 3.0f / 4.0f, Settings.HEIGHT / 2.0f))
+                        println("Added card $disCard and displayed deck-add effect.")
                     } else {
-                        throw new IllegalStateException("Tried to steal more than one card. This is invalid because it is only possible to steal one card.");
+                        throw IllegalStateException("Tried to steal more than one card. This is invalid because it is only possible to steal one card.")
                     }
-
-                    AbstractDungeon.cardRewardScreen.discoveryCard = null;
+                    AbstractDungeon.cardRewardScreen.discoveryCard = null
                 }
-
-                this.retrieveCard = true;
+                retrieveCard = true
             }
-
         }
-        this.tickDuration();
+        tickDuration()
     }
 
-    private ArrayList<AbstractCard> generateCardChoices() {
-        ArrayList<AbstractCard> derp = new ArrayList<>();
-
-        while (derp.size() != 3) {
-            boolean dupe = false;
-            AbstractCard tmp;
-            AbstractCard.CardRarity rarity = rollRarity();
-            tmp = this.getAnyColorCard(rarity);
-            System.out.println("Picked Rarity: " + rarity);
-            System.out.println("Temp card picked " + tmp);
-
-            for (AbstractCard c : derp) {
-                if (c.cardID.equals(tmp.cardID)) {
-                    dupe = true;
-                    break;
+    private fun generateCardChoices(): ArrayList<AbstractCard> {
+        val derp = ArrayList<AbstractCard>()
+        while (derp.size != 3) {
+            var dupe = false
+            var tmp: AbstractCard
+            val rarity = rollRarity()
+            tmp = getAnyColorCard(rarity)
+            println("Picked Rarity: $rarity")
+            println("Temp card picked $tmp")
+            for (c in derp) {
+                if (c.cardID == tmp.cardID) {
+                    dupe = true
+                    break
                 }
             }
-
             if (!dupe) {
-                derp.add(tmp.makeCopy());
+                derp.add(tmp.makeCopy())
             }
         }
-        for (AbstractCard c : derp) {
-            System.out.println(c.cardID);
+        for (c in derp) {
+            println(c.cardID)
         }
-        return derp;
+        return derp
     }
 
-    protected AbstractCard.CardRarity rollRarity() {
-        return rollRarity(AbstractDungeon.cardRng);
+    protected fun rollRarity(): CardRarity {
+        return rollRarity(AbstractDungeon.cardRng)
     }
 
-
-    protected AbstractCard.CardRarity rollRarity(Random rng) {
-        int roll = AbstractDungeon.cardRng.random(99);
-        roll += AbstractDungeon.cardBlizzRandomizer;
-        return AbstractDungeon.currMapNode == null ? getCardRarityFallback(roll) : AbstractDungeon.getCurrRoom().getCardRarity(roll);
+    protected open fun rollRarity(rng: Random?): CardRarity {
+        var roll = AbstractDungeon.cardRng.random(99)
+        roll += AbstractDungeon.cardBlizzRandomizer
+        return if (AbstractDungeon.currMapNode == null) getCardRarityFallback(roll) else AbstractDungeon.getCurrRoom().getCardRarity(roll)
     }
 
-    protected AbstractCard.CardRarity getCardRarityFallback(int roll) {
-        System.out.println("WARNING: Current map node was NULL while rolling rarities. Using fallback card rarity method.");
-        int rareRate = 3;
-        if (roll < rareRate) {
-            return AbstractCard.CardRarity.RARE;
+    protected open fun getCardRarityFallback(roll: Int): CardRarity {
+        println("WARNING: Current map node was NULL while rolling rarities. Using fallback card rarity method.")
+        val rareRate = 3
+        return if (roll < rareRate) {
+            CardRarity.RARE
         } else {
-            return roll < 40 ? AbstractCard.CardRarity.UNCOMMON : AbstractCard.CardRarity.COMMON;
+            if (roll < 40) CardRarity.UNCOMMON else CardRarity.COMMON
         }
     }
 
-    private CardGroup getCardGroup(Set<String> prohibited, CardFilter filter) {
-        CardGroup temp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (final Map.Entry<String, AbstractCard> cardEntry : CardLibrary.cards.entrySet()) {
-            AbstractCard c = cardEntry.getValue();
-            if (filter.cardIsAllowed(c, prohibited) && (this.type == null || c.type == this.type)) {
-                temp.addToBottom(c);
+    private fun getCardGroup(prohibited: Set<String?>, filter:  (AbstractCard, Set<String?>?) -> Boolean): CardGroup {
+        val temp = CardGroup(CardGroup.CardGroupType.UNSPECIFIED)
+        for ((_, c) in CardLibrary.cards) {
+            if (filter(c, prohibited) && (type == null || c.type == type)) {
+                temp.addToBottom(c)
             }
         }
-        System.out.println("Steal-able Thief Cards: " + temp.getCardNames().toString());
-        return temp;
+        println("Steal-able Thief Cards: " + temp.cardNames.toString())
+        return temp
     }
-
 
     //Returns a card based on the rarity roll passed to this method
-    protected AbstractCard getAnyColorCard(AbstractCard.CardRarity rarity) {
-        anyCard.shuffle(AbstractDungeon.cardRng);
-        if(this.type == AbstractCard.CardType.POWER && rarity == AbstractCard.CardRarity.COMMON){
-            rarity = AbstractCard.CardRarity.UNCOMMON;
+    protected fun getAnyColorCard(rarity: CardRarity): AbstractCard {
+        var rarity = rarity
+        anyCard.shuffle(AbstractDungeon.cardRng)
+        if (type == CardType.POWER && rarity == CardRarity.COMMON) {
+            rarity = CardRarity.UNCOMMON
         }
-        return anyCard.getRandomCard(true, rarity);
+        return anyCard.getRandomCard(true, rarity)
     }
 
-    //TODO: add prohibited cards
-    private static Set<String> getProhibitedCardIDs() {
-        Set<String> prohibitedIDs = new HashSet<>();
+    companion object {
         /*prohibitedIDs.add(DefaultAttackWithVariable.ID);
         prohibitedIDs.add(DefaultCommonAttack.ID);
         prohibitedIDs.add(DefaultCommonPower.ID);
@@ -158,8 +127,34 @@ public abstract class AbstractCardStealingAction extends AbstractGameAction {
         prohibitedIDs.add(DefaultUncommonPower.ID);
         prohibitedIDs.add(OrbSkill.ID);
         prohibitedIDs.add(DefaultSecondMagicNumberSkill.ID); */
-        System.out.println("Prohibited Cards " + prohibitedIDs.toString());
-        return prohibitedIDs;
+        //TODO: add prohibited cards
+        private val prohibitedCardIDs: Set<String?>
+            private get() {
+                val prohibitedIDs: Set<String?> = HashSet()
+                /*prohibitedIDs.add(DefaultAttackWithVariable.ID);
+        prohibitedIDs.add(DefaultCommonAttack.ID);
+        prohibitedIDs.add(DefaultCommonPower.ID);
+        prohibitedIDs.add(DefaultCommonSkill.ID);
+        prohibitedIDs.add(DefaultRareSkill.ID);
+        prohibitedIDs.add(DefaultRareAttack.ID);
+        prohibitedIDs.add(DefaultRarePower.ID);
+        prohibitedIDs.add(DefaultUncommonSkill.ID);
+        prohibitedIDs.add(DefaultUncommonAttack.ID);
+        prohibitedIDs.add(DefaultUncommonPower.ID);
+        prohibitedIDs.add(OrbSkill.ID);
+        prohibitedIDs.add(DefaultSecondMagicNumberSkill.ID); */println("Prohibited Cards $prohibitedIDs")
+                return prohibitedIDs
+            }
     }
 
+    /**
+     * @param  filter This filter should specify which types of cards can be stolen.
+     */
+    init {
+        actionType = ActionType.CARD_MANIPULATION
+        duration = Settings.ACTION_DUR_FAST
+        this.type = type
+        amount = 1
+        anyCard = getCardGroup(prohibitedCardIDs, filter)
+    }
 }

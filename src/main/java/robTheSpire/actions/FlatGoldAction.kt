@@ -1,59 +1,58 @@
-package robTheSpire.actions;
+package robTheSpire.actions
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.cards.DamageInfo
+import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.vfx.GainPennyEffect
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect
+import robTheSpire.powers.LuckPower
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.GainPennyEffect;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-import robTheSpire.powers.LuckPower;
+class FlatGoldAction : AbstractGameAction {
+    private val increaseGold: Int
+    private var info: DamageInfo? = null
 
-public class FlatGoldAction extends AbstractGameAction {
-    private final int increaseGold;
-    private DamageInfo info;
-    private static final float DURATION = 0.1F;
-
-    public FlatGoldAction(AbstractCreature target, DamageInfo info, int goldAmount) {
-        int increaseGold1 = goldAmount;
-        this.info = info;
-        this.setValues(target, info);
-        if(AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
-            increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount;
+    constructor(target: AbstractCreature?, info: DamageInfo?, goldAmount: Int) {
+        var increaseGold1 = goldAmount
+        this.info = info
+        this.setValues(target, info)
+        if (AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
+            increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount
         }
-        this.increaseGold = increaseGold1;
-        this.actionType = ActionType.DAMAGE;
-        this.duration = 0.1F;
+        increaseGold = increaseGold1
+        actionType = ActionType.DAMAGE
+        duration = 0.1f
     }
 
-    public  FlatGoldAction(AbstractCreature target,int goldAmount){
-        int increaseGold1 = goldAmount;
-        if(AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
-            increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount;
+    constructor(target: AbstractCreature?, goldAmount: Int) {
+        var increaseGold1 = goldAmount
+        if (AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
+            increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount
         }
-        this.increaseGold = increaseGold1;
-        this.actionType = ActionType.DAMAGE;
-        this.duration = 0.1F;
-        this.target = target;
-        this.source = AbstractDungeon.player;
+        increaseGold = increaseGold1
+        actionType = ActionType.DAMAGE
+        duration = 0.1f
+        this.target = target
+        source = AbstractDungeon.player
     }
 
-    @Override
-    public void update() {
-        if (this.duration == 0.1F && this.target != null) {
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.BLUNT_HEAVY));
+    override fun update() {
+        if (duration == 0.1f && target != null) {
+            AbstractDungeon.effectList.add(FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.BLUNT_HEAVY))
             // gain gold --------------------------------------------------
-            AbstractDungeon.player.gainGold(this.increaseGold);
-            for (int i = 0; i < this.increaseGold; ++i) {
-                AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
+            AbstractDungeon.player.gainGold(increaseGold)
+            for (i in 0 until increaseGold) {
+                AbstractDungeon.effectList.add(GainPennyEffect(source, target.hb.cX, target.hb.cY, source.hb.cX, source.hb.cY, true))
             }
             // gain gold --------------------------------------------------
-
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                AbstractDungeon.actionManager.clearPostCombatActions();
+                AbstractDungeon.actionManager.clearPostCombatActions()
             }
         }
+        tickDuration()
+    }
 
-        this.tickDuration();
+    companion object {
+        private const val DURATION = 0.1f
     }
 }
