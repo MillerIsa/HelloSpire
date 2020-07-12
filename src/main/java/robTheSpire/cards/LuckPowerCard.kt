@@ -1,12 +1,15 @@
 package robTheSpire.cards
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import robTheSpire.DefaultMod
 import robTheSpire.characters.TheDefault
+import robTheSpire.powers.GoldenWallPower
 import robTheSpire.powers.LuckPower
+import robTheSpire.util.TextureLoader
 
 class LuckPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
     init {

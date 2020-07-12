@@ -32,8 +32,7 @@ class LuckPower(theOwner: AbstractCreature, theAmount: Int) : AbstractPower() {
         private var powerStrings: PowerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID)
         var NAME: String = powerStrings.NAME
         val DESCRIPTIONS: Array<String> = powerStrings.DESCRIPTIONS
-
-        private val tex128 = TextureLoader.getTexture(DefaultMod.makePowerPath("Glowing_Goldicize_128.png"))
-        private val tex48 = TextureLoader.getTexture(DefaultMod.makePowerPath("Glowing_Goldicize_48.png"))
+        private val tex128 = TextureLoader.getTexture(DefaultMod.makePowerPath("clover_128.png"))
+        private val tex48 = TextureLoader.getTexture(DefaultMod.makePowerPath("clover_48.png"))
     }
 }
