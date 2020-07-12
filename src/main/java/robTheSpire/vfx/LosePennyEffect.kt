@@ -1,162 +1,144 @@
-package robTheSpire.vfx;
+package robTheSpire.vfx
+
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion
+import com.badlogic.gdx.math.MathUtils
+import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.core.Settings
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.helpers.ImageMaster
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect
+import com.megacrit.cardcrawl.vfx.ShineLinesEffect
 
 //
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by Fernflower decompiler)
 //
+class LosePennyEffect(owner: AbstractCreature, x: Float, y: Float, targetX: Float, targetY: Float, showGainEffect: Boolean) : AbstractGameEffect() {
+    private var rotationSpeed: Float
+    private var x: Float
+    private var y: Float
+    private var vX: Float
+    private var vY: Float
+    private val targetX: Float
+    private val targetY: Float
+    private var alpha = 0.0f
+    private var suctionTimer = 0.7f
+    private var staggerTimer: Float
+    private val showGainEffect: Boolean
+    private val owner: AbstractCreature
 
+    constructor(x: Float, y: Float) : this(AbstractDungeon.player, x, y, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, true) {}
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.ShineLinesEffect;
-
-import java.util.Iterator;
-
-public class LosePennyEffect extends AbstractGameEffect {
-    private static final float GRAVITY;
-    private static final float START_VY;
-    private static final float START_VY_JITTER;
-    private static final float START_VX;
-    private static final float START_VX_JITTER;
-    private static final float TARGET_JITTER;
-    private float rotationSpeed;
-    private float x;
-    private float y;
-    private float vX;
-    private float vY;
-    private float targetX;
-    private float targetY;
-    private AtlasRegion img;
-    private float alpha;
-    private float suctionTimer;
-    private float staggerTimer;
-    private boolean showGainEffect;
-    private AbstractCreature owner;
-
-    public LosePennyEffect(AbstractCreature owner, float x, float y, float targetX, float targetY, boolean showGainEffect) {
-        this.alpha = 0.0F;
-        this.suctionTimer = 0.7F;
-        if (MathUtils.randomBoolean()) {
-            this.img = ImageMaster.COPPER_COIN_1;
+    override fun update() {
+        if (staggerTimer > 0.0f) {
+            staggerTimer -= Gdx.graphics.deltaTime
         } else {
-            this.img = ImageMaster.COPPER_COIN_2;
-        }
-
-        this.x = x - (float)this.img.packedWidth / 2.0F;
-        this.y = y - (float)this.img.packedHeight / 2.0F;
-        this.targetX = targetX + MathUtils.random(-TARGET_JITTER, TARGET_JITTER);
-        this.targetY = targetY + MathUtils.random(-TARGET_JITTER, TARGET_JITTER * 2.0F);
-        this.showGainEffect = showGainEffect;
-        this.owner = owner;
-        this.staggerTimer = MathUtils.random(0.0F, 0.5F);
-        this.vX = MathUtils.random(START_VX - 50.0F * Settings.scale, START_VX_JITTER);
-        this.rotationSpeed = MathUtils.random(500.0F, 2000.0F);
-        if (MathUtils.randomBoolean()) {
-            this.vX = -this.vX;
-            this.rotationSpeed = -this.rotationSpeed;
-        }
-
-        this.vY = MathUtils.random(START_VY, START_VY_JITTER);
-        this.scale = Settings.scale;
-        this.color = new Color(1.0F, 1.0F, 1.0F, 0.0F);
-    }
-
-    public LosePennyEffect(float x, float y) {
-        this(AbstractDungeon.player, x, y, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, true);
-    }
-
-    public void update() {
-        if (this.staggerTimer > 0.0F) {
-            this.staggerTimer -= Gdx.graphics.getDeltaTime();
-        } else {
-            if (this.alpha != 1.0F) {
-                this.alpha += Gdx.graphics.getDeltaTime() * 2.0F;
-                if (this.alpha > 1.0F) {
-                    this.alpha = 1.0F;
+            if (alpha != 1.0f) {
+                alpha += Gdx.graphics.deltaTime * 2.0f
+                if (alpha > 1.0f) {
+                    alpha = 1.0f
                 }
-
-                this.color.a = this.alpha;
+                color.a = alpha
             }
-
-            this.rotation += Gdx.graphics.getDeltaTime() * this.rotationSpeed;
-            this.x += Gdx.graphics.getDeltaTime() * this.vX;
-            this.y += Gdx.graphics.getDeltaTime() * this.vY;
-            this.vY -= Gdx.graphics.getDeltaTime() * GRAVITY;
-            if (this.suctionTimer > 0.0F) {
-                this.suctionTimer -= Gdx.graphics.getDeltaTime();
+            rotation += Gdx.graphics.deltaTime * rotationSpeed
+            x += Gdx.graphics.deltaTime * vX
+            y += Gdx.graphics.deltaTime * vY
+            vY -= Gdx.graphics.deltaTime * GRAVITY
+            if (suctionTimer > 0.0f) {
+                suctionTimer -= Gdx.graphics.deltaTime
             } else {
-                this.vY = MathUtils.lerp(this.vY, 0.0F, Gdx.graphics.getDeltaTime() * 5.0F);
-                this.vX = MathUtils.lerp(this.vX, 0.0F, Gdx.graphics.getDeltaTime() * 5.0F);
-                this.x = MathUtils.lerp(this.x, this.targetX, Gdx.graphics.getDeltaTime() * 4.0F);
-                this.y = MathUtils.lerp(this.y, this.targetY, Gdx.graphics.getDeltaTime() * 4.0F);
-                if (Math.abs(this.x - this.targetX) < 20.0F) {
-                    this.isDone = true;
+                vY = MathUtils.lerp(vY, 0.0f, Gdx.graphics.deltaTime * 5.0f)
+                vX = MathUtils.lerp(vX, 0.0f, Gdx.graphics.deltaTime * 5.0f)
+                x = MathUtils.lerp(x, targetX, Gdx.graphics.deltaTime * 4.0f)
+                y = MathUtils.lerp(y, targetY, Gdx.graphics.deltaTime * 4.0f)
+                if (Math.abs(x - targetX) < 20.0f) {
+                    isDone = true
                     if (MathUtils.randomBoolean()) {
-                        CardCrawlGame.sound.play("GOLD_GAIN", 0.1F);
+                        CardCrawlGame.sound.play("GOLD_GAIN", 0.1f)
                     }
-
-                    if (!this.owner.isPlayer) {
-                        this.owner.gainGold(1);
+                    if (!owner.isPlayer) {
+                        owner.gainGold(1)
                     }
-
-                    AbstractDungeon.effectsQueue.add(new ShineLinesEffect(this.x, this.y));
-                    boolean textEffectFound = false;
-                    Iterator var2 = AbstractDungeon.effectList.iterator();
-
-                    AbstractGameEffect e;
-                    while(var2.hasNext()) {
-                        e = (AbstractGameEffect)var2.next();
-                        if (e instanceof LoseGoldTextEffect && ((LoseGoldTextEffect)e).ping(1)) {
-                            textEffectFound = true;
-                            break;
+                    AbstractDungeon.effectsQueue.add(ShineLinesEffect(x, y))
+                    var textEffectFound = false
+                    var var2: Iterator<*> = AbstractDungeon.effectList.iterator()
+                    var e: AbstractGameEffect?
+                    while (var2.hasNext()) {
+                        e = var2.next() as AbstractGameEffect?
+                        if (e is LoseGoldTextEffect && e.ping(1)) {
+                            textEffectFound = true
+                            break
                         }
                     }
-
                     if (!textEffectFound) {
-                        var2 = AbstractDungeon.effectsQueue.iterator();
-
-                        while(var2.hasNext()) {
-                            e = (AbstractGameEffect)var2.next();
-                            if (e instanceof LoseGoldTextEffect && ((LoseGoldTextEffect)e).ping(1)) {
-                                textEffectFound = true;
+                        var2 = AbstractDungeon.effectsQueue.iterator()
+                        while (var2.hasNext()) {
+                            e = var2.next() as AbstractGameEffect
+                            if (e is LoseGoldTextEffect && e.ping(1)) {
+                                textEffectFound = true
                             }
                         }
                     }
-
-                    if (!textEffectFound && this.showGainEffect) {
-                        AbstractDungeon.effectsQueue.add(new LoseGoldTextEffect(1));
+                    if (!textEffectFound && showGainEffect) {
+                        AbstractDungeon.effectsQueue.add(LoseGoldTextEffect(1))
                     }
                 }
             }
-
         }
     }
 
-    public void render(SpriteBatch sb) {
-        if (this.staggerTimer <= 0.0F) {
-            sb.setColor(this.color);
-            sb.draw(this.img, this.x, this.y, (float)this.img.packedWidth / 2.0F, (float)this.img.packedHeight / 2.0F, (float)this.img.packedWidth, (float)this.img.packedHeight, this.scale, this.scale, this.rotation);
+    override fun render(sb: SpriteBatch) {
+        if (staggerTimer <= 0.0f) {
+            sb.color = color
+            sb.draw(img, x, y, img.packedWidth.toFloat() / 2.0f, img.packedHeight.toFloat() / 2.0f, img.packedWidth.toFloat(), img.packedHeight.toFloat(), scale, scale, rotation)
         }
     }
 
-    public void dispose() {
+    override fun dispose() {}
+
+    companion object {
+        private var GRAVITY = 0f
+        private var START_VY = 0f
+        private var START_VY_JITTER = 0f
+        private var START_VX = 0f
+        private var START_VX_JITTER = 0f
+        private var TARGET_JITTER = 0f
+
+        init {
+            GRAVITY = 2000.0f * Settings.scale
+            START_VY = 800.0f * Settings.scale
+            START_VY_JITTER = 400.0f * Settings.scale
+            START_VX = 200.0f * Settings.scale
+            START_VX_JITTER = 300.0f * Settings.scale
+            TARGET_JITTER = 50.0f * Settings.scale
+        }
     }
 
-    static {
-        GRAVITY = 2000.0F * Settings.scale;
-        START_VY = 800.0F * Settings.scale;
-        START_VY_JITTER = 400.0F * Settings.scale;
-        START_VX = 200.0F * Settings.scale;
-        START_VX_JITTER = 300.0F * Settings.scale;
-        TARGET_JITTER = 50.0F * Settings.scale;
+    private var img: AtlasRegion = if (MathUtils.randomBoolean()) {
+        ImageMaster.COPPER_COIN_1
+    } else {
+        ImageMaster.COPPER_COIN_2
+    }
+    init {
+        this.x = x - img.packedWidth.toFloat() / 2.0f
+        this.y = y - img.packedHeight.toFloat() / 2.0f
+        this.targetX = targetX + MathUtils.random(-TARGET_JITTER, TARGET_JITTER)
+        this.targetY = targetY + MathUtils.random(-TARGET_JITTER, TARGET_JITTER * 2.0f)
+        this.showGainEffect = showGainEffect
+        this.owner = owner
+        staggerTimer = MathUtils.random(0.0f, 0.5f)
+        vX = MathUtils.random(START_VX - 50.0f * Settings.scale, START_VX_JITTER)
+        rotationSpeed = MathUtils.random(500.0f, 2000.0f)
+        if (MathUtils.randomBoolean()) {
+            vX = -vX
+            rotationSpeed = -rotationSpeed
+        }
+        vY = MathUtils.random(START_VY, START_VY_JITTER)
+        scale = Settings.scale
+        color = Color(1.0f, 1.0f, 1.0f, 0.0f)
     }
 }

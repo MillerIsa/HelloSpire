@@ -1,19 +1,15 @@
-package robTheSpire;
+package robTheSpire
 
-import org.clapper.util.classutil.ClassFilter;
-import org.clapper.util.classutil.ClassFinder;
-import org.clapper.util.classutil.ClassInfo;
+import org.clapper.util.classutil.ClassFilter
+import org.clapper.util.classutil.ClassFinder
+import org.clapper.util.classutil.ClassInfo
 
-public class CardFilter implements ClassFilter
-{
-    private static final String PACKAGE = "robTheSpire.cards.";
+class CardFilter : ClassFilter {
+    override fun accept(classInfo: ClassInfo, classFinder: ClassFinder): Boolean {
+        return classInfo.className.startsWith(PACKAGE)
+    }
 
-    @Override
-    public boolean accept(ClassInfo classInfo, ClassFinder classFinder)
-    {
-        if (classInfo.getClassName().startsWith(PACKAGE)) {
-            return true;
-        }
-        return false;
+    companion object {
+        private const val PACKAGE = "robTheSpire.cards."
     }
 }

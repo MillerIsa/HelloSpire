@@ -1,10 +1,10 @@
-package robTheSpire.util;
+package robTheSpire.util
 
-public class IDCheckDontTouchPls {
-    public String DEFAULTID;
-    public String DEVID;
-    public String EXCEPTION;
-    public String PACKAGE_EXCEPTION;
-    public String RESOURCE_FOLDER_EXCEPTION;
-    public String RESOURCES;
+class IDCheckDontTouchPls {
+    var DEFAULTID: String? = null
+    var DEVID: String? = null
+    var EXCEPTION: String? = null
+    var PACKAGE_EXCEPTION: String? = null
+    var RESOURCE_FOLDER_EXCEPTION: String? = null
+    var RESOURCES: String? = null
 }
