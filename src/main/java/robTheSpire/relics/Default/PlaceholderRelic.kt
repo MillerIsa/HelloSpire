@@ -1,54 +1,42 @@
-package robTheSpire.relics.Default;
+package robTheSpire.relics.Default
 
-import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import robTheSpire.DefaultMod;
-import robTheSpire.util.TextureLoader;
+import basemod.abstracts.CustomRelic
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import robTheSpire.DefaultMod.Companion.makeID
+import robTheSpire.DefaultMod.Companion.makeRelicOutlinePath
+import robTheSpire.DefaultMod.Companion.makeRelicPath
+import robTheSpire.util.TextureLoader.getTexture
 
-import static robTheSpire.DefaultMod.makeRelicOutlinePath;
-import static robTheSpire.DefaultMod.makeRelicPath;
+class PlaceholderRelic : CustomRelic(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL) {
+    // Flash at the start of Battle.
+    override fun atBattleStartPreDraw() {
+        flash()
+    }
 
-public class PlaceholderRelic extends CustomRelic {
+    // Gain 1 energy on equip.
+    override fun onEquip() {
+        AbstractDungeon.player.energy.energyMaster += 1
+    }
 
-    /*
+    // Lose 1 energy on unequip.
+    override fun onUnequip() {
+        AbstractDungeon.player.energy.energyMaster -= 1
+    }
+
+    // Description
+    override fun getUpdatedDescription(): String {
+        return DESCRIPTIONS[0]
+    }
+
+    companion object {
+        /*
      * https://github.com/daviscook477/BaseMod/wiki/Custom-Relics
      *
      * Gain 1 energy.
      */
-
-    // ID, images, text.
-    public static final String ID = DefaultMod.makeID("PlaceholderRelic");
-
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
-
-    public PlaceholderRelic() {
-        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
+        // ID, images, text.
+        val ID = makeID("PlaceholderRelic")
+        private val IMG = getTexture(makeRelicPath("placeholder_relic.png"))
+        private val OUTLINE = getTexture(makeRelicOutlinePath("placeholder_relic.png"))
     }
-
-    // Flash at the start of Battle.
-    @Override
-    public void atBattleStartPreDraw() {
-        flash();
-    }
-
-    // Gain 1 energy on equip.
-    @Override
-    public void onEquip() {
-        AbstractDungeon.player.energy.energyMaster += 1;
-    }
-
-    // Lose 1 energy on unequip.
-    @Override
-    public void onUnequip() {
-        AbstractDungeon.player.energy.energyMaster -= 1;
-    }
-
-    // Description
-    @Override
-    public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
-    }
-
 }
