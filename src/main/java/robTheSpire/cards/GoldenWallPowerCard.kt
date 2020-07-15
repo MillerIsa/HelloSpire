@@ -26,7 +26,7 @@ class GoldenWallPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARI
 
     companion object {
         val ID = makeID(GoldenWallPowerCard::class.java.simpleName)
-        val IMG = makeCardPath("Power.png")
+        val IMG = makeCardPath("goldicize.png")
         private val RARITY = CardRarity.UNCOMMON
         private val TARGET = CardTarget.SELF
         private val TYPE = CardType.POWER

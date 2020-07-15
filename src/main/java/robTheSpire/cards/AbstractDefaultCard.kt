@@ -51,5 +51,7 @@ abstract class AbstractDefaultCard(id: String?,
         isBlockModified = false
         isMagicNumberModified = false
         isDefaultSecondMagicNumberModified = false
+
+        println("Image to load: $img")
     }
 }
