@@ -22,7 +22,7 @@ class Strike : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
 
     companion object {
         @JvmField val ID: String = DefaultMod.makeID(Companion::class.java.enclosingClass.simpleName)
-        val IMG: String = DefaultMod.makeCardPath("Attack.png")
+        val IMG: String = DefaultMod.makeCardPath("strike.png")
         private val RARITY = CardRarity.BASIC
         private val TARGET = CardTarget.ENEMY
         private val TYPE = CardType.ATTACK
