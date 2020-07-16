@@ -23,7 +23,7 @@ class LuckPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TA
     companion object {
         @JvmField val ID: String = DefaultMod.makeID(Companion::class.java.enclosingClass.simpleName)
         const val LUCK_AMOUNT = 1
-        val IMG = DefaultMod.makeCardPath("Power.png")
+        val IMG = DefaultMod.makeCardPath("lucky_charm.png")
         private val RARITY = CardRarity.UNCOMMON
         private val TARGET = CardTarget.SELF
         private val TYPE = CardType.POWER

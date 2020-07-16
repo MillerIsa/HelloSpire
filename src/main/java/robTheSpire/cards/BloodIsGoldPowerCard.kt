@@ -43,6 +43,7 @@ class BloodIsGoldPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RAR
         // TEXT DECLARATION
         val ID = makeID(BloodIsGoldPowerCard::class.java.simpleName)
         val IMG = makeCardPath("blood_is_gold.png")
+
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
         val UPGRADE_DESCRIPTION: String = cardStrings.UPGRADE_DESCRIPTION
 
@@ -56,6 +57,9 @@ class BloodIsGoldPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RAR
         private const val MAGIC = 2
         private const val UPGRADE_MAGIC = 0
         private const val UPGRADED_COST = 0
+        init {
+            println("Blood is Gold Power Card succesfully updated!")
+        }
     }
 
     // Hey want a second magic/damage/block/unique number??? Great!
