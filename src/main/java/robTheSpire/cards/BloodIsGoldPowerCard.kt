@@ -5,11 +5,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import robTheSpire.CardIgnore
 import robTheSpire.DefaultMod.Companion.makeCardPath
 import robTheSpire.DefaultMod.Companion.makeID
 import robTheSpire.characters.TheDefault.Enums.COLOR_GRAY
 import robTheSpire.powers.BloodIsGoldPower
-
+@CardIgnore
 class BloodIsGoldPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
     // Actions the card should do.
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
@@ -58,7 +59,7 @@ class BloodIsGoldPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RAR
         private const val UPGRADE_MAGIC = 0
         private const val UPGRADED_COST = 0
         init {
-            println("Blood is Gold Power Card succesfully updated!")
+            println("Blood is Gold Power Card successfully updated!")
         }
     }
 
