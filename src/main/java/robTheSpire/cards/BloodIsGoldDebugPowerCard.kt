@@ -42,7 +42,7 @@ class BloodIsGoldDebugPowerCard : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR
     companion object {
         // TEXT DECLARATION
         val ID = makeID(BloodIsGoldDebugPowerCard::class.java.simpleName)
-        val IMG = makeCardPath("blood_is_gold.png")
+        val IMG = makeCardPath("blood_is_gold_power.png")
 
         private val cardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
         val UPGRADE_DESCRIPTION: String = cardStrings.UPGRADE_DESCRIPTION
