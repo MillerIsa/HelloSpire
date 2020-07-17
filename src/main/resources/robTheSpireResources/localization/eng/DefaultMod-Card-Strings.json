@@ -108,5 +108,10 @@
     "NAME" : "Strike",
     "DESCRIPTION" : "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust",
     "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust"
+  },
+  "robTheSpire:Block": {
+    "NAME" : "Defend",
+    "DESCRIPTION" : "pay up to !M! [#FFF77A]gold[] to gain three times the block.",
+    "UPGRADE_DESCRIPTION" :  "pay up to !M! [#FFF77A]gold[] to gain three times the block."
   }
 }

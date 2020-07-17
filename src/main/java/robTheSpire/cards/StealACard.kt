@@ -10,7 +10,7 @@ import robTheSpire.DefaultMod.Companion.makeID
 import robTheSpire.actions.StealCardAction
 import robTheSpire.characters.TheDefault.Enums.COLOR_GRAY
 
-class StealACard : AbstractDefaultCard(ID, cardStrings!!.NAME, makeCardPath("steal_a_card.png"), 2, cardStrings!!.DESCRIPTION, CardType.SKILL, COLOR_GRAY, CardRarity.BASIC, CardTarget.SELF) {
+class StealACard : AbstractDefaultCard(ID, cardStrings!!.NAME, makeCardPath("steal_a_card.png"), 2, cardStrings!!.DESCRIPTION, CardType.SKILL, COLOR_GRAY, CardRarity.COMMON, CardTarget.SELF) {
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         addToBot(StealCardAction())
         println("Using StealACard!")
