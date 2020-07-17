@@ -32,7 +32,7 @@ class Block: AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
 
     companion object {
         val ID = makeID(Block::class.java.simpleName)
-        val IMG = makeCardPath("goldicize.png")
+        val IMG = makeCardPath("defend.png")
         private val RARITY = CardRarity.BASIC
         private val TARGET = CardTarget.SELF
         private val TYPE = CardType.SKILL
