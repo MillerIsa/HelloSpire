@@ -21,8 +21,10 @@ import org.apache.logging.log4j.LogManager
 import robTheSpire.DefaultMod
 import robTheSpire.DefaultMod.Companion.DEFAULT_GRAY
 import robTheSpire.DefaultMod.Companion.makeID
+import robTheSpire.cards.Block
 import robTheSpire.cards.MultiStealAttack
 import robTheSpire.cards.StealACard
+import robTheSpire.cards.Strike
 import robTheSpire.cards.defaultExampleCards.DefaultCommonAttack
 import robTheSpire.relics.SmokeBombRelic
 import java.util.*
@@ -62,29 +64,15 @@ class TheDefault(name: String?, setClass: PlayerClass?) : CustomPlayer(name, set
         val retVal = ArrayList<String>()
         logger.info("Begin loading starter Deck Strings")
         //
-//        retVal.add(DefaultCommonAttack.ID);
-//        retVal.add(DefaultUncommonAttack.ID);
-//        retVal.add(DefaultRareAttack.ID);
-//
-//        retVal.add(DefaultCommonSkill.ID);
-//        retVal.add(DefaultUncommonSkill.ID);
-//        retVal.add(DefaultRareSkill.ID);
-//
-//        retVal.add(DefaultCommonPower.ID);
-//        retVal.add(DefaultUncommonPower.ID);
-//        retVal.add(DefaultRarePower.ID);
-//
-//        retVal.add(DefaultAttackWithVariable.ID);
-//        retVal.add(DefaultSecondMagicNumberSkill.ID);
-//        retVal.add(OrbSkill.ID);
-
-//        retVal.add(StrikeGold.ID);
-        retVal.add(StealACard.ID)
-       // retVal.add(MultiStealAttack.ID)
-        //        retVal.add(Chris.ID);
-//        retVal.add(StealASkill.ID);
-//        retVal.add(StealAnAttack.ID);
-//        retVal.add(StealAPower.ID);
+       retVal.add(StealACard.ID)
+        val numStrikes = 3
+        val numDefends = 3
+        for(x in 0 until numStrikes){
+            retVal.add(Strike.ID)
+        }
+        for(x in 0 until numDefends){
+            retVal.add(Block.ID)
+        }
         return retVal
     }
 

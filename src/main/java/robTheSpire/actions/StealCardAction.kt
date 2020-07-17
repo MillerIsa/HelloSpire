@@ -26,6 +26,6 @@ class StealCardAction : AbstractCardStealingAction(null, { c: AbstractCard, proh
     }
 
     companion object {
-        private const val RARITY_FLAT_PERCENTAGE_BUFF = -25
+        private const val RARITY_FLAT_PERCENTAGE_BUFF = -5//NOTE: Negative numbers buff rarity
     }
 }
