@@ -313,7 +313,7 @@ class DefaultMod: EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscrib
 
         // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
         // Card backgrounds - The actual rectangular card.
-        private const val ATTACK_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_dark_attack_gold.png"
+        private const val ATTACK_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_attack_gold.png"
         private const val SKILL_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_skill_gold.png"
         private const val POWER_DEFAULT_GRAY = "robTheSpireResources/images/512/bg_power_gold_light.png"
         private const val ENERGY_ORB_DEFAULT_GRAY = "robTheSpireResources/images/512/card_default_gray_orb.png"
