@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect
 
 
-class MultiStealAction(target: AbstractCreature?, private val info: DamageInfo) : AbstractGameAction() {
+class MultiStealAction(target: AbstractCreature?, private val info: DamageInfo, private val stealAmount: Int) : AbstractGameAction() {
     override fun update() {
         if (duration == 0.01f && target != null && target.currentHealth > 0) {
             if (info.type != DamageInfo.DamageType.THORNS && info.owner.isDying) {
@@ -26,9 +26,7 @@ class MultiStealAction(target: AbstractCreature?, private val info: DamageInfo) 
             //this.addToTop(new HealAction(this.source, this.source, this.target.lastDamageTaken));
             //FlatGoldAction(AbstractCreature target, DamageInfo info, int goldAmount)
             println("Target took ${target.lastDamageTaken} damage")
-            if (target.lastDamageTaken > 0) {
-                addToTop(FlatGoldAction(target, info, target.lastDamageTaken))
-            }
+            addToTop(FlatGoldAction(target, info, stealAmount))
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                 AbstractDungeon.actionManager.clearPostCombatActions()
             }

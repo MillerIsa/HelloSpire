@@ -14,7 +14,7 @@ import robTheSpire.characters.TheDefault
 class MultiStealAttack : AbstractDynamicCard(ID, DefaultMod.makeCardPath("Pummel_Gold.png"), 1, CardType.ATTACK, TheDefault.Enums.COLOR_GRAY, CardRarity.RARE, CardTarget.ENEMY) {
     override fun use(p: AbstractPlayer, m: AbstractMonster) {
         for (i in 0 until magicNumber) {
-            addToBot(MultiStealAction(m, DamageInfo(p, damage, damageTypeForTurn)))
+            addToBot(MultiStealAction(m, DamageInfo(p, damage, damageTypeForTurn), defaultSecondMagicNumber))
         }
     }
 
@@ -34,6 +34,8 @@ class MultiStealAttack : AbstractDynamicCard(ID, DefaultMod.makeCardPath("Pummel
     companion object {
         @JvmField val ID: String = DefaultMod.makeID(MultiStealAttack::class.java.simpleName)
         private val cardStrings: CardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
+
+        const val GOLD_STEAL_AMOUNT = 2
     }
 
     init {
@@ -41,5 +43,7 @@ class MultiStealAttack : AbstractDynamicCard(ID, DefaultMod.makeCardPath("Pummel
         exhaust = true
         baseMagicNumber = 4
         magicNumber = baseMagicNumber
+        defaultBaseSecondMagicNumber = GOLD_STEAL_AMOUNT
+        defaultSecondMagicNumber = defaultSecondMagicNumber
     }
 }
