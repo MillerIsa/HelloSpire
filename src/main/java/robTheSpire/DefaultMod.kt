@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.localization.*
 import com.megacrit.cardcrawl.unlock.UnlockTracker
 import javassist.NotFoundException
 import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import org.clapper.util.classutil.*
 import robTheSpire.characters.TheDefault
 import robTheSpire.events.IdentityCrisisEvent
@@ -268,7 +269,7 @@ class DefaultMod: EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscrib
     companion object {
         // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
         // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
-        @JvmField val logger = LogManager.getLogger(DefaultMod::class.java.name)
+       val logger: Logger = LogManager.getLogger(DefaultMod::class.java.name)
 
         // NO
         // DOUBLE NO
@@ -324,7 +325,7 @@ class DefaultMod: EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscrib
         private const val ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "robTheSpireResources/images/1024/card_default_gray_orb.png"
 
         // Character assets
-        private const val THE_DEFAULT_BUTTON = "robTheSpireResources/images/charSelect/DefaultCharacterButton.png"
+        private const val THE_DEFAULT_BUTTON = "robTheSpireResources/images/charSelect/Button.png"
         private const val THE_DEFAULT_PORTRAIT = "robTheSpireResources/images/charSelect/Thief_Portrait.png"
         const val THE_DEFAULT_SHOULDER_1 = "robTheSpireResources/images/char/defaultCharacter/shoulder.png"
         const val THE_DEFAULT_SHOULDER_2 = "robTheSpireResources/images/char/defaultCharacter/shoulder2.png"
