@@ -34,7 +34,6 @@ class MultiStealAttack : AbstractDynamicCard(ID, DefaultMod.makeCardPath("Pummel
     companion object {
         @JvmField val ID: String = DefaultMod.makeID(MultiStealAttack::class.java.simpleName)
         private val cardStrings: CardStrings = CardCrawlGame.languagePack.getCardStrings(ID)
-
         const val GOLD_STEAL_AMOUNT = 2
     }
 
@@ -44,6 +43,6 @@ class MultiStealAttack : AbstractDynamicCard(ID, DefaultMod.makeCardPath("Pummel
         baseMagicNumber = 4
         magicNumber = baseMagicNumber
         defaultBaseSecondMagicNumber = GOLD_STEAL_AMOUNT
-        defaultSecondMagicNumber = defaultSecondMagicNumber
+        defaultSecondMagicNumber = defaultBaseSecondMagicNumber
     }
 }

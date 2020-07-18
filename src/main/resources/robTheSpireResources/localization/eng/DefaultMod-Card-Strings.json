@@ -90,9 +90,9 @@
     "UPGRADE_DESCRIPTION" : "At the end of your turn pay [#FFF77A]5[] [#FFF77A]gold[] to gain two times the block."
   },
   "robTheSpire:MultiStealAttack": {
-    "NAME" : "Multi-Steal-Attack",
-    "DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:SecondMagic! gold !M! times.",
-    "UPGRADE_DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:SecondMagic! gold !M! times."
+    "NAME" : "[#FFF77A]Golden[] Pummel",
+    "DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:SecondMagic! [#FFF77A]gold[] !M! times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:SecondMagic! [#FFF77A]gold[] !M! times. NL Exhaust."
   },
   "robTheSpire:LuckPowerCard": {
     "NAME" : "[#FFF77A]Lucky[] Charm",
@@ -106,8 +106,8 @@
   },
   "robTheSpire:Strike": {
     "NAME" : "Strike",
-    "DESCRIPTION" : "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust",
-    "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust"
+    "DESCRIPTION" : "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !M! [#FFF77A]gold[]. NL Exhaust."
   },
   "robTheSpire:Block": {
     "NAME" : "Defend",
