@@ -7,12 +7,12 @@
     <artifactId>RobTheSpire</artifactId>
     <name>Rob The Spire</name>
     <version>0.0.1</version>
-    <description>A default base to start your own mod from.</description>
+    <description>A rouge thief who strives to rob the spire blind.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>01-23-2019</SlayTheSpire.version>
+        <SlayTheSpire.version>01-27-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.8.0</ModTheSpire.version>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:/Program Files (x86)/Steam/steamapps</Steam.path>
