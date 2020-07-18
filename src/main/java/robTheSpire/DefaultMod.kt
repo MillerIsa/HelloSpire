@@ -28,6 +28,7 @@ import robTheSpire.util.IDCheckDontTouchPls
 import robTheSpire.util.TextureLoader
 import robTheSpire.variables.DefaultCustomVariable
 import robTheSpire.variables.DefaultSecondMagicNumber
+import robTheSpire.variables.GoldVariable
 import java.io.File
 import java.io.InputStreamReader
 import java.lang.reflect.Modifier
@@ -153,6 +154,7 @@ class DefaultMod: EditCardsSubscriber, EditRelicsSubscriber, EditStringsSubscrib
         // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(DefaultCustomVariable())
         BaseMod.addDynamicVariable(DefaultSecondMagicNumber())
+        BaseMod.addDynamicVariable(GoldVariable())
         logger.info("Adding cards")
         // Add the cards
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash

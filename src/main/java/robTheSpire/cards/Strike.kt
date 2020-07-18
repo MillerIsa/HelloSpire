@@ -10,14 +10,16 @@ import robTheSpire.DefaultMod
 import robTheSpire.actions.FlatGoldAction
 import robTheSpire.characters.TheDefault
 
-class Strike : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
+class Strike : AbstractGoldStealingCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
     init{
         baseDamage = DAMAGE
         this.exhaust = true
-        this.baseMagicNumber = BASE_MAGIC_NUMBER
-        this.magicNumber = this.baseMagicNumber
+        this.baseGoldNumber = BASE_GOLD_NUMBER
+        this.goldNumber = this.baseGoldNumber
         this.tags.add(CardTags.STRIKE)
         this.tags.add(CardTags.STARTER_STRIKE)
+        println("Gold Number is: $goldNumber")
+        println("Base Gold Number is $baseGoldNumber")
     }
 
     companion object {
@@ -31,8 +33,8 @@ class Strike : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
         private const val UPGRADED_COST = COST
         private const val DAMAGE = 3
         private const val UPGRADE_PLUS_DMG = 0
-        private const val BASE_MAGIC_NUMBER = 5
-        private const val UPGRADE_PLUS_MAGIC_NUMBER = 3
+        private const val BASE_GOLD_NUMBER = 5
+        private const val UPGRADE_PLUS_GOLD_NUMBER = 3
     }
 
     // Actions the card should do.
@@ -40,15 +42,13 @@ class Strike : AbstractDynamicCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
         AbstractDungeon.actionManager.addToBottom(
                 DamageAction(m, DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL))
         AbstractDungeon.actionManager.addToBottom(
-                FlatGoldAction(m,magicNumber ))
+                FlatGoldAction(m,goldNumber))
     }
 
     override fun upgrade() {
         if (!upgraded) {
             upgradeName()
-            upgradeDamage(UPGRADE_PLUS_DMG)
-            upgradeBaseCost(UPGRADED_COST)
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER)
+            upgradeGoldenNumber(UPGRADE_PLUS_GOLD_NUMBER)
             initializeDescription()
         }
     }

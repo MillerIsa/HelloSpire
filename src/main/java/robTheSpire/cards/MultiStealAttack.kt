@@ -11,10 +11,10 @@ import robTheSpire.actions.MultiStealAction
 import robTheSpire.characters.TheDefault
 
 
-class MultiStealAttack : AbstractDynamicCard(ID, DefaultMod.makeCardPath("Pummel_Gold.png"), 1, CardType.ATTACK, TheDefault.Enums.COLOR_GRAY, CardRarity.RARE, CardTarget.ENEMY) {
+class MultiStealAttack : AbstractGoldStealingCard(ID, DefaultMod.makeCardPath("Pummel_Gold.png"), 1, CardType.ATTACK, TheDefault.Enums.COLOR_GRAY, CardRarity.RARE, CardTarget.ENEMY) {
     override fun use(p: AbstractPlayer, m: AbstractMonster) {
         for (i in 0 until magicNumber) {
-            addToBot(MultiStealAction(m, DamageInfo(p, damage, damageTypeForTurn), defaultSecondMagicNumber))
+            addToBot(MultiStealAction(m, DamageInfo(p, damage, damageTypeForTurn), goldNumber))
         }
     }
 
@@ -42,7 +42,7 @@ class MultiStealAttack : AbstractDynamicCard(ID, DefaultMod.makeCardPath("Pummel
         exhaust = true
         baseMagicNumber = 4
         magicNumber = baseMagicNumber
-        defaultBaseSecondMagicNumber = GOLD_STEAL_AMOUNT
-        defaultSecondMagicNumber = defaultBaseSecondMagicNumber
+        baseGoldNumber = GOLD_STEAL_AMOUNT
+        goldNumber = baseGoldNumber
     }
 }

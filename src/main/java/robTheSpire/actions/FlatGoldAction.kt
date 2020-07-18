@@ -6,34 +6,25 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.vfx.GainPennyEffect
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect
-import robTheSpire.powers.LuckPower
 
 class FlatGoldAction : AbstractGameAction {
     private val increaseGold: Int
     private var info: DamageInfo? = null
 
     constructor(target: AbstractCreature?, info: DamageInfo?, goldAmount: Int) {
-        var increaseGold1 = goldAmount
         this.info = info
         this.setValues(target, info)
-        if (AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
-            increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount
-        }
-        increaseGold = increaseGold1
         actionType = ActionType.DAMAGE
         duration = 0.1f
+        increaseGold = goldAmount
     }
 
     constructor(target: AbstractCreature?, goldAmount: Int) {
-        var increaseGold1 = goldAmount
-        if (AbstractDungeon.player.hasPower(LuckPower.POWER_ID)) {
-            increaseGold1 += AbstractDungeon.player.getPower(LuckPower.POWER_ID).amount
-        }
-        increaseGold = increaseGold1
         actionType = ActionType.DAMAGE
         duration = 0.1f
         this.target = target
         source = AbstractDungeon.player
+        increaseGold = goldAmount
     }
 
     override fun update() {
