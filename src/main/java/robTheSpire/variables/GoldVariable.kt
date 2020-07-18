@@ -1,6 +1,7 @@
 package robTheSpire.variables
 
 import basemod.abstracts.DynamicVariable
+import com.badlogic.gdx.graphics.Color
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
 import robTheSpire.DefaultMod
@@ -32,5 +33,8 @@ class GoldVariable : DynamicVariable() {
         return (card as AbstractGoldStealingCard).isUpgradedGoldenNumber
     }
 
+    override fun getNormalColor(): Color {
+        return Color(1.00f, 1.00f, .37f, 1.00f)//Pale Yellow
+    }
 
 }

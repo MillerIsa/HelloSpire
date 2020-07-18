@@ -52,7 +52,7 @@
   },
   "robTheSpire:StrikeGold": {
     "NAME": "Strike Gold",
-    "DESCRIPTION": "Deal !D! damage. Gain [#FFF77A]gold[] equal to unblocked damage. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. Gain [#FFFF5E]gold[] equal to unblocked damage. NL Exhaust."
   },
   "robTheSpire:StealACard": {
     "NAME": "Steal Card",
@@ -80,38 +80,38 @@
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 random powers to add to your deck. NL Exhaust."
   },
   "robTheSpire:BloodIsGoldDebugPowerCard": {
-    "NAME" : "[#FF0000]Blood[] is [#FFF77A]Gold[]",
-    "DESCRIPTION" : "Whenever you would lose [#FF4545]x[] [#FF4545]HP[], instead lose !M![#FFF77A]x[] [#FFF77A]gold[]. Does not stack.",
-    "UPGRADE_DESCRIPTION" : "Whenever you would lose [#FF4545]x[] [#FF4545]HP[], instead lose !M![#FFF77A]x[] [#FFF77A]gold[]. Does not stack."
+    "NAME" : "[#FF0000]Blood[] is [#FFFF5E]Gold[]",
+    "DESCRIPTION" : "Whenever you would lose [#FF4545]x[] [#FF4545]HP[], instead lose !M![#FFFF5E]x[] [#FFFF5E]gold[]. Does not stack.",
+    "UPGRADE_DESCRIPTION" : "Whenever you would lose [#FF4545]x[] [#FF4545]HP[], instead lose !M![#FFFF5E]x[] [#FFFF5E]gold[]. Does not stack."
   },
   "robTheSpire:GoldenWallPowerCard": {
-    "NAME" : "[#FFF77A]Goldicize[]",
-    "DESCRIPTION" : "At the end of your turn pay [#FFF77A]5[] [#FFF77A]gold[] to gain two times the block.",
-    "UPGRADE_DESCRIPTION" : "At the end of your turn pay [#FFF77A]5[] [#FFF77A]gold[] to gain two times the block."
+    "NAME" : "[#FFFF5E]Goldicize[]",
+    "DESCRIPTION" : "At the end of your turn pay [#FFFF5E]5[] [#FFFF5E]gold[] to gain two times the block.",
+    "UPGRADE_DESCRIPTION" : "At the end of your turn pay [#FFFF5E]5[] [#FFFF5E]gold[] to gain two times the block."
   },
   "robTheSpire:MultiStealAttack": {
-    "NAME" : "[#FFF77A]Golden[] Pummel",
-    "DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:Gold! [#FFF77A]gold[] !M! times. NL Exhaust.",
-    "UPGRADE_DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:Gold! [#FFF77A]gold[] !M! times. NL Exhaust."
+    "NAME" : "[#FFFF5E]Golden[] Pummel",
+    "DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:Gold! [#FFFF5E]gold[] !M! times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION" : "Deal !D! damage and steal !robTheSpire:Gold! [#FFFF5E]gold[] !M! times. NL Exhaust."
   },
   "robTheSpire:LuckPowerCard": {
-    "NAME" : "[#FFF77A]Lucky[] Charm",
+    "NAME" : "[#FFFF5E]Lucky[] Charm",
     "DESCRIPTION" : "Gain !M! Luck.",
     "UPGRADE_DESCRIPTION" : "Gain !M! Luck."
   },
   "robTheSpire:FlatSteal": {
     "NAME" : "Normal Steal",
-    "DESCRIPTION" : "Steal !robTheSpire:Gold! [#FFF77A]gold[].",
-    "UPGRADE_DESCRIPTION" : "Steal !robTheSpireGold! [#FFF77A]gold[]."
+    "DESCRIPTION" : "Steal !robTheSpire:Gold! [#FFFF5E]gold[].",
+    "UPGRADE_DESCRIPTION" : "Steal !robTheSpireGold! [#FFFF5E]gold[]."
   },
   "robTheSpire:Strike": {
     "NAME" : "Strike",
-    "DESCRIPTION" : "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFF77A]gold[]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFF77A]gold[]. NL Exhaust."
+    "DESCRIPTION" : "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFFF5E]gold[]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFFF5E]gold[]. NL Exhaust."
   },
   "robTheSpire:Block": {
     "NAME" : "Defend",
-    "DESCRIPTION" : "pay up to !M! [#FFF77A]gold[] to gain three times the block.",
-    "UPGRADE_DESCRIPTION" :  "pay up to !M! [#FFF77A]gold[] to gain three times the block."
+    "DESCRIPTION" : "pay up to !M! [#FFFF5E]gold[] to gain three times the block.",
+    "UPGRADE_DESCRIPTION" :  "pay up to !M! [#FFFF5E]gold[] to gain three times the block."
   }
 }
