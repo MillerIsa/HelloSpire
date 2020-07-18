@@ -106,8 +106,8 @@
   },
   "robTheSpire:Strike": {
     "NAME" : "Strike",
-    "DESCRIPTION" : "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFFF5E]gold[]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFFF5E]gold[]. NL Exhaust."
+    "DESCRIPTION" : "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFFF5E]gold[].",
+    "UPGRADE_DESCRIPTION" :  "Deal !D! damage. NL Steal !robTheSpire:Gold! [#FFFF5E]gold[]."
   },
   "robTheSpire:Block": {
     "NAME" : "Defend",

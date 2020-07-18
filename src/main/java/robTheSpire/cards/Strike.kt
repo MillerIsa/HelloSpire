@@ -13,7 +13,6 @@ import robTheSpire.characters.TheDefault
 class Strike : AbstractGoldStealingCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
     init{
         baseDamage = DAMAGE
-        this.exhaust = true
         this.baseGoldNumber = BASE_GOLD_NUMBER
         this.goldNumber = this.baseGoldNumber
         this.tags.add(CardTags.STRIKE)
@@ -33,8 +32,8 @@ class Strike : AbstractGoldStealingCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARG
         private const val UPGRADED_COST = COST
         private const val DAMAGE = 3
         private const val UPGRADE_PLUS_DMG = 0
-        private const val BASE_GOLD_NUMBER = 5
-        private const val UPGRADE_PLUS_GOLD_NUMBER = 3
+        private const val BASE_GOLD_NUMBER = 3
+        private const val UPGRADE_PLUS_GOLD_NUMBER = 2
     }
 
     // Actions the card should do.

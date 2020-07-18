@@ -65,8 +65,8 @@ class TheDefault(name: String?, setClass: PlayerClass?) : CustomPlayer(name, set
         logger.info("Begin loading starter Deck Strings")
         //
        retVal.add(StealACard.ID)
-        val numStrikes = 3
-        val numDefends = 3
+        val numStrikes = 5
+        val numDefends = 4
         for(x in 0 until numStrikes){
             retVal.add(Strike.ID)
         }
