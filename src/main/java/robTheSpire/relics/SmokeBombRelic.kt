@@ -37,7 +37,7 @@ class SmokeBombRelic: CustomRelic(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSou
     }
 
     private fun turnsToEscape(): Int{
-        return floor(BASE_TURNS_TO_ESCAPE * 1.11.pow(counter.toDouble())).toInt()
+        return floor(BASE_TURNS_TO_ESCAPE * EXPONENTIAL_GROWTH_RATE.pow(counter.toDouble())).toInt()
     }
 
     private fun canEscape(): Boolean {
@@ -105,6 +105,7 @@ class SmokeBombRelic: CustomRelic(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSou
         private val IMG = TextureLoader.getTexture(DefaultMod.makeRelicPath("Smoke_Bomb_Relic.png"))
         private val OUTLINE = TextureLoader.getTexture(DefaultMod.makeRelicOutlinePath("Smoke_Bomb_Relic.png"))
         const val BASE_TURNS_TO_ESCAPE = 2
+        private const val EXPONENTIAL_GROWTH_RATE = 1.15
     }
 
     init {
