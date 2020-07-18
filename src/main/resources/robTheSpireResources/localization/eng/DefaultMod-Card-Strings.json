@@ -102,7 +102,7 @@
   "robTheSpire:FlatSteal": {
     "NAME" : "Normal Steal",
     "DESCRIPTION" : "Steal !robTheSpire:Gold! [#FFFF5E]gold[].",
-    "UPGRADE_DESCRIPTION" : "Steal !robTheSpireGold! [#FFFF5E]gold[]."
+    "UPGRADE_DESCRIPTION" : "Steal !robTheSpire:Gold! [#FFFF5E]gold[]."
   },
   "robTheSpire:Strike": {
     "NAME" : "Strike",
