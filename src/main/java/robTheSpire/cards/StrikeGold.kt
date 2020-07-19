@@ -15,6 +15,7 @@ class StrikeGold : AbstractDefaultCard(ID, cardStrings.NAME, IMG, COST, cardStri
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         addToBot(DamageToGoldAction(m, DamageInfo(p, damage, damageTypeForTurn), AttackEffect.NONE))
     }
+    //TODO: Make this affected by luck
 
     override fun upgrade() {
         if (!upgraded) {
