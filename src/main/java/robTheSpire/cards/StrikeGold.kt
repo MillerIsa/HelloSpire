@@ -9,11 +9,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import robTheSpire.DefaultMod.Companion.makeCardPath
 import robTheSpire.DefaultMod.Companion.makeID
 import robTheSpire.actions.DamageToGoldAction
+import robTheSpire.actions.FlatGoldAction
 import robTheSpire.characters.TheDefault.Enums.COLOR_GRAY
 
-class StrikeGold : AbstractDefaultCard(ID, cardStrings.NAME, IMG, COST, cardStrings.DESCRIPTION, TYPE, COLOR, RARITY, TARGET) {
+class StrikeGold : AbstractGoldStealingCard(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET) {
     override fun use(p: AbstractPlayer, m: AbstractMonster?) {
         addToBot(DamageToGoldAction(m, DamageInfo(p, damage, damageTypeForTurn), AttackEffect.NONE))
+        addToBot(FlatGoldAction(m, goldNumber))
     }
     //TODO: Make this affected by luck
 
