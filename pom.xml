@@ -7,7 +7,7 @@
     <artifactId>RobTheSpire</artifactId>
     <name>Rob The Spire</name>
     <version>0.0.1</version>
-    <description>A rouge thief who strives to rob the spire blind.</description>
+    <description>A rogue thief who strives to rob the spire blind.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
